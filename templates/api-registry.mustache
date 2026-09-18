@@ -1,0 +1,13 @@
+import type { Configuration } from './runtime{{importFileExtension}}';
+{{#apiInfo}}{{#apis}}import { {{classname}} } from './apis/{{classFilename}}{{importFileExtension}}';
+{{/apis}}{{/apiInfo}}
+
+export interface ApiClients {
+{{#apiInfo}}{{#apis}}{{#operations}}    readonly {{pathPrefix}}: {{classname}};
+{{/operations}}{{/apis}}{{/apiInfo}}}
+
+export function createApiClients(configuration: Configuration): ApiClients {
+    return {
+{{#apiInfo}}{{#apis}}{{#operations}}        {{pathPrefix}}: new {{classname}}(configuration),
+{{/operations}}{{/apis}}{{/apiInfo}}    };
+}

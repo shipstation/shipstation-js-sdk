@@ -1,0 +1,35 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        // "DOM" is required to resolve the ambient fetch types (Response, RequestCredentials,
+        // WindowOrWorkerGlobalScope) that src/generated/runtime.ts references by name. Node 20's
+        // native fetch implements the WHATWG spec these types model, so this isn't browser-only.
+        "lib": ["ES2022", "DOM"],
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "types": ["node"],
+        "strict": true,
+        // Relaxed from the PoC #1 baseline (both were `true`) specifically to compile
+        // src/generated/runtime.ts, which is written for a non-strict default tsconfig
+        // and isn't ours to edit (no custom generator templates, no hand-editing generated
+        // code). noUncheckedIndexedAccess makes `response` in `Client.request()`'s try/catch
+        // narrow to `Response | undefined` after the catch block; noImplicitOverride requires
+        // `override` on FetchError.cause/name, which the generated class doesn't declare.
+        // Documented PoC finding: applies project-wide, so src/client loses these two checks too.
+        "noUncheckedIndexedAccess": false,
+        "noImplicitOverride": false,
+        "noFallthroughCasesInSwitch": true,
+        "noPropertyAccessFromIndexSignature": false,
+        "exactOptionalPropertyTypes": false,
+        "isolatedModules": true,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "declaration": true,
+        "sourceMap": true,
+        "noEmit": true
+    },
+    "include": ["src", "*.ts", "*.mjs"]
+}
