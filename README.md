@@ -49,7 +49,7 @@ raw.raw.status; // 201
 const carriers = await raw.value();
 
 // Plain: just the parsed body
-const carriers = await api.purchaseOrders.listCarriers();
+const carriers = await api.carriers.listCarriers();
 ```
 
 Use the plain method by default. Use `Raw` only when you need the status code or headers.

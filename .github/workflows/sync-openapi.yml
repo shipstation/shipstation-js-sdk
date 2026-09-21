@@ -36,9 +36,11 @@ jobs:
 
       - name: Resolve target docs ref
         id: target
+        env:
+          PAYLOAD_REF: ${{ github.event.client_payload.ref || inputs.docs_branch || 'main' }}
         run: |
           set -euo pipefail
-          ref="${{ github.event.client_payload.ref || inputs.docs_branch || 'main' }}"
+          ref="$PAYLOAD_REF"
           echo "ref=$ref" >> "$GITHUB_OUTPUT"
 
       - name: Gate on spec blob SHA
@@ -67,10 +69,11 @@ jobs:
         id: docs_commit
         env:
           GH_TOKEN: ${{ secrets.DOCS_REPO_TOKEN }}
+          PAYLOAD_SHA: ${{ github.event.client_payload.sha }}
         run: |
           set -euo pipefail
           source .github/scripts/spec-source.sh
-          sha="${{ github.event.client_payload.sha }}"
+          sha="$PAYLOAD_SHA"
           if [ -z "$sha" ]; then
             sha="$(resolve_commit_sha "$DOCS_REPO" "${{ steps.target.outputs.ref }}")"
           fi
