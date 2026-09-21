@@ -1,4 +1,4 @@
-# @shipstation/api-v2-js-sdk
+# @shipstation/shipstation-js-sdk
 
 JavaScript/TypeScript SDK for the [ShipStation API v2](https://docs.shipstation.com/). The client
 surface is generated from the API's OpenAPI spec; the transport, error handling, and configuration
@@ -7,7 +7,7 @@ around it are hand-written.
 ## Installation
 
 ```bash
-npm install @shipstation/api-v2-js-sdk
+npm install @shipstation/shipstation-js-sdk
 ```
 
 Requires Node.js `>=22.22.2`. Ships as both ESM and CommonJS.
@@ -15,7 +15,7 @@ Requires Node.js `>=22.22.2`. Ships as both ESM and CommonJS.
 ## Quickstart
 
 ```ts
-import { ShipStationAPI } from '@shipstation/api-v2-js-sdk';
+import { ShipStationAPI } from '@shipstation/shipstation-js-sdk';
 
 const api = new ShipStationAPI('your-api-key');
 
@@ -65,7 +65,7 @@ All errors thrown by the SDK extend `ShipStationError`:
 - `ShipStationTimeoutError` — the request exceeded the configured `timeout`.
 
 ```ts
-import { ShipStationApiError } from '@shipstation/api-v2-js-sdk';
+import { ShipStationApiError } from '@shipstation/shipstation-js-sdk';
 
 await api.labels
   .createLabel({ createLabelRequest: { ... } })

@@ -5,7 +5,7 @@ import { withTimeout } from './timeout';
 import { ShipStationError, ShipStationApiError, ShipStationConnectionError } from './errors';
 import { buildUserAgent } from './user-agent';
 
-const DEFAULT_TIMEOUT = 60_000;
+const DEFAULT_TIMEOUT = 60000;
 const DEFAULT_BASE_URL = 'https://api.shipstation.com';
 const ON_BEHALF_OF_HEADER = 'on-behalf-of';
 const USER_AGENT_HEADER = 'User-Agent';

@@ -11,7 +11,7 @@ export class ShipStationError extends Error {
 /**
  * The API responded with a non-2xx status and a parseable ShipStation error body.
  * Reuses the generated `ModelError`/`ErrorResponseBody` types instead of a hand-written
- * copy, so it can't drift from the spec the way PoC #1's transcribed `ErrorCode` union can.
+ * copy.
  */
 export class ShipStationApiError extends ShipStationError {
     readonly status: number;
@@ -37,6 +37,7 @@ export class ShipStationApiError extends ShipStationError {
     static async fromResponse(response: Response): Promise<ShipStationApiError> {
         let requestId: string | undefined;
         let errors: ModelError[] = [];
+
         try {
             const body: unknown = await response.clone().json();
             const parsed = ErrorResponseBodyFromJSON(body);
@@ -44,8 +45,9 @@ export class ShipStationApiError extends ShipStationError {
             errors = parsed.errors;
         } catch {
             // Response body wasn't JSON, or didn't match ErrorResponseBody's shape
-            // (e.g. an upstream proxy error) -- fall back to a bare status-based error.
+            // (e.g. an upstream proxy error): fall back to a bare status-based error.
         }
+
         return new ShipStationApiError(response, requestId, errors);
     }
 }
