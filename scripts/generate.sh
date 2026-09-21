@@ -48,7 +48,7 @@ cp "$REPO_ROOT/.openapi-generator-ignore" "$GENERATED_DIR/.openapi-generator-ign
 
 echo "==> Generating with openapitools/openapi-generator-cli:${GENERATOR_VERSION}"
 docker run --rm \
-    "${USER_ARGS[@]}" \
+    "${USER_ARGS[@]+"${USER_ARGS[@]}"}" \
     -v "$REPO_ROOT:/local" \
     "${SPEC_MOUNT[@]}" \
     "openapitools/openapi-generator-cli:${GENERATOR_VERSION}" generate \

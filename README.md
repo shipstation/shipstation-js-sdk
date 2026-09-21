@@ -116,7 +116,7 @@ Commit messages on `main` (in practice, the PR titles from squash-merged PRs) ar
 | `docs`, `chore`, `test`, `ci`, `build`, `style`  | no release |
 
 On a release, semantic-release updates `CHANGELOG.md`, bumps `package.json`, creates a git tag and
-GitHub Release, and publishes to npm — all in one workflow run.
+GitHub Release, and publish the package.
 
 ### Making a breaking change
 
