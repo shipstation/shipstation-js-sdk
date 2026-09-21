@@ -1,21 +1,16 @@
 #!/usr/bin/env bash
-# Shared helpers for the two spec-sync/release workflows: talking to the docs
-# repo's GitHub contents API. Kept in a testable script rather than inlined
-# in workflow YAML.
-#
+# Helper functions for calling the docs repo's GitHub contents API,
+# shared by the spec-sync and release workflows.
 # Requires: gh (authenticated via GH_TOKEN), jq.
 set -euo pipefail
 
-# encode_spec_path <path>
-# Percent-encodes each path segment (preserving "/") so the GitHub contents
-# API accepts paths containing "@", e.g. apis/@shipstation-v2/openapi.yaml.
+# Percent-encodes each path segment so paths with "@" (e.g. apis/@shipstation-v2/openapi.yaml) work.
 encode_spec_path() {
     local path="$1"
     printf '%s' "$path" | jq -Rr 'split("/") | map(@uri) | join("/")'
 }
 
-# blob_sha <docs-repo> <spec-path> <ref>
-# Prints the blob SHA of the spec file at <ref>, without downloading it.
+# Prints the blob SHA of the spec file at <ref> without downloading it.
 blob_sha() {
     local docs_repo="$1" spec_path="$2" ref="$3"
     local encoded_path
@@ -23,10 +18,8 @@ blob_sha() {
     gh api "/repos/${docs_repo}/contents/${encoded_path}?ref=${ref}" --jq .sha
 }
 
-# download_spec <docs-repo> <spec-path> <ref> <dest>
-# Downloads the spec file at <ref> into <dest>, with sanity checks so a
-# transient API error page or an empty response never silently replaces a
-# good spec.
+# Downloads the spec file at <ref> into <dest> and sanity-checks the result
+# (size, OpenAPI header) so a bad response never silently replaces a good spec.
 download_spec() {
     local docs_repo="$1" spec_path="$2" ref="$3" dest="$4"
     local encoded_path
@@ -50,18 +43,13 @@ download_spec() {
     fi
 }
 
-# resolve_commit_sha <docs-repo> <ref>
 # Prints the full commit SHA for <ref> (branch name, tag, or SHA).
 resolve_commit_sha() {
     local docs_repo="$1" ref="$2"
     gh api "/repos/${docs_repo}/commits/${ref}" --jq .sha
 }
 
-# Allow `source scripts/spec-source.sh` without executing anything, and
-# `./scripts/spec-source.sh <function> [args...]` for quick manual testing.
-# Guarded with ":-" defaults since this file is meant to run under bash
-# (as it does in GitHub Actions `run:` steps); sourcing it from a non-bash
-# shell should be a no-op rather than an error.
+# Lets this file be sourced (no-op) or run directly as `./spec-source.sh <function> [args...]` for manual testing.
 if [ "${BASH_SOURCE[0]:-$0}" = "${0}" ] && [ $# -gt 0 ]; then
     "$@"
 fi
