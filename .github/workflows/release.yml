@@ -8,7 +8,7 @@ on:
       dry_run:
         description: Run semantic-release in dry-run mode (no tag, no publish)
         type: boolean
-        default: true
+        default: false
 
 concurrency:
   group: release-${{ github.ref }}
@@ -28,12 +28,20 @@ jobs:
       id-token: write
       pull-requests: write
       packages: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
           persist-credentials: false
+
+      - name: Generate app token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.GH_PACKAGE_PUBLISHER_APP_ID }}
+          private-key: ${{ secrets.GH_PACKAGE_PUBLISHER_APP_PRIVATE_KEY }}
 
       - name: Setup Node
         uses: actions/setup-node@v5
@@ -45,6 +53,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Setup git user
+        run: |
+          git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
+          git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
+          git config --global url."https://x-oauth-basic:${{ steps.app-token.outputs.token }}@github.com/".insteadOf "https://github.com/"
+
       - name: Generate SDK
         run: npm run codegen
 
@@ -52,6 +66,9 @@ jobs:
         run: npm run lint
 
       - name: Release
+        env:
+          NODE_AUTH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           if [ "${{ inputs.dry_run }}" = "true" ]; then
             npx semantic-release --dry-run
