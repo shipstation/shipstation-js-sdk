@@ -87,12 +87,15 @@ This package follows [semantic versioning](https://semver.org/), released automa
 
 ## Development and releases
 
+### Contributing
+
+Contributions, enhancements, and bug-fixes are welcome! [Open an issue](https://github.com/shipstation/shipstation-js-sdk/issues) on GitHub and [submit a pull request](https://github.com/shipstation/shipstation-js-sdk/pulls).
+
 ### Generating the SDK locally
 
 The generated client (`src/generated/`) is never committed — it's derived code, rebuilt from the
 OpenAPI spec on demand. Generating it requires [Docker](https://docs.docker.com/get-docker/). The spec
-itself lives versioned in the repo at [`spec/openapi.yaml`](./spec/openapi.yaml), kept in sync with the
-[docs repo](https://github.com/shipstation/shipstation-api-v2-docs) by the `sync-openapi` workflow.
+itself lives versioned in the repo at [`spec/openapi.yaml`](./spec/openapi.yaml).
 
 ```bash
 npm run codegen
