@@ -1,9 +1,6 @@
 [![ShipStation API](https://www.shipengine.com/wp-content/uploads/Logo_ShipStationAPI_WhiteGreen_RGB-1.svg)](https://www.shipengine.com/)
 
-ShipStation API JavaScript SDK
-=====================================================
-
-[![License](https://img.shields.io/npm/l/shipengine.svg)](LICENSE)
+# ShipStation API JavaScript SDK
 
 JavaScript/TypeScript SDK for the [ShipStation API v2](https://docs.shipstation.com/). The client
 surface is generated from the API's OpenAPI spec; the transport, error handling, and configuration
