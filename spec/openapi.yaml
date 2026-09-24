@@ -2126,6 +2126,10 @@ paths:
             default: 25
           example: 50
           description: The number of freight shipments to return per page. Values above `500` are capped at `500`.
+        - $ref: "#/components/parameters/created_at_start_query_param"
+          description: Only return freight shipments created on or after this date/time.
+        - $ref: "#/components/parameters/created_at_end_query_param"
+          description: Only return freight shipments created on or before this date/time.
 
       responses:
         200:
@@ -11460,6 +11464,7 @@ components:
 
         carrier_delivery_days:
           type: string
+          x-nullable: true
           readOnly: true
           minLength: 1
           example: "22"
@@ -11891,38 +11896,8 @@ components:
           description: |
             A breakdown of individual charges that make up this label, such as base shipping cost and additional fees. For DDP shipments it also includes duties, taxes, and import fees (prepaid on Wallet carriers, estimated on BYOA carriers).
           items:
-            type: object
-            properties:
-              rate_detail_type:
-                type: string
-                example: "shipping"
-                description: |
-                  The category of charge. Common values include `shipping` and `additional_fees`. DDP shipments (`customs.terms_of_trade_code: "ddp"`) also return `prepaid_duties`, `prepaid_taxes` and `prepaid_import_fees` on Wallet carriers, or `estimated_duties`, `estimated_taxes` and `estimated_import_fees` on BYOA (Bring Your Own Account) carriers.
-              carrier_description:
-                type: string
-                example: "Shipping"
-                description: The carrier-provided description of the charge.
-              carrier_billing_code:
-                type: string
-                x-nullable: true
-                example: "BaseServiceCharge"
-                description: The carrier billing code, when provided by the carrier.
-              carrier_memo:
-                type: string
-                x-nullable: true
-                example: ""
-                description: An optional carrier-supplied note for the charge.
-              amount:
-                allOf:
-                  - $ref: "#/components/schemas/monetary_value"
-                description: The amount of this individual charge.
-              billing_source:
-                type: string
-                example: "carrier"
-                description: |
-                  The source that produced the charge. Common values are `carrier` for carrier-billed charges and `dutiestax` for duties and taxes on DDP shipments (prepaid on Wallet carriers, estimated on BYOA carriers).
-
-                  > **Note:** The casing of this value differs by endpoint. Label responses return lowercase values (e.g. `carrier`, `dutiestax`). Rate responses return PascalCase values (e.g. `Carrier`, `DutiesTax`). This reflects the actual API behavior.
+            allOf:
+              - $ref: "#/components/schemas/rate_detail"
 
         tracking_url:
           readOnly: true
@@ -13884,10 +13859,9 @@ components:
           description: A string that uniquely identifies the shipment
 
         created_at:
-          type: string
-          format: date-time
+          readOnly: true
           allOf:
-            - $ref: "#/components/schemas/se_id"
+            - $ref: "#/components/schemas/date_time"
           description: When the rate was created
 
         status:
@@ -13900,6 +13874,47 @@ components:
           items:
             allOf:
               - $ref: "#/components/schemas/error"
+    rate_detail:
+      title: rate_detail
+      type: object
+
+      description: |
+        Represents detailed information about a shipping cost.
+
+      additionalProperties: false
+
+      properties:
+        rate_detail_type:
+          type: string
+          example: "shipping"
+          description: |
+            The category of charge. Common values include `shipping` and `additional_fees`. DDP shipments (`customs.terms_of_trade_code: "ddp"`) also return `prepaid_duties`, `prepaid_taxes` and `prepaid_import_fees` on Wallet carriers, or `estimated_duties`, `estimated_taxes` and `estimated_import_fees` on BYOA (Bring Your Own Account) carriers.
+
+        carrier_description:
+          type: [string, "null"]
+          example: "Shipping"
+          description: The carrier-provided description of the charge.
+
+        carrier_billing_code:
+          type: [string, "null"]
+          example: "BaseServiceCharge"
+          description: The carrier billing code, when provided by the carrier.
+
+        carrier_memo:
+          type: [string, "null"]
+          example: ""
+          description: An optional carrier-supplied note for the charge.
+
+        amount:
+          allOf:
+            - $ref: "#/components/schemas/monetary_value"
+          description: The amount of this individual charge.
+
+        billing_source:
+          type: string
+          example: "carrier"
+          description: |
+            The source that produced the charge. Common values are `carrier` for carrier-billed charges and `dutiestax` for duties and taxes on DDP shipments (prepaid on Wallet carriers, estimated on BYOA carriers).
     rate:
       title: rate
       type: object
@@ -13907,7 +13922,6 @@ components:
       description: A rate
 
       required:
-        - rate_id
         - rate_type
         - carrier_id
         - shipping_amount
@@ -13933,7 +13947,8 @@ components:
       properties:
         rate_id:
           readOnly: true
-          allOf:
+          oneOf:
+            - type: "null"
             - $ref: "#/components/schemas/se_id"
           description: A string that uniquely identifies the rate
 
@@ -14030,6 +14045,7 @@ components:
 
         carrier_delivery_days:
           type: string
+          x-nullable: true
           readOnly: true
           minLength: 1
           example: "22"
@@ -14123,38 +14139,25 @@ components:
           description: |
             A breakdown of individual charges that make up this rate, such as base shipping cost and additional fees. For DDP shipments it also includes duties, taxes, and import fees (prepaid on Wallet carriers, estimated on BYOA carriers).
           items:
-            type: object
-            properties:
-              rate_detail_type:
-                type: string
-                example: "shipping"
-                description: |
-                  The category of charge. Common values include `shipping` and `additional_fees`. DDP shipments (`customs.terms_of_trade_code: ddp`) also return `prepaid_duties`, `prepaid_taxes` and `prepaid_import_fees` on Wallet carriers or `estimated_duties`, `estimated_taxes` and `estimated_import_fees` on BYOA (Bring Your Own Account) carriers.
-              carrier_description:
-                type: string
-                example: "Shipping"
-                description: The carrier-provided description of the charge.
-              carrier_billing_code:
-                type: string
-                x-nullable: true
-                example: "BaseServiceCharge"
-                description: The carrier billing code, when provided by the carrier.
-              carrier_memo:
-                type: string
-                x-nullable: true
-                example: ""
-                description: An optional carrier-supplied note for the charge.
-              amount:
-                allOf:
-                  - $ref: "#/components/schemas/monetary_value"
-                description: The amount of this individual charge.
-              billing_source:
-                type: string
-                example: "carrier"
-                description: |
-                  The source that produced the charge. Common values are `carrier` for carrier-billed charges and `dutiestax` for duties and taxes on DDP shipments (prepaid on Wallet carriers, estimated on BYOA carriers).
+            allOf:
+              - $ref: "#/components/schemas/rate_detail"
 
-                  > **Note:** The casing of this value differs by endpoint. Label responses return lowercase values (e.g. `carrier`, `dutiestax`). Rate responses return PascalCase values (e.g. `Carrier`, `DutiesTax`). This reflects the actual API behavior.
+        carrier_weight:
+          readOnly: true
+          oneOf:
+            - type: "null"
+            - $ref: "#/components/schemas/weight"
+          description: >-
+            The billable weight assessed by the carrier, based on the weight and
+            dimensions submitted with the rate request.
+
+        display_scheme:
+          readOnly: true
+          oneOf:
+            - type: "null"
+            - $ref: "#/components/schemas/display_scheme_response"
+          description: >-
+            The display format for the label this rate would produce.
     service:
       title: service
       type: object
@@ -17425,16 +17428,6 @@ components:
 
       required:
         - rate_response
-        - shipment_id
-        - ship_date
-        - created_at
-        - modified_at
-        - shipment_status
-        - return_to
-        - insurance_provider
-        - tags
-        - packages
-        - total_weight
 
       additionalProperties: false
 
@@ -18723,6 +18716,7 @@ components:
       enum:
         - check
         - shipment
+        - quick
       description: The possible rate type values
 
     refund_details:
@@ -18855,6 +18849,20 @@ components:
         - paperless
         - label_and_paperless
       description: The display format that the label should be shown in.
+    display_scheme_response:
+      title: display_scheme_response
+      type: string
+      enum:
+        - label
+        - qr_code
+        - label_and_qr_code
+        - paperless
+        - label_and_paperless
+        - no_box_no_label
+      description: >-
+        The display format produced for a shipment. This is the full set of
+        values the API can return. The values accepted when *requesting* a
+        label are documented on `display_scheme`.
     label_layout:
       title: label_layout
       type: string
@@ -20753,6 +20761,11 @@ components:
           type: boolean
           description: Indicate if it's a return shipment
           example: true
+        rate_type:
+          allOf:
+            - $ref: "#/components/schemas/rate_type"
+          description: Indicates what type of rating to perform
+          example: shipment
     rate_request_rate_options:
       title: rate_request_rate_options
       type: object
@@ -21949,17 +21962,13 @@ components:
       title: freight_address
       type: object
       description: |
-        An origin or destination address for a freight shipment. LTL carriers require a contact name, company name, and phone number at both ends of the shipment so the driver can arrange pickup and delivery.
+        An origin or destination address for a freight quote. LTL carriers need city, state, postal code, and country to price a shipment — contact and street details are optional at quote time. When booking, use `freight_book_address`, which requires the full contact details needed to produce a Bill of Lading.
       additionalProperties: false
       required:
-        - name
-        - company_name
-        - address_line1
         - city_locality
         - state_province
         - postal_code
         - country_code
-        - phone
       properties:
         name:
           type: string
@@ -22020,6 +22029,19 @@ components:
           example: commercial
           description: |
             How the carrier should classify this location. Location type affects accessorial charges — for example, residential and limited-access locations usually carry a surcharge. An unrecognized value is rejected with a `400 Bad Request`.
+
+    freight_book_address:
+      title: freight_book_address
+      description: |
+        An origin or destination address for a freight booking. Extends `freight_address` with the contact details — name, company, street, and phone — that the carrier needs to produce a Bill of Lading and to reach the pickup or delivery contact.
+      allOf:
+        - $ref: "#/components/schemas/freight_address"
+        - type: object
+          required:
+            - name
+            - company_name
+            - address_line1
+            - phone
 
     freight_tradeshow:
       title: freight_tradeshow
@@ -22129,9 +22151,10 @@ components:
         insured_value:
           type: number
           format: double
+          exclusiveMinimum: 0
           example: 18500
           description: |
-            The declared value of the freight to insure, in USD. Always send this: it is not currently validated, so omitting it requests insurance with a declared value of `0` rather than returning an error.
+            The declared value of the freight to insure, in USD. Must be greater than 0.
         item_condition:
           type: [string, "null"]
           enum:
@@ -22141,7 +22164,7 @@ components:
           default: new
           example: new
           description: |
-            The condition of the insured goods. Maximum liability differs between new and used freight. Unrecognized values are ignored rather than rejected.
+            The condition of the insured goods. Maximum liability differs between new and used freight. An unrecognized value is rejected with a `400 Bad Request`.
         commodity_category:
           type: [string, "null"]
           enum:
@@ -22167,7 +22190,7 @@ components:
           default: general_merchandise
           example: furniture
           description: |
-            The category of the insured goods. Some categories are excluded or restricted by the insurer. Unrecognized values fall back to `general_merchandise` rather than returning an error.
+            The category of the insured goods. Some categories are excluded or restricted by the insurer. An unrecognized value is rejected with a `400 Bad Request`.
         marks_numbers:
           type: [string, "null"]
           example: NG-2026-0417
@@ -22335,13 +22358,6 @@ components:
           allOf:
             - $ref: "#/components/schemas/weight_unit"
           description: The unit of measure for `weight`.
-        value:
-          type: [number, "null"]
-          format: double
-          deprecated: true
-          example: 4800
-          description: |
-            Accepted but ignored. This field is not sent to the carrier and is not stored. To declare a value for cargo insurance, use `insurance.insured_value` on the quote request instead.
         packaging_type:
           type: [string, "null"]
           enum:
@@ -22832,7 +22848,7 @@ components:
           allOf:
             - $ref: "#/components/schemas/se_id"
           description: |
-            The shipment the offer was quoted for. When provided, the shipment must already have a freight quote, and `ship_from`, `ship_to`, and `handling_units` must be omitted — the origin, destination, and handling units all come from the shipment and its saved freight configuration.
+            The shipment the offer was quoted for. When provided, the shipment must already have a freight quote, and `ship_from` and `ship_to` must be omitted — the origin, destination, and handling units all come from the shipment and its saved freight configuration.
         offer_id:
           type: string
           minLength: 1
@@ -22841,21 +22857,14 @@ components:
             The `offer_id` of the quoted offer being booked. Resolves server-side to the provider connection, the carrier, and the expiration.
         ship_from:
           allOf:
-            - $ref: "#/components/schemas/freight_address"
+            - $ref: "#/components/schemas/freight_book_address"
           description: |
             The origin address. Required when `shipment_id` is omitted, and must not be provided when `shipment_id` is present.
         ship_to:
           allOf:
-            - $ref: "#/components/schemas/freight_address"
+            - $ref: "#/components/schemas/freight_book_address"
           description: |
             The destination address. Required when `shipment_id` is omitted, and must not be provided when `shipment_id` is present.
-        handling_units:
-          type: array
-          minItems: 1
-          items:
-            $ref: "#/components/schemas/freight_handling_unit"
-          description: |
-            The handling units being shipped. Required when `shipment_id` is omitted, and must not be provided when `shipment_id` is present.
         pickup_details:
           allOf:
             - $ref: "#/components/schemas/freight_pickup_details"
@@ -22957,6 +22966,11 @@ components:
           allOf:
             - $ref: "#/components/schemas/se_id"
           description: The identifier of the freight shipment. Use it to retrieve, track, or cancel the shipment.
+        shipment_id:
+          allOf:
+            - $ref: "#/components/schemas/se_id"
+          type: ["string", "null"]
+          description: The identifier of the ShipStation shipment linked to this freight booking, if any.
         freight_provider_account_id:
           allOf:
             - $ref: "#/components/schemas/se_id"
@@ -22987,6 +23001,12 @@ components:
           example: FXFE-PU-884215
           description: |
             The carrier's pickup confirmation number. `null` when the carrier did not return one.
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          example: "2026-09-18T14:54:44Z"
+          description: The date and time the freight shipment was created, in UTC.
         documents:
           type: [array, "null"]
           readOnly: true
@@ -23034,6 +23054,12 @@ components:
           example: FXFE-PU-884215
           description: |
             The carrier's pickup confirmation number. `null` when the carrier did not return one.
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          example: "2026-09-18T14:54:44Z"
+          description: The date and time the freight shipment was created, in UTC.
         documents:
           type: [array, "null"]
           readOnly: true
