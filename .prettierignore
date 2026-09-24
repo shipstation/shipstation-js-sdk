@@ -1,0 +1,9 @@
+node_modules
+dist
+coverage
+CHANGELOG.md
+API-CHANGELOG.md
+package-lock.json
+.github
+openapi-generator-config.yaml
+spec/openapi.yaml

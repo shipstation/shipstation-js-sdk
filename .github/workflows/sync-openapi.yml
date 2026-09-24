@@ -1,0 +1,166 @@
+name: Sync OpenAPI spec
+
+on:
+  repository_dispatch:
+    types: [openapi-spec-updated]
+  workflow_dispatch:
+    inputs:
+      docs_branch:
+        description: Branch in the docs repo to pull the spec from
+        required: false
+        default: main
+
+concurrency:
+  group: sync-spec
+  cancel-in-progress: false
+
+env:
+  LOCAL_SPEC_PATH: spec/openapi.yaml
+  PR_BRANCH: chore/spec-sync
+  API_CHANGELOG: API-CHANGELOG.md
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      DOCS_REPO: ${{ secrets.DOCS_REPO }}
+      DOCS_SPEC_PATH: ${{ secrets.DOCS_SPEC_PATH }}
+    steps:
+      - name: Checkout default branch
+        uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Resolve target docs ref
+        id: target
+        env:
+          PAYLOAD_REF: ${{ github.event.client_payload.ref || inputs.docs_branch || 'main' }}
+        run: |
+          set -euo pipefail
+          ref="$PAYLOAD_REF"
+          echo "ref=$ref" >> "$GITHUB_OUTPUT"
+
+      - name: Gate on spec blob SHA
+        id: gate
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_REPO_TOKEN }}
+          TARGET_REF: ${{ steps.target.outputs.ref }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::DOCS_REPO_TOKEN is not set"
+            exit 1
+          fi
+          set -euo pipefail
+          source .github/scripts/spec-source.sh
+          local_blob_sha="$(git hash-object "$LOCAL_SPEC_PATH")"
+          new_blob_sha="$(blob_sha "$DOCS_REPO" "$DOCS_SPEC_PATH" "$TARGET_REF")"
+          echo "new_blob_sha=$new_blob_sha" >> "$GITHUB_OUTPUT"
+
+          if [ "$new_blob_sha" = "$local_blob_sha" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo '### Spec unchanged — nothing to do' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "spec blob changed: $local_blob_sha -> $new_blob_sha"
+          fi
+
+      # ---- everything below only runs when the spec actually changed ----
+
+      - name: Resolve new docs commit SHA
+        if: steps.gate.outputs.changed == 'true'
+        id: docs_commit
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_REPO_TOKEN }}
+          PAYLOAD_SHA: ${{ github.event.client_payload.sha }}
+          TARGET_REF: ${{ steps.target.outputs.ref }}
+        run: |
+          set -euo pipefail
+          source .github/scripts/spec-source.sh
+          sha="$PAYLOAD_SHA"
+          if [ -z "$sha" ]; then
+            sha="$(resolve_commit_sha "$DOCS_REPO" "$TARGET_REF")"
+          fi
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+
+      - name: Copy baseline spec and download new revision
+        if: steps.gate.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_REPO_TOKEN }}
+        run: |
+          set -euo pipefail
+          source .github/scripts/spec-source.sh
+          mkdir -p "$RUNNER_TEMP/base"
+          cp "$LOCAL_SPEC_PATH" "$RUNNER_TEMP/base/openapi.yaml"
+          download_spec "$DOCS_REPO" "$DOCS_SPEC_PATH" "${{ steps.docs_commit.outputs.sha }}" \
+            "$LOCAL_SPEC_PATH"
+
+      - name: Setup Node
+        if: steps.gate.outputs.changed == 'true'
+        uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        if: steps.gate.outputs.changed == 'true'
+        run: npm ci
+
+      - name: Generate SDK from the new spec
+        if: steps.gate.outputs.changed == 'true'
+        env:
+          SHIPSTATION_SPEC_FILE: ${{ github.workspace }}/${{ env.LOCAL_SPEC_PATH }}
+        run: npm run codegen
+
+      - name: Validate (typecheck + lint + format + build)
+        if: steps.gate.outputs.changed == 'true'
+        run: npm run verify
+
+      - name: Build API change report
+        if: steps.gate.outputs.changed == 'true'
+        run: |
+          set -euo pipefail
+          docker run --rm \
+            -v "$RUNNER_TEMP/base:/base:ro" \
+            -v "$PWD/$(dirname "$LOCAL_SPEC_PATH"):/rev:ro" \
+            tufin/oasdiff:v1.32.1 changelog "/base/$(basename "$LOCAL_SPEC_PATH")" "/rev/$(basename "$LOCAL_SPEC_PATH")" \
+            -f markdown > "$RUNNER_TEMP/api-changelog-entry.md" || \
+            echo "_oasdiff produced no report; review the spec diff manually._" > "$RUNNER_TEMP/api-changelog-entry.md"
+
+      - name: Prepend entry to API-CHANGELOG.md
+        if: steps.gate.outputs.changed == 'true'
+        run: |
+          .github/scripts/prepend-changelog-entry.sh \
+            "$RUNNER_TEMP/api-changelog-entry.md" "$API_CHANGELOG"
+
+      - name: Build PR body
+        if: steps.gate.outputs.changed == 'true'
+        run: |
+          .github/scripts/build-pr-body.sh \
+            "$DOCS_REPO" "$DOCS_SPEC_PATH" "$LOCAL_SPEC_PATH" \
+            "${{ steps.docs_commit.outputs.sha }}" "$RUNNER_TEMP/pr-body.md"
+
+      - name: Create or update spec-sync PR
+        if: steps.gate.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7
+        with:
+          token: ${{ secrets.SPEC_BOT_TOKEN || secrets.GITHUB_TOKEN }}
+          base: main
+          branch: ${{ env.PR_BRANCH }}
+          add-paths: |
+            ${{ env.API_CHANGELOG }}
+            ${{ env.LOCAL_SPEC_PATH }}
+          commit-message: |
+            feat: sync ShipStation API v2 spec
+            Source: ${{ env.DOCS_REPO }}@${{ steps.docs_commit.outputs.sha }}
+            Path:   ${{ env.DOCS_SPEC_PATH }}
+          title: "feat: sync ShipStation API v2 spec"
+          body-path: ${{ runner.temp }}/pr-body.md
+          labels: |
+            spec-sync
+            automated
+          delete-branch: true
+          draft: false

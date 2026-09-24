@@ -1,0 +1,28 @@
+generatorName: typescript-fetch
+inputSpec: /spec/openapi.yaml
+outputDir: /local/src/generated
+skipValidateSpec: false
+templateDir: /local/templates
+
+files:
+  api-registry.mustache:
+    templateType: SupportingFiles
+    destinationFilename: api-registry.ts
+
+additionalProperties:
+  modelPropertyNaming: camelCase
+  paramNaming: camelCase
+  withoutRuntimeChecks: false
+  useSingleRequestParameter: true
+  withInterfaces: true
+  prefixParameterInterfaces: true
+  stringEnums: false
+  nullSafeAdditionalProps: true
+  supportsES6: true
+  withNodeImports: false
+  sortParamsByRequiredFlag: true
+
+inlineSchemaOptions:
+  RESPONSE_SUFFIX: Response
+  ARRAY_ITEM_SUFFIX: Item
+  RESOLVE_INLINE_ENUMS: "true"
