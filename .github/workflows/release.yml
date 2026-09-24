@@ -61,6 +61,6 @@ jobs:
 
       - name: Release
         env:
-          NODE_AUTH_TOKEN: ${{ steps.app-token.outputs.token }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: npx semantic-release
