@@ -42,7 +42,7 @@ export class ShipStationApiError extends ShipStationError {
             const body: unknown = await response.clone().json();
             const parsed = ErrorResponseBodyFromJSON(body);
             requestId = parsed.requestId;
-            errors = parsed.errors;
+            errors = Array.isArray(parsed.errors) ? parsed.errors : [];
         } catch {
             // Response body wasn't JSON, or didn't match ErrorResponseBody's shape
             // (e.g. an upstream proxy error): fall back to a bare status-based error.

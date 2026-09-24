@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     if: >-
-      github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip ci]')
+      !contains(github.event.head_commit.message, '[skip ci]')
     permissions:
       issues: write
       contents: write

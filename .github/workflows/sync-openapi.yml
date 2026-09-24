@@ -48,6 +48,7 @@ jobs:
         id: gate
         env:
           GH_TOKEN: ${{ secrets.DOCS_REPO_TOKEN }}
+          TARGET_REF: ${{ steps.target.outputs.ref }}
         run: |
           if [ -z "$GH_TOKEN" ]; then
             echo "::error::DOCS_REPO_TOKEN is not set"
@@ -56,7 +57,7 @@ jobs:
           set -euo pipefail
           source .github/scripts/spec-source.sh
           local_blob_sha="$(git hash-object "$LOCAL_SPEC_PATH")"
-          new_blob_sha="$(blob_sha "$DOCS_REPO" "$DOCS_SPEC_PATH" "${{ steps.target.outputs.ref }}")"
+          new_blob_sha="$(blob_sha "$DOCS_REPO" "$DOCS_SPEC_PATH" "$TARGET_REF")"
           echo "new_blob_sha=$new_blob_sha" >> "$GITHUB_OUTPUT"
 
           if [ "$new_blob_sha" = "$local_blob_sha" ]; then
@@ -75,12 +76,13 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.DOCS_REPO_TOKEN }}
           PAYLOAD_SHA: ${{ github.event.client_payload.sha }}
+          TARGET_REF: ${{ steps.target.outputs.ref }}
         run: |
           set -euo pipefail
           source .github/scripts/spec-source.sh
           sha="$PAYLOAD_SHA"
           if [ -z "$sha" ]; then
-            sha="$(resolve_commit_sha "$DOCS_REPO" "${{ steps.target.outputs.ref }}")"
+            sha="$(resolve_commit_sha "$DOCS_REPO" "$TARGET_REF")"
           fi
           echo "sha=$sha" >> "$GITHUB_OUTPUT"
 
