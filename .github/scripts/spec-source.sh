@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-# Helper functions for calling the docs repo's GitHub contents API,
-# shared by the spec-sync and release workflows.
-# Requires: gh (authenticated via GH_TOKEN), jq.
+# Helper functions for calling the docs repo's GitHub contents API.
 set -euo pipefail
 
 # Percent-encodes each path segment so paths with "@" (e.g. apis/@shipstation-v2/openapi.yaml) work.
@@ -18,8 +16,7 @@ blob_sha() {
     gh api "/repos/${docs_repo}/contents/${encoded_path}?ref=${ref}" --jq .sha
 }
 
-# Downloads the spec file at <ref> into <dest> and sanity-checks the result
-# (size, OpenAPI header) so a bad response never silently replaces a good spec.
+# Downloads the spec file and sanity-checks the result.
 download_spec() {
     local docs_repo="$1" spec_path="$2" ref="$3" dest="$4"
     local encoded_path

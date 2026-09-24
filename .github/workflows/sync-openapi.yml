@@ -15,8 +15,6 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  DOCS_REPO: shipstation/shipstation-api-v2-docs
-  DOCS_SPEC_PATH: apis/@shipstation-v2/openapi.yaml
   LOCAL_SPEC_PATH: spec/openapi.yaml
   PR_BRANCH: chore/spec-sync
   API_CHANGELOG: API-CHANGELOG.md
@@ -28,6 +26,9 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+    env:
+      DOCS_REPO: ${{ secrets.DOCS_REPO }}
+      DOCS_SPEC_PATH: ${{ secrets.DOCS_SPEC_PATH }}
     steps:
       - name: Checkout default branch
         uses: actions/checkout@v5
@@ -48,6 +49,10 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.DOCS_REPO_TOKEN }}
         run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::DOCS_REPO_TOKEN is not set"
+            exit 1
+          fi
           set -euo pipefail
           source .github/scripts/spec-source.sh
           local_blob_sha="$(git hash-object "$LOCAL_SPEC_PATH")"
@@ -126,53 +131,15 @@ jobs:
       - name: Prepend entry to API-CHANGELOG.md
         if: steps.gate.outputs.changed == 'true'
         run: |
-          set -euo pipefail
-          entry="$(awk 'NR==1 && /^# API Changelog/ {next} {print}' "$RUNNER_TEMP/api-changelog-entry.md" | awk '/./{f=1} f')"
-          {
-            echo "## $(date -u +%Y-%m-%d)"
-            echo
-            printf '%s\n' "$entry"
-            echo
-          } > "$RUNNER_TEMP/new-entry.md"
-
-          awk -v entry_file="$RUNNER_TEMP/new-entry.md" '
-            NR==1 { print; next }
-            !inserted && /^## / {
-              while ((getline line < entry_file) > 0) print line
-              inserted = 1
-            }
-            { print }
-            END {
-              if (!inserted) {
-                while ((getline line < entry_file) > 0) print line
-              }
-            }
-          ' "$API_CHANGELOG" > "$RUNNER_TEMP/changelog.md"
-          mv "$RUNNER_TEMP/changelog.md" "$API_CHANGELOG"
+          .github/scripts/prepend-changelog-entry.sh \
+            "$RUNNER_TEMP/api-changelog-entry.md" "$API_CHANGELOG"
 
       - name: Build PR body
         if: steps.gate.outputs.changed == 'true'
         run: |
-          set -euo pipefail
-          {
-            echo "- Source: \`$DOCS_REPO\` @ \`${{ steps.docs_commit.outputs.sha }}\`"
-            echo "- Path: \`$DOCS_SPEC_PATH\` → \`$LOCAL_SPEC_PATH\`"
-            echo "- \`src/generated/\` is produced on demand and is not committed."
-            echo
-            echo "The SDK was regenerated from this spec and \`npm run verify\` (typecheck, lint, format check, build) passed on this runner."
-            echo
-            echo "See the \`$LOCAL_SPEC_PATH\` diff in this PR for the raw spec change, and the changelog entry above for the human-readable summary."
-            echo
-            echo "---"
-            echo
-            echo "### Versioning"
-            echo
-            echo "This PR ships as \`feat:\` → **minor** release."
-            echo
-            echo "Review the changelog above and decide whether this is breaking for SDK consumers."
-            echo "If it is, **edit the PR title** to \`feat!: sync ShipStation API v2 spec\` before"
-            echo "merging."
-          } > "$RUNNER_TEMP/pr-body.md"
+          .github/scripts/build-pr-body.sh \
+            "$DOCS_REPO" "$DOCS_SPEC_PATH" "$LOCAL_SPEC_PATH" \
+            "${{ steps.docs_commit.outputs.sha }}" "$RUNNER_TEMP/pr-body.md"
 
       - name: Create or update spec-sync PR
         if: steps.gate.outputs.changed == 'true'
@@ -186,7 +153,6 @@ jobs:
             ${{ env.LOCAL_SPEC_PATH }}
           commit-message: |
             feat: sync ShipStation API v2 spec
-
             Source: ${{ env.DOCS_REPO }}@${{ steps.docs_commit.outputs.sha }}
             Path:   ${{ env.DOCS_SPEC_PATH }}
           title: "feat: sync ShipStation API v2 spec"
