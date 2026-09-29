@@ -31,7 +31,7 @@ jobs:
       DOCS_SPEC_PATH: ${{ secrets.DOCS_SPEC_PATH }}
     steps:
       - name: Checkout default branch
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
           ref: main
 
@@ -84,23 +84,28 @@ jobs:
           if [ -z "$sha" ]; then
             sha="$(resolve_commit_sha "$DOCS_REPO" "$TARGET_REF")"
           fi
+          if ! [[ "$sha" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::docs commit sha has unexpected format" >&2
+            exit 1
+          fi
           echo "sha=$sha" >> "$GITHUB_OUTPUT"
 
       - name: Copy baseline spec and download new revision
         if: steps.gate.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ secrets.DOCS_REPO_TOKEN }}
+          DOCS_COMMIT_SHA: ${{ steps.docs_commit.outputs.sha }}
         run: |
           set -euo pipefail
           source .github/scripts/spec-source.sh
           mkdir -p "$RUNNER_TEMP/base"
           cp "$LOCAL_SPEC_PATH" "$RUNNER_TEMP/base/openapi.yaml"
-          download_spec "$DOCS_REPO" "$DOCS_SPEC_PATH" "${{ steps.docs_commit.outputs.sha }}" \
+          download_spec "$DOCS_REPO" "$DOCS_SPEC_PATH" "$DOCS_COMMIT_SHA" \
             "$LOCAL_SPEC_PATH"
 
       - name: Setup Node
         if: steps.gate.outputs.changed == 'true'
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -138,10 +143,12 @@ jobs:
 
       - name: Build PR body
         if: steps.gate.outputs.changed == 'true'
+        env:
+          DOCS_COMMIT_SHA: ${{ steps.docs_commit.outputs.sha }}
         run: |
           .github/scripts/build-pr-body.sh \
             "$DOCS_REPO" "$DOCS_SPEC_PATH" "$LOCAL_SPEC_PATH" \
-            "${{ steps.docs_commit.outputs.sha }}" "$RUNNER_TEMP/pr-body.md"
+            "$DOCS_COMMIT_SHA" "$RUNNER_TEMP/pr-body.md"
 
       - name: Create or update spec-sync PR
         if: steps.gate.outputs.changed == 'true'
