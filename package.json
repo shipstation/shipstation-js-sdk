@@ -64,17 +64,17 @@
         "release": "semantic-release"
     },
     "devDependencies": {
-        "@eslint/js": "^9.17.0",
-        "@semantic-release/changelog": "^7.0.0",
-        "@semantic-release/git": "^11.0.1",
-        "@types/node": "^22.10.5",
-        "conventional-changelog-conventionalcommits": "^9.0.0",
-        "eslint": "^9.17.0",
-        "eslint-config-prettier": "^10.0.1",
-        "prettier": "^3.4.2",
-        "semantic-release": "^25.0.9",
-        "tsup": "^8.3.5",
-        "typescript": "^5.7.2",
-        "typescript-eslint": "^8.18.2"
+        "@eslint/js": "9.17.0",
+        "@semantic-release/changelog": "7.0.0",
+        "@semantic-release/git": "11.0.1",
+        "@types/node": "22.10.5",
+        "conventional-changelog-conventionalcommits": "9.0.0",
+        "eslint": "9.39.5",
+        "eslint-config-prettier": "10.0.1",
+        "prettier": "3.4.2",
+        "semantic-release": "25.0.9",
+        "tsup": "8.5.1",
+        "typescript": "5.7.2",
+        "typescript-eslint": "8.18.2"
     }
 }
