@@ -862,7 +862,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/create_and_process_batch_request_body"
+              $ref: "#/components/schemas/add_to_batch_request_body"
 
       responses:
         204:
@@ -2126,6 +2126,10 @@ paths:
             default: 25
           example: 50
           description: The number of freight shipments to return per page. Values above `500` are capped at `500`.
+        - $ref: "#/components/parameters/created_at_start_query_param"
+          description: Only return freight shipments created on or after this date/time.
+        - $ref: "#/components/parameters/created_at_end_query_param"
+          description: Only return freight shipments created on or before this date/time.
 
       responses:
         200:
@@ -5669,6 +5673,126 @@ paths:
 
         500:
           $ref: "#/components/responses/ServerError"
+  /v2/shipments/hold:
+    x-visibility: public
+    summary: Hold shipments
+    description: Hold one or more shipments until a given date
+
+    post:
+      summary: Hold shipments
+      description: |
+        Holds one or more shipments until a given date. A shipment on hold has the
+        `on_hold` status, and you can't purchase a label for it while it's on hold. On the
+        `hold_until_date`, the shipment is released automatically and returns to the
+        `pending` status. You can hold up to 500 shipments at once.
+
+        `hold_until_date` is a date-only value: any time component you send is ignored, and
+        the date must be later than today.
+
+        Shipments that cannot be held — because they are not found, are cancelled, or have a
+        purchased label — are reported in `errors`, and the remaining shipments are still held.
+        If only some of the shipments were held, the response status is `207`. If none of them
+        could be held, the response status is `404` when at least one shipment was not found,
+        or `400` otherwise, and `shipment_ids` is empty.
+
+        To hold a single shipment, use [Hold a shipment](#operation/hold_shipment).
+
+      tags:
+        - shipments
+      x-plan:
+        - ss-standard_and_premium_plans
+        - ss-api-free_plan
+        - ss-api-advanced_and_enterprise_plans
+      operationId: hold_shipments
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/hold_shipments_request_body"
+
+      responses:
+        200:
+          description: The request was a success.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/hold_shipments_response_body"
+
+        207:
+          description: The request was a partial success. Some shipments were not held; see `errors`.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/hold_shipments_response_body"
+
+        400:
+          $ref: "#/components/responses/BadRequest"
+
+        404:
+          $ref: "#/components/responses/NotFound"
+
+        500:
+          $ref: "#/components/responses/ServerError"
+  /v2/shipments/restore:
+    x-visibility: public
+    summary: Restore shipments
+    description: Restore one or more shipments that are on hold
+
+    post:
+      summary: Restore shipments
+      description: |
+        Restores one or more shipments that are on hold. Each restored shipment returns to
+        the `pending` status and its `hold_until_date` is cleared. You can restore up to
+        500 shipments at once.
+
+        Shipments that cannot be restored — because they are not found or are not on hold —
+        are reported in `errors`, and the remaining shipments are still restored. If only some
+        of the shipments were restored, the response status is `207`. If none of them could be
+        restored, the response status is `404` when at least one shipment was not found, or
+        `400` otherwise, and `shipment_ids` is empty.
+
+        To restore a single shipment, use [Restore a shipment](#operation/restore_shipment).
+
+      tags:
+        - shipments
+      x-plan:
+        - ss-standard_and_premium_plans
+        - ss-api-free_plan
+        - ss-api-advanced_and_enterprise_plans
+      operationId: restore_shipments
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/restore_shipments_request_body"
+
+      responses:
+        200:
+          description: The request was a success.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/restore_shipments_response_body"
+
+        207:
+          description: The request was a partial success. Some shipments were not restored; see `errors`.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/restore_shipments_response_body"
+
+        400:
+          $ref: "#/components/responses/BadRequest"
+
+        404:
+          $ref: "#/components/responses/NotFound"
+
+        500:
+          $ref: "#/components/responses/ServerError"
   /v2/shipments/external_shipment_id/{external_shipment_id}:
     x-visibility: public
     summary: External shipment id
@@ -5810,6 +5934,104 @@ paths:
       responses:
         204:
           $ref: "#/components/responses/NoContent"
+
+        400:
+          $ref: "#/components/responses/BadRequest"
+
+        404:
+          $ref: "#/components/responses/NotFound"
+
+        500:
+          $ref: "#/components/responses/ServerError"
+  /v2/shipments/{shipment_id}/hold:
+    x-visibility: public
+    summary: Hold shipment
+    description: Hold a shipment until a given date
+
+    parameters:
+      - $ref: "#/components/parameters/shipment_id_path_param"
+
+    put:
+      summary: Hold a shipment
+      description: |
+        Holds a shipment until a given date. A shipment on hold has the `on_hold` status,
+        and you can't purchase a label for it while it's on hold. On the `hold_until_date`,
+        the shipment is released automatically and returns to the `pending` status. Holding
+        a shipment that is already on hold replaces the existing `hold_until_date`.
+
+        A cancelled shipment or a shipment with a purchased label cannot be held and returns
+        a `400` response.
+
+        `hold_until_date` is a date-only value: any time component you send is ignored, and
+        the date must be later than today.
+
+        To hold up to 500 shipments in one request, use [Hold shipments](#operation/hold_shipments).
+
+      tags:
+        - shipments
+      x-plan:
+        - ss-standard_and_premium_plans
+        - ss-api-free_plan
+        - ss-api-advanced_and_enterprise_plans
+      operationId: hold_shipment
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/hold_shipment_request_body"
+
+      responses:
+        200:
+          description: The request was a success.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/hold_shipment_response_body"
+
+        400:
+          $ref: "#/components/responses/BadRequest"
+
+        404:
+          $ref: "#/components/responses/NotFound"
+
+        500:
+          $ref: "#/components/responses/ServerError"
+  /v2/shipments/{shipment_id}/restore:
+    x-visibility: public
+    summary: Restore shipment
+    description: Restore a shipment that is on hold
+
+    parameters:
+      - $ref: "#/components/parameters/shipment_id_path_param"
+
+    put:
+      summary: Restore a shipment
+      description: |
+        Restores a shipment that is on hold. The shipment returns to the `pending` status and
+        its `hold_until_date` is cleared. No request body is required.
+
+        The shipment must currently be on hold. Restoring a shipment in any other status
+        returns a `400` response.
+
+        To restore up to 500 shipments in one request, use [Restore shipments](#operation/restore_shipments).
+
+      tags:
+        - shipments
+      x-plan:
+        - ss-standard_and_premium_plans
+        - ss-api-free_plan
+        - ss-api-advanced_and_enterprise_plans
+      operationId: restore_shipment
+
+      responses:
+        200:
+          description: The request was a success.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/restore_shipment_response_body"
 
         400:
           $ref: "#/components/responses/BadRequest"
@@ -11460,6 +11682,7 @@ components:
 
         carrier_delivery_days:
           type: string
+          x-nullable: true
           readOnly: true
           minLength: 1
           example: "22"
@@ -11891,38 +12114,8 @@ components:
           description: |
             A breakdown of individual charges that make up this label, such as base shipping cost and additional fees. For DDP shipments it also includes duties, taxes, and import fees (prepaid on Wallet carriers, estimated on BYOA carriers).
           items:
-            type: object
-            properties:
-              rate_detail_type:
-                type: string
-                example: "shipping"
-                description: |
-                  The category of charge. Common values include `shipping` and `additional_fees`. DDP shipments (`customs.terms_of_trade_code: "ddp"`) also return `prepaid_duties`, `prepaid_taxes` and `prepaid_import_fees` on Wallet carriers, or `estimated_duties`, `estimated_taxes` and `estimated_import_fees` on BYOA (Bring Your Own Account) carriers.
-              carrier_description:
-                type: string
-                example: "Shipping"
-                description: The carrier-provided description of the charge.
-              carrier_billing_code:
-                type: string
-                x-nullable: true
-                example: "BaseServiceCharge"
-                description: The carrier billing code, when provided by the carrier.
-              carrier_memo:
-                type: string
-                x-nullable: true
-                example: ""
-                description: An optional carrier-supplied note for the charge.
-              amount:
-                allOf:
-                  - $ref: "#/components/schemas/monetary_value"
-                description: The amount of this individual charge.
-              billing_source:
-                type: string
-                example: "carrier"
-                description: |
-                  The source that produced the charge. Common values are `carrier` for carrier-billed charges and `dutiestax` for duties and taxes on DDP shipments (prepaid on Wallet carriers, estimated on BYOA carriers).
-
-                  > **Note:** The casing of this value differs by endpoint. Label responses return lowercase values (e.g. `carrier`, `dutiestax`). Rate responses return PascalCase values (e.g. `Carrier`, `DutiesTax`). This reflects the actual API behavior.
+            allOf:
+              - $ref: "#/components/schemas/rate_detail"
 
         tracking_url:
           readOnly: true
@@ -12105,6 +12298,15 @@ components:
           allOf:
             - $ref: "#/components/schemas/label_download"
           description: The label download for the batch
+
+        packing_slip_download:
+          readOnly: true
+          allOf:
+            - $ref: "#/components/schemas/optional_link"
+          description: |
+            Link to download the packing slips for all shipments in the batch. Populated only when the batch was
+            created or processed with `generate_packing_slips` set to `true`; otherwise an empty object.
+            The file is available once the batch has been processed.
 
         form_download:
           readOnly: true
@@ -13884,10 +14086,9 @@ components:
           description: A string that uniquely identifies the shipment
 
         created_at:
-          type: string
-          format: date-time
+          readOnly: true
           allOf:
-            - $ref: "#/components/schemas/se_id"
+            - $ref: "#/components/schemas/date_time"
           description: When the rate was created
 
         status:
@@ -13900,6 +14101,47 @@ components:
           items:
             allOf:
               - $ref: "#/components/schemas/error"
+    rate_detail:
+      title: rate_detail
+      type: object
+
+      description: |
+        Represents detailed information about a shipping cost.
+
+      additionalProperties: false
+
+      properties:
+        rate_detail_type:
+          type: string
+          example: "shipping"
+          description: |
+            The category of charge. Common values include `shipping` and `additional_fees`. DDP shipments (`customs.terms_of_trade_code: "ddp"`) also return `prepaid_duties`, `prepaid_taxes` and `prepaid_import_fees` on Wallet carriers, or `estimated_duties`, `estimated_taxes` and `estimated_import_fees` on BYOA (Bring Your Own Account) carriers.
+
+        carrier_description:
+          type: [string, "null"]
+          example: "Shipping"
+          description: The carrier-provided description of the charge.
+
+        carrier_billing_code:
+          type: [string, "null"]
+          example: "BaseServiceCharge"
+          description: The carrier billing code, when provided by the carrier.
+
+        carrier_memo:
+          type: [string, "null"]
+          example: ""
+          description: An optional carrier-supplied note for the charge.
+
+        amount:
+          allOf:
+            - $ref: "#/components/schemas/monetary_value"
+          description: The amount of this individual charge.
+
+        billing_source:
+          type: string
+          example: "carrier"
+          description: |
+            The source that produced the charge. Common values are `carrier` for carrier-billed charges and `dutiestax` for duties and taxes on DDP shipments (prepaid on Wallet carriers, estimated on BYOA carriers).
     rate:
       title: rate
       type: object
@@ -13907,7 +14149,6 @@ components:
       description: A rate
 
       required:
-        - rate_id
         - rate_type
         - carrier_id
         - shipping_amount
@@ -13933,7 +14174,8 @@ components:
       properties:
         rate_id:
           readOnly: true
-          allOf:
+          oneOf:
+            - type: "null"
             - $ref: "#/components/schemas/se_id"
           description: A string that uniquely identifies the rate
 
@@ -14030,6 +14272,7 @@ components:
 
         carrier_delivery_days:
           type: string
+          x-nullable: true
           readOnly: true
           minLength: 1
           example: "22"
@@ -14123,38 +14366,25 @@ components:
           description: |
             A breakdown of individual charges that make up this rate, such as base shipping cost and additional fees. For DDP shipments it also includes duties, taxes, and import fees (prepaid on Wallet carriers, estimated on BYOA carriers).
           items:
-            type: object
-            properties:
-              rate_detail_type:
-                type: string
-                example: "shipping"
-                description: |
-                  The category of charge. Common values include `shipping` and `additional_fees`. DDP shipments (`customs.terms_of_trade_code: ddp`) also return `prepaid_duties`, `prepaid_taxes` and `prepaid_import_fees` on Wallet carriers or `estimated_duties`, `estimated_taxes` and `estimated_import_fees` on BYOA (Bring Your Own Account) carriers.
-              carrier_description:
-                type: string
-                example: "Shipping"
-                description: The carrier-provided description of the charge.
-              carrier_billing_code:
-                type: string
-                x-nullable: true
-                example: "BaseServiceCharge"
-                description: The carrier billing code, when provided by the carrier.
-              carrier_memo:
-                type: string
-                x-nullable: true
-                example: ""
-                description: An optional carrier-supplied note for the charge.
-              amount:
-                allOf:
-                  - $ref: "#/components/schemas/monetary_value"
-                description: The amount of this individual charge.
-              billing_source:
-                type: string
-                example: "carrier"
-                description: |
-                  The source that produced the charge. Common values are `carrier` for carrier-billed charges and `dutiestax` for duties and taxes on DDP shipments (prepaid on Wallet carriers, estimated on BYOA carriers).
+            allOf:
+              - $ref: "#/components/schemas/rate_detail"
 
-                  > **Note:** The casing of this value differs by endpoint. Label responses return lowercase values (e.g. `carrier`, `dutiestax`). Rate responses return PascalCase values (e.g. `Carrier`, `DutiesTax`). This reflects the actual API behavior.
+        carrier_weight:
+          readOnly: true
+          oneOf:
+            - type: "null"
+            - $ref: "#/components/schemas/weight"
+          description: >-
+            The billable weight assessed by the carrier, based on the weight and
+            dimensions submitted with the rate request.
+
+        display_scheme:
+          readOnly: true
+          oneOf:
+            - type: "null"
+            - $ref: "#/components/schemas/display_scheme_response"
+          description: >-
+            The display format for the label this rate would produce.
     service:
       title: service
       type: object
@@ -17425,16 +17655,6 @@ components:
 
       required:
         - rate_response
-        - shipment_id
-        - ship_date
-        - created_at
-        - modified_at
-        - shipment_status
-        - return_to
-        - insurance_provider
-        - tags
-        - packages
-        - total_weight
 
       additionalProperties: false
 
@@ -18723,6 +18943,7 @@ components:
       enum:
         - check
         - shipment
+        - quick
       description: The possible rate type values
 
     refund_details:
@@ -18855,6 +19076,20 @@ components:
         - paperless
         - label_and_paperless
       description: The display format that the label should be shown in.
+    display_scheme_response:
+      title: display_scheme_response
+      type: string
+      enum:
+        - label
+        - qr_code
+        - label_and_qr_code
+        - paperless
+        - label_and_paperless
+        - no_box_no_label
+      description: >-
+        The display format produced for a shipment. This is the full set of
+        values the API can return. The values accepted when *requesting* a
+        label are documented on `display_scheme`.
     label_layout:
       title: label_layout
       type: string
@@ -20568,6 +20803,15 @@ components:
           allOf:
             - $ref: "#/components/schemas/display_scheme"
           description: The display format that the label should be shown in.
+
+        generate_packing_slips:
+          type: boolean
+          default: false
+          example: true
+          description: |
+            When `true`, a packing slip is generated for each shipment in the batch and placed in line with the
+            labels in the `label_download` file. A separate download link for all packing slips in the batch is
+            returned in `packing_slip_download`.
     create_and_process_batch_request_body:
       title: create_and_process_batch_request_body
       type: object
@@ -20635,6 +20879,15 @@ components:
               allOf:
                 - $ref: "#/components/schemas/display_scheme"
               description: The display format that the label should be shown in.
+
+            generate_packing_slips:
+              type: boolean
+              default: false
+              example: true
+              description: |
+                When `true`, a packing slip is generated for each shipment in the batch and placed in line with the
+                labels in the `label_download` file. A separate download link for all packing slips in the batch is
+                returned in `packing_slip_download`.
     remove_from_batch_request_body:
       title: remove_from_batch_request_body
       type: object
@@ -20753,6 +21006,11 @@ components:
           type: boolean
           description: Indicate if it's a return shipment
           example: true
+        rate_type:
+          allOf:
+            - $ref: "#/components/schemas/rate_type"
+          description: Indicates what type of rating to perform
+          example: shipment
     rate_request_rate_options:
       title: rate_request_rate_options
       type: object
@@ -20981,6 +21239,195 @@ components:
           description: The ID of the user to assign to the shipments
           example: "a2df9fa5-b7ee-467f-be4e-9c660542c187"
 
+    hold_shipment_request_body:
+      title: hold_shipment_request_body
+      type: object
+
+      description: A request body for holding a shipment
+
+      required:
+        - hold_until_date
+
+      additionalProperties: false
+
+      properties:
+        hold_until_date:
+          type: string
+          format: date
+          description: |
+            The date to hold the shipment until. This is a date-only value — you can send a
+            plain `YYYY-MM-DD` date, and any time component is ignored. The date must be
+            later than today.
+          example: "2026-10-15"
+
+    hold_shipment_response_body:
+      title: hold_shipment_response_body
+      type: object
+
+      description: A response body for holding a shipment
+
+      additionalProperties: false
+
+      properties:
+        shipment_id:
+          allOf:
+            - $ref: "#/components/schemas/se_id"
+          description: The ID of the shipment that was put on hold
+          example: "se-202902255"
+
+        hold_until_date:
+          type: string
+          format: date-time
+          description: The date the shipment is held until, returned at midnight
+          example: "2026-10-15T00:00:00Z"
+
+    restore_shipment_response_body:
+      title: restore_shipment_response_body
+      type: object
+
+      description: A response body for restoring a shipment that is on hold
+
+      additionalProperties: false
+
+      properties:
+        shipment_id:
+          allOf:
+            - $ref: "#/components/schemas/se_id"
+          description: The ID of the shipment that was restored
+          example: "se-202902255"
+
+    hold_shipments_request_body:
+      title: hold_shipments_request_body
+      type: object
+
+      description: A request body for holding one or more shipments
+
+      required:
+        - shipment_ids
+        - hold_until_date
+
+      additionalProperties: false
+
+      properties:
+        shipment_ids:
+          type: array
+          minItems: 1
+          maxItems: 500
+          items:
+            allOf:
+              - $ref: "#/components/schemas/se_id"
+          description: Array of shipment IDs to hold
+          example:
+            - "se-202902255"
+            - "se-202902256"
+
+        hold_until_date:
+          type: string
+          format: date
+          description: |
+            The date to hold the shipments until. This is a date-only value — you can send a
+            plain `YYYY-MM-DD` date, and any time component is ignored. The date must be
+            later than today.
+          example: "2026-10-15"
+
+    hold_shipments_response_body:
+      title: hold_shipments_response_body
+      type: object
+
+      description: A response body for holding one or more shipments
+
+      additionalProperties: false
+
+      properties:
+        shipment_ids:
+          type: array
+          items:
+            allOf:
+              - $ref: "#/components/schemas/se_id"
+          description: Array of shipment IDs that were put on hold
+          example:
+            - "se-202902255"
+            - "se-202902256"
+
+        hold_until_date:
+          type: string
+          format: date-time
+          description: The date the shipments are held until, returned at midnight. Absent when no shipment was held.
+          example: "2026-10-15T00:00:00Z"
+
+        errors:
+          type: array
+          readOnly: true
+          items:
+            allOf:
+              - $ref: "#/components/schemas/error"
+          description: The shipments that could not be held, with the reason for each. Empty when every shipment was processed.
+
+        request_id:
+          allOf:
+            - $ref: "#/components/schemas/uuid"
+          description: |
+            A UUID that uniquely identifies the request id.
+            This can be given to the support team to help debug non-trivial issues that may occur
+
+    restore_shipments_request_body:
+      title: restore_shipments_request_body
+      type: object
+
+      description: A request body for restoring one or more shipments that are on hold
+
+      required:
+        - shipment_ids
+
+      additionalProperties: false
+
+      properties:
+        shipment_ids:
+          type: array
+          minItems: 1
+          maxItems: 500
+          items:
+            allOf:
+              - $ref: "#/components/schemas/se_id"
+          description: Array of shipment IDs to restore
+          example:
+            - "se-202902255"
+            - "se-202902256"
+
+    restore_shipments_response_body:
+      title: restore_shipments_response_body
+      type: object
+
+      description: A response body for restoring one or more shipments that are on hold
+
+      additionalProperties: false
+
+      properties:
+        shipment_ids:
+          type: array
+          items:
+            allOf:
+              - $ref: "#/components/schemas/se_id"
+          description: Array of shipment IDs that were restored
+          example:
+            - "se-202902255"
+            - "se-202902256"
+
+        errors:
+          type: array
+          readOnly: true
+          items:
+            allOf:
+              - $ref: "#/components/schemas/error"
+          description: The shipments that could not be restored, with the reason for each. Empty when every shipment was processed.
+
+        request_id:
+          allOf:
+            - $ref: "#/components/schemas/uuid"
+          description: |
+            A UUID that uniquely identifies the request id.
+            This can be given to the support team to help debug non-trivial issues that may occur
+
     assign_user_to_batch_request_body:
       title: assign_user_to_batch_request_body
       type: object
@@ -21140,6 +21587,46 @@ components:
             allOf:
               - $ref: "#/components/schemas/se_id"
           description: Array of rate IDs used in the batch
+
+        process_labels:
+          type: object
+          description: The information used to process the batch
+          properties:
+            create_batch_and_process_labels:
+              type: boolean
+              example: true
+              description: When 'true', the batch will be enqueued for processing
+
+            ship_date:
+              allOf:
+                - $ref: "#/components/schemas/date_time"
+              description: The Ship date the batch is being processed for
+
+            label_layout:
+              type: string
+              default: 4x6
+              allOf:
+                - $ref: "#/components/schemas/label_layout"
+
+            label_format:
+              default: pdf
+              allOf:
+                - $ref: "#/components/schemas/label_format"
+
+            display_scheme:
+              default: label
+              allOf:
+                - $ref: "#/components/schemas/display_scheme"
+              description: The display format that the label should be shown in.
+
+            generate_packing_slips:
+              type: boolean
+              default: false
+              example: true
+              description: |
+                When `true`, a packing slip is generated for each shipment in the batch and placed in line with the
+                labels in the `label_download` file. A separate download link for all packing slips in the batch is
+                returned in `packing_slip_download`.
 
     validate_address_request_body:
       type: array
@@ -21949,17 +22436,13 @@ components:
       title: freight_address
       type: object
       description: |
-        An origin or destination address for a freight shipment. LTL carriers require a contact name, company name, and phone number at both ends of the shipment so the driver can arrange pickup and delivery.
+        An origin or destination address for a freight quote. LTL carriers need city, state, postal code, and country to price a shipment — contact and street details are optional at quote time. When booking, use `freight_book_address`, which requires the full contact details needed to produce a Bill of Lading.
       additionalProperties: false
       required:
-        - name
-        - company_name
-        - address_line1
         - city_locality
         - state_province
         - postal_code
         - country_code
-        - phone
       properties:
         name:
           type: string
@@ -22020,6 +22503,19 @@ components:
           example: commercial
           description: |
             How the carrier should classify this location. Location type affects accessorial charges — for example, residential and limited-access locations usually carry a surcharge. An unrecognized value is rejected with a `400 Bad Request`.
+
+    freight_book_address:
+      title: freight_book_address
+      description: |
+        An origin or destination address for a freight booking. Extends `freight_address` with the contact details — name, company, street, and phone — that the carrier needs to produce a Bill of Lading and to reach the pickup or delivery contact.
+      allOf:
+        - $ref: "#/components/schemas/freight_address"
+        - type: object
+          required:
+            - name
+            - company_name
+            - address_line1
+            - phone
 
     freight_tradeshow:
       title: freight_tradeshow
@@ -22129,9 +22625,10 @@ components:
         insured_value:
           type: number
           format: double
+          exclusiveMinimum: 0
           example: 18500
           description: |
-            The declared value of the freight to insure, in USD. Always send this: it is not currently validated, so omitting it requests insurance with a declared value of `0` rather than returning an error.
+            The declared value of the freight to insure, in USD. Must be greater than 0.
         item_condition:
           type: [string, "null"]
           enum:
@@ -22141,7 +22638,7 @@ components:
           default: new
           example: new
           description: |
-            The condition of the insured goods. Maximum liability differs between new and used freight. Unrecognized values are ignored rather than rejected.
+            The condition of the insured goods. Maximum liability differs between new and used freight. An unrecognized value is rejected with a `400 Bad Request`.
         commodity_category:
           type: [string, "null"]
           enum:
@@ -22167,7 +22664,7 @@ components:
           default: general_merchandise
           example: furniture
           description: |
-            The category of the insured goods. Some categories are excluded or restricted by the insurer. Unrecognized values fall back to `general_merchandise` rather than returning an error.
+            The category of the insured goods. Some categories are excluded or restricted by the insurer. An unrecognized value is rejected with a `400 Bad Request`.
         marks_numbers:
           type: [string, "null"]
           example: NG-2026-0417
@@ -22335,13 +22832,6 @@ components:
           allOf:
             - $ref: "#/components/schemas/weight_unit"
           description: The unit of measure for `weight`.
-        value:
-          type: [number, "null"]
-          format: double
-          deprecated: true
-          example: 4800
-          description: |
-            Accepted but ignored. This field is not sent to the carrier and is not stored. To declare a value for cargo insurance, use `insurance.insured_value` on the quote request instead.
         packaging_type:
           type: [string, "null"]
           enum:
@@ -22832,7 +23322,7 @@ components:
           allOf:
             - $ref: "#/components/schemas/se_id"
           description: |
-            The shipment the offer was quoted for. When provided, the shipment must already have a freight quote, and `ship_from`, `ship_to`, and `handling_units` must be omitted — the origin, destination, and handling units all come from the shipment and its saved freight configuration.
+            The shipment the offer was quoted for. When provided, the shipment must already have a freight quote, and `ship_from` and `ship_to` must be omitted — the origin, destination, and handling units all come from the shipment and its saved freight configuration.
         offer_id:
           type: string
           minLength: 1
@@ -22841,21 +23331,14 @@ components:
             The `offer_id` of the quoted offer being booked. Resolves server-side to the provider connection, the carrier, and the expiration.
         ship_from:
           allOf:
-            - $ref: "#/components/schemas/freight_address"
+            - $ref: "#/components/schemas/freight_book_address"
           description: |
             The origin address. Required when `shipment_id` is omitted, and must not be provided when `shipment_id` is present.
         ship_to:
           allOf:
-            - $ref: "#/components/schemas/freight_address"
+            - $ref: "#/components/schemas/freight_book_address"
           description: |
             The destination address. Required when `shipment_id` is omitted, and must not be provided when `shipment_id` is present.
-        handling_units:
-          type: array
-          minItems: 1
-          items:
-            $ref: "#/components/schemas/freight_handling_unit"
-          description: |
-            The handling units being shipped. Required when `shipment_id` is omitted, and must not be provided when `shipment_id` is present.
         pickup_details:
           allOf:
             - $ref: "#/components/schemas/freight_pickup_details"
@@ -22877,6 +23360,12 @@ components:
           type: [string, "null"]
           example: Do not double stack. Load with forks from the long side.
           description: Instructions for handling the freight in transit.
+        notifications:
+          type: [array, "null"]
+          items:
+            $ref: "#/components/schemas/freight_notification"
+          description: |
+            Groups of shipment event notifications to send. Each group names one or more event codes and the email addresses to notify when those events occur. When omitted or `null`, no notifications are sent.
 
     freight_shipment_status:
       title: freight_shipment_status
@@ -22947,6 +23436,47 @@ components:
           description: |
             The path to download the document as a PDF, relative to the API host. Resolve it against `https://api.shipstation.com` to get the full URL.
 
+    freight_notification:
+      title: freight_notification
+      type: object
+      description: |
+        A group of shipment event notifications. Each group maps one or more event codes to a list of email addresses to notify when those events occur.
+      additionalProperties: false
+      required:
+        - events
+        - email_addresses
+      properties:
+        events:
+          type: array
+          minItems: 1
+          items:
+            type: string
+            enum:
+              - quote_ready
+              - exception
+              - booked
+              - delivered
+              - in_transit
+              - out_for_delivery
+              - pickup_scheduled
+              - voided
+          example:
+            - booked
+            - in_transit
+          description: |
+            The shipment events that trigger this notification group. Must contain at least one value and no duplicates.
+        email_addresses:
+          type: array
+          minItems: 1
+          maxItems: 5
+          items:
+            type: string
+            format: email
+          example:
+            - logistics@example.com
+          description: |
+            The email addresses to notify when any of the listed events occur. Between 1 and 5 addresses per group.
+
     book_freight_shipment_response_body:
       title: book_freight_shipment_response_body
       type: object
@@ -22957,6 +23487,11 @@ components:
           allOf:
             - $ref: "#/components/schemas/se_id"
           description: The identifier of the freight shipment. Use it to retrieve, track, or cancel the shipment.
+        shipment_id:
+          allOf:
+            - $ref: "#/components/schemas/se_id"
+          type: ["string", "null"]
+          description: The identifier of the ShipStation shipment linked to this freight booking, if any.
         freight_provider_account_id:
           allOf:
             - $ref: "#/components/schemas/se_id"
@@ -22987,6 +23522,12 @@ components:
           example: FXFE-PU-884215
           description: |
             The carrier's pickup confirmation number. `null` when the carrier did not return one.
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          example: "2026-09-18T14:54:44Z"
+          description: The date and time the freight shipment was created, in UTC.
         documents:
           type: [array, "null"]
           readOnly: true
@@ -22994,6 +23535,13 @@ components:
             $ref: "#/components/schemas/freight_booked_document"
           description: |
             The documents the carrier generated for the booking. `null` when the provider reported none.
+        notifications:
+          type: [array, "null"]
+          readOnly: true
+          items:
+            $ref: "#/components/schemas/freight_notification"
+          description: |
+            The notification groups configured for this shipment, echoed back from the booking request. `null` when no notifications were configured.
 
     freight_shipment_response_body:
       title: freight_shipment_response_body
@@ -23034,6 +23582,12 @@ components:
           example: FXFE-PU-884215
           description: |
             The carrier's pickup confirmation number. `null` when the carrier did not return one.
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          example: "2026-09-18T14:54:44Z"
+          description: The date and time the freight shipment was created, in UTC.
         documents:
           type: [array, "null"]
           readOnly: true
@@ -23041,6 +23595,13 @@ components:
             $ref: "#/components/schemas/freight_shipment_document"
           description: |
             The documents stored for the shipment, each with a download URL. `null` when no documents have been stored yet.
+        notifications:
+          type: [array, "null"]
+          readOnly: true
+          items:
+            $ref: "#/components/schemas/freight_notification"
+          description: |
+            The notification groups configured for this shipment. `null` when no notifications were configured.
 
     list_freight_shipments_response_body:
       title: list_freight_shipments_response_body
