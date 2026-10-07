@@ -1,6 +1,8 @@
 name: Sync OpenAPI spec
 
 on:
+  repository_dispatch:
+    types: [openapi-spec-updated]
   workflow_dispatch:
 
 concurrency:
