@@ -15,7 +15,8 @@ in [`scripts/generate.sh`](../scripts/generate.sh).
 ## Why the model templates are overridden
 
 - **`anyOf`:** upstream does not support it. It merges all members into one interface, which breaks with duplicate
-  properties (e.g. `connect_carrier_request_body`).
+  properties (e.g. `connect_carrier_request_body`). `modelAnyOf` only takes effect once a schema in `spec/openapi.yaml`
+  uses `anyOf`; the `sync` workflow exercises it when the spec adopts it.
 - **Unions:** upstream (de)serializes with the first member that matches, silently dropping the fields it does not
   know (12 of 28 carriers in `connectCarrier`). We merge all matching members instead.
 
