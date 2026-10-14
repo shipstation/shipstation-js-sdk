@@ -1,5 +1,6349 @@
 # ShipStation API v2 — contract changes
 
+## 2026-10-14
+
+## API Changes
+
+### GET /v2/account/settings
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/account/settings/images
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/account/settings/images
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### DELETE /v2/account/settings/images/{label_image_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/account/settings/images/{label_image_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### PUT /v2/account/settings/images/{label_image_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/addresses/validate
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### GET /v2/batches
+- :warning: removed `#/components/schemas/error` from the `batches/items/allOf[subschema #1: batch]/process_errors/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `batches/items/allOf[subschema #1: batch]/packing_slip_download` to the response with the `200` status
+-  added the optional property `batches/items/allOf[subschema #1: batch]/process_errors/items/field_name` to the response with the `200` status
+-  added the optional property `batches/items/allOf[subschema #1: batch]/process_errors/items/field_value` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `batches/items/allOf[subschema #1: batch]/process_errors/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `batches/items/allOf[subschema #1: batch]/process_errors/items/error_code` to the response with the `200` status
+-  added the required property `batches/items/allOf[subschema #1: batch]/process_errors/items/error_source` to the response with the `200` status
+-  added the required property `batches/items/allOf[subschema #1: batch]/process_errors/items/error_type` to the response with the `200` status
+-  added the required property `batches/items/allOf[subschema #1: batch]/process_errors/items/message` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/batches
+- :warning: removed `#/components/schemas/create_batch_request_body, #/components/schemas/create_and_process_batch_request_body` from the request body `oneOf` list
+- :warning: the request's body `type` changed from `any` to `object`
+- :warning: removed `#/components/schemas/error` from the `allOf[subschema #1: batch]/process_errors/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `allOf[subschema #1: batch]/process_errors/items/` response property `allOf` list for the response status `207`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the new optional request property `assigned_user`
+-  added the new optional request property `batch_notes`
+-  added the new optional request property `external_batch_id`
+-  added the new optional request property `process_labels`
+-  added the new optional request property `rate_ids`
+-  added the new optional request property `shipment_ids`
+-  added the optional property `allOf[subschema #1: batch]/packing_slip_download` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: batch]/packing_slip_download` to the response with the `207` status
+-  added the optional property `allOf[subschema #1: batch]/process_errors/items/field_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: batch]/process_errors/items/field_name` to the response with the `207` status
+-  added the optional property `allOf[subschema #1: batch]/process_errors/items/field_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: batch]/process_errors/items/field_value` to the response with the `207` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `allOf[subschema #1: batch]/process_errors/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: batch]/process_errors/items/` response's property `type` was narrowed from `any` to `object` for status `207`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `allOf[subschema #1: batch]/process_errors/items/error_code` to the response with the `200` status
+-  added the required property `allOf[subschema #1: batch]/process_errors/items/error_code` to the response with the `207` status
+-  added the required property `allOf[subschema #1: batch]/process_errors/items/error_source` to the response with the `200` status
+-  added the required property `allOf[subschema #1: batch]/process_errors/items/error_source` to the response with the `207` status
+-  added the required property `allOf[subschema #1: batch]/process_errors/items/error_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: batch]/process_errors/items/error_type` to the response with the `207` status
+-  added the required property `allOf[subschema #1: batch]/process_errors/items/message` to the response with the `200` status
+-  added the required property `allOf[subschema #1: batch]/process_errors/items/message` to the response with the `207` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### GET /v2/batches/external_batch_id/{external_batch_id}
+- :warning: removed `#/components/schemas/error` from the `allOf[subschema #1: batch]/process_errors/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `allOf[subschema #1: batch]/packing_slip_download` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: batch]/process_errors/items/field_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: batch]/process_errors/items/field_value` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: batch]/process_errors/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `allOf[subschema #1: batch]/process_errors/items/error_code` to the response with the `200` status
+-  added the required property `allOf[subschema #1: batch]/process_errors/items/error_source` to the response with the `200` status
+-  added the required property `allOf[subschema #1: batch]/process_errors/items/error_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: batch]/process_errors/items/message` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### DELETE /v2/batches/{batch_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/batches/{batch_id}
+- :warning: removed `#/components/schemas/error` from the `allOf[subschema #1: batch]/process_errors/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the optional property `allOf[subschema #1: batch]/packing_slip_download` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: batch]/process_errors/items/field_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: batch]/process_errors/items/field_value` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `allOf[subschema #1: batch]/process_errors/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `allOf[subschema #1: batch]/process_errors/items/error_code` to the response with the `200` status
+-  added the required property `allOf[subschema #1: batch]/process_errors/items/error_source` to the response with the `200` status
+-  added the required property `allOf[subschema #1: batch]/process_errors/items/error_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: batch]/process_errors/items/message` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### PUT /v2/batches/{batch_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/batches/{batch_id}/add
+- :warning: added `#/components/schemas/modify_batch` to the request body `allOf` list
+- :warning: removed the request property `batch_notes`
+- :warning: removed the request property `external_batch_id`
+- :warning: removed the request property `process_labels`
+- :warning: removed the request property `rate_ids`
+- :warning: removed the request property `shipment_ids`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### GET /v2/batches/{batch_id}/errors
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/batches/{batch_id}/process/labels
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the new optional request property `generate_packing_slips`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/batches/{batch_id}/remove
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### DELETE /v2/batches/{batch_id}/user
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### PUT /v2/batches/{batch_id}/user
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/carriers
+- :warning: removed `#/components/schemas/error` from the `allOf[subschema #2: error_response_body]/errors/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `allOf[subschema #2: error_response_body]/errors/items/` response property `allOf` list for the response status `207`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/package_code` from the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/packages/items/allOf[subschema #1: package_type]/package_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package_code` from the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/packages/items/allOf[subschema #1: package_type]/package_code` response property `allOf` list for the response status `207`
+- :warning: removed `#/components/schemas/pagination_link` from the `allOf[subschema #1: list_carriers_response_body]/allOf[subschema #1: paged_list_response_body]/links` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/pagination_link` from the `allOf[subschema #1: list_carriers_response_body]/allOf[subschema #1: paged_list_response_body]/links` response property `allOf` list for the response status `207`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/services/items/allOf[subschema #1: service]/carrier_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/services/items/allOf[subschema #1: service]/carrier_code` response property `allOf` list for the response status `207`
+-  added the optional property `allOf[subschema #2: error_response_body]/errors/items/field_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #2: error_response_body]/errors/items/field_name` to the response with the `207` status
+-  added the optional property `allOf[subschema #2: error_response_body]/errors/items/field_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #2: error_response_body]/errors/items/field_value` to the response with the `207` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/packages/items/allOf[subschema #1: package_type]/package_code` response property's maxLength was set to `50` for the response status `200`
+-  the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/packages/items/allOf[subschema #1: package_type]/package_code` response property's maxLength was set to `50` for the response status `207`
+-  the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/services/items/allOf[subschema #1: service]/carrier_code` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/services/items/allOf[subschema #1: service]/carrier_code` response property's maxLength was set to `25` for the response status `207`
+-  the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/packages/items/allOf[subschema #1: package_type]/package_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/packages/items/allOf[subschema #1: package_type]/package_code` response property's minLength was set to `1` for the response status `207`
+-  the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/services/items/allOf[subschema #1: service]/carrier_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/services/items/allOf[subschema #1: service]/carrier_code` response property's minLength was set to `1` for the response status `207`
+-  the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/packages/items/allOf[subschema #1: package_type]/package_code` response's property pattern `^[a-z0-9]+(_[a-z0-9]+)*$` was added for the status `200`
+-  the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/packages/items/allOf[subschema #1: package_type]/package_code` response's property pattern `^[a-z0-9]+(_[a-z0-9]+)*$` was added for the status `207`
+-  the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/services/items/allOf[subschema #1: service]/carrier_code` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/services/items/allOf[subschema #1: service]/carrier_code` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `207`
+-  the `allOf[subschema #1: list_carriers_response_body]/allOf[subschema #1: paged_list_response_body]/links` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: list_carriers_response_body]/allOf[subschema #1: paged_list_response_body]/links` response's property `type` was narrowed from `any` to `object` for status `207`
+-  the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/packages/items/allOf[subschema #1: package_type]/package_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/packages/items/allOf[subschema #1: package_type]/package_code` response's property `type` was narrowed from `any` to `string` for status `207`
+-  the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/services/items/allOf[subschema #1: service]/carrier_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/services/items/allOf[subschema #1: service]/carrier_code` response's property `type` was narrowed from `any` to `string` for status `207`
+-  the `allOf[subschema #2: error_response_body]/errors/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #2: error_response_body]/errors/items/` response's property `type` was narrowed from `any` to `object` for status `207`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `allOf[subschema #1: list_carriers_response_body]/allOf[subschema #1: paged_list_response_body]/links/first` to the response with the `200` status
+-  added the required property `allOf[subschema #1: list_carriers_response_body]/allOf[subschema #1: paged_list_response_body]/links/first` to the response with the `207` status
+-  added the required property `allOf[subschema #1: list_carriers_response_body]/allOf[subschema #1: paged_list_response_body]/links/last` to the response with the `200` status
+-  added the required property `allOf[subschema #1: list_carriers_response_body]/allOf[subschema #1: paged_list_response_body]/links/last` to the response with the `207` status
+-  added the required property `allOf[subschema #1: list_carriers_response_body]/allOf[subschema #1: paged_list_response_body]/links/next` to the response with the `200` status
+-  added the required property `allOf[subschema #1: list_carriers_response_body]/allOf[subschema #1: paged_list_response_body]/links/next` to the response with the `207` status
+-  added the required property `allOf[subschema #1: list_carriers_response_body]/allOf[subschema #1: paged_list_response_body]/links/prev` to the response with the `200` status
+-  added the required property `allOf[subschema #1: list_carriers_response_body]/allOf[subschema #1: paged_list_response_body]/links/prev` to the response with the `207` status
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/error_code` to the response with the `200` status
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/error_code` to the response with the `207` status
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/error_source` to the response with the `200` status
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/error_source` to the response with the `207` status
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/error_type` to the response with the `200` status
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/error_type` to the response with the `207` status
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/message` to the response with the `200` status
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/message` to the response with the `207` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### DELETE /v2/carriers/{carrier_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/carriers/{carrier_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/package_code` from the `allOf[subschema #1: carrier]/packages/items/allOf[subschema #1: package_type]/package_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: carrier]/services/items/allOf[subschema #1: service]/carrier_code` response property `allOf` list for the response status `200`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: carrier]/packages/items/allOf[subschema #1: package_type]/package_code` response property's maxLength was set to `50` for the response status `200`
+-  the `allOf[subschema #1: carrier]/services/items/allOf[subschema #1: service]/carrier_code` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: carrier]/packages/items/allOf[subschema #1: package_type]/package_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: carrier]/services/items/allOf[subschema #1: service]/carrier_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: carrier]/packages/items/allOf[subschema #1: package_type]/package_code` response's property pattern `^[a-z0-9]+(_[a-z0-9]+)*$` was added for the status `200`
+-  the `allOf[subschema #1: carrier]/services/items/allOf[subschema #1: service]/carrier_code` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: carrier]/packages/items/allOf[subschema #1: package_type]/package_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: carrier]/services/items/allOf[subschema #1: service]/carrier_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### PUT /v2/carriers/{carrier_id}/add_funds
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/carriers/{carrier_id}/options
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/carriers/{carrier_id}/packages
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/package_code` from the `packages/items/allOf[subschema #1: carrier_provided_package_type]/package_code` response property `allOf` list for the response status `200`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `packages/items/allOf[subschema #1: carrier_provided_package_type]/package_code` response property's maxLength was set to `50` for the response status `200`
+-  the `packages/items/allOf[subschema #1: carrier_provided_package_type]/package_code` response property's minLength was set to `1` for the response status `200`
+-  the `packages/items/allOf[subschema #1: carrier_provided_package_type]/package_code` response's property pattern `^[a-z0-9]+(_[a-z0-9]+)*$` was added for the status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  the `packages/items/allOf[subschema #1: carrier_provided_package_type]/package_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/carriers/{carrier_id}/services
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/se_id` from the `services/items/allOf[subschema #1: service]/carrier_code` response property `allOf` list for the response status `200`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `services/items/allOf[subschema #1: service]/carrier_code` response property's maxLength was set to `25` for the response status `200`
+-  the `services/items/allOf[subschema #1: service]/carrier_code` response property's minLength was set to `1` for the response status `200`
+-  the `services/items/allOf[subschema #1: service]/carrier_code` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  the `services/items/allOf[subschema #1: service]/carrier_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/checkout_rates
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### GET /v2/checkout_rates/quotes/{quote_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  added the optional property `quote/allOf[subschema #1: checkout_rates_rate_option]/delivery_prediction` to the response with the `200` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/checkout_rates/{config_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/checkout_rates/{config_id}/options
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `409`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `409` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `409` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `409`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `409` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `409` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `409` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `409` status
+
+
+### DELETE /v2/checkout_rates/{config_id}/options/{option_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/checkout_rates/{config_id}/options/{option_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### PUT /v2/checkout_rates/{config_id}/options/{option_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `409`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_name` to the response with the `409` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `409` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `409`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_code` to the response with the `409` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `409` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `409` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `409` status
+
+
+### POST /v2/checkout_rates/{config_id}/quotes
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  added the optional property `rates/items/delivery_prediction` to the response with the `200` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/connections/carriers/{carrier_name}
+- :warning: removed `#/components/schemas/connect_access_worldwide_request_body, #/components/schemas/connect_amazon_buy_shipping_request_body, #/components/schemas/connect_amazon_shipping_uk, #/components/schemas/connect_apc_request_body, #/components/schemas/connect_asendia_request_body, #/components/schemas/connect_australia_post_request_body, #/components/schemas/connect_canada_post_request_body, #/components/schemas/connect_dhl_ecommerce_request_body, #/components/schemas/connect_dhl_express_request_body, #/components/schemas/connect_dhl_express_au_request_body, #/components/schemas/connect_dhl_express_ca_request_body, #/components/schemas/connect_dhl_express_uk_request_body, #/components/schemas/connect_dpd_request_body, #/components/schemas/connect_endicia_request_body, #/components/schemas/connect_fedex_request_body, #/components/schemas/connect_fedex_uk_request_body, #/components/schemas/connect_firstmile_request_body, #/components/schemas/connect_imex_request_body, #/components/schemas/connect_lasership_request_body, #/components/schemas/connect_newgistics_request_body, #/components/schemas/connect_ontrac_request_body, #/components/schemas/connect_purolator_request_body, #/components/schemas/connect_royal_mail_request_body, #/components/schemas/connect_rr_donnelley_request_body, #/components/schemas/connect_seko_request_body, #/components/schemas/connect_sendle_request_body, #/components/schemas/connect_stamps_request_body, #/components/schemas/connect_ups_request_body` from the request body `oneOf` list
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added `#/components/schemas/connect_access_worldwide_request_body, #/components/schemas/connect_amazon_buy_shipping_request_body, #/components/schemas/connect_amazon_shipping_uk, #/components/schemas/connect_apc_request_body, #/components/schemas/connect_asendia_request_body, #/components/schemas/connect_australia_post_request_body, #/components/schemas/connect_canada_post_request_body, #/components/schemas/connect_dhl_ecommerce_request_body, #/components/schemas/connect_dhl_express_request_body, #/components/schemas/connect_dhl_express_au_request_body, #/components/schemas/connect_dhl_express_ca_request_body, #/components/schemas/connect_dhl_express_uk_request_body, #/components/schemas/connect_dpd_request_body, #/components/schemas/connect_endicia_request_body, #/components/schemas/connect_fedex_request_body, #/components/schemas/connect_fedex_uk_request_body, #/components/schemas/connect_firstmile_request_body, #/components/schemas/connect_imex_request_body, #/components/schemas/connect_lasership_request_body, #/components/schemas/connect_newgistics_request_body, #/components/schemas/connect_ontrac_request_body, #/components/schemas/connect_purolator_request_body, #/components/schemas/connect_royal_mail_request_body, #/components/schemas/connect_rr_donnelley_request_body, #/components/schemas/connect_seko_request_body, #/components/schemas/connect_sendle_request_body, #/components/schemas/connect_stamps_request_body, #/components/schemas/connect_ups_request_body` to the request body `anyOf` list
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### DELETE /v2/connections/carriers/{carrier_name}/{carrier_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/connections/carriers/{carrier_name}/{carrier_id}/settings
+- :warning: removed `#/components/schemas/ancillary_service_endorsement` from the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_endorsement` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/ancillary_service_endorsement` from the `oneOf[subschema #3: ups_settings_response_body]/allOf[subschema #1: ups_account_settings]/mail_innovations_endorsement` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/fedex_pickup_type` from the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/pickup_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/smart_post_hub` from the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/ups_pickup_type` from the `oneOf[subschema #3: ups_settings_response_body]/allOf[subschema #1: ups_account_settings]/pickup_type` response property `allOf` list for the response status `200`
+- :warning: added the new `address_service_requested` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_endorsement` response property for the response status `200`
+- :warning: added the new `address_service_requested` enum value to the `oneOf[subschema #3: ups_settings_response_body]/allOf[subschema #1: ups_account_settings]/mail_innovations_endorsement` response property for the response status `200`
+- :warning: added the new `allentown_pa` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `atlanta_ga` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `baltimore_md` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `business_service_center` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/pickup_type` response property for the response status `200`
+- :warning: added the new `change_service_requested` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_endorsement` response property for the response status `200`
+- :warning: added the new `change_service_requested` enum value to the `oneOf[subschema #3: ups_settings_response_body]/allOf[subschema #1: ups_account_settings]/mail_innovations_endorsement` response property for the response status `200`
+- :warning: added the new `charlotte_nc` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `chino_ca` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `customer_counter` enum value to the `oneOf[subschema #3: ups_settings_response_body]/allOf[subschema #1: ups_account_settings]/pickup_type` response property for the response status `200`
+- :warning: added the new `daily_pickup` enum value to the `oneOf[subschema #3: ups_settings_response_body]/allOf[subschema #1: ups_account_settings]/pickup_type` response property for the response status `200`
+- :warning: added the new `dallas_tx` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `denver_co` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `detroit_mi` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `drop_box` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/pickup_type` response property for the response status `200`
+- :warning: added the new `edison_nj` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `forwarding_service_requested` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_endorsement` response property for the response status `200`
+- :warning: added the new `forwarding_service_requested` enum value to the `oneOf[subschema #3: ups_settings_response_body]/allOf[subschema #1: ups_account_settings]/mail_innovations_endorsement` response property for the response status `200`
+- :warning: added the new `grove_city_oh` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `groveport_oh` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `houston_tx` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `indianapolis_in` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `kansas_city_ks` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `leave_if_no_response` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_endorsement` response property for the response status `200`
+- :warning: added the new `leave_if_no_response` enum value to the `oneOf[subschema #3: ups_settings_response_body]/allOf[subschema #1: ups_account_settings]/mail_innovations_endorsement` response property for the response status `200`
+- :warning: added the new `los_angeles_ca` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `martinsburg_wv` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `memphis_tn` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `middletown_ct` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `minneapolis_mn` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `new_berlin_wi` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `newark_ny` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `none` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/pickup_type` response property for the response status `200`
+- :warning: added the new `none` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_endorsement` response property for the response status `200`
+- :warning: added the new `none` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `none` enum value to the `oneOf[subschema #3: ups_settings_response_body]/allOf[subschema #1: ups_account_settings]/mail_innovations_endorsement` response property for the response status `200`
+- :warning: added the new `northborough_ma` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `occasional_pickup` enum value to the `oneOf[subschema #3: ups_settings_response_body]/allOf[subschema #1: ups_account_settings]/pickup_type` response property for the response status `200`
+- :warning: added the new `orlando_fl` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `phoneix_az` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `pittsburgh_pa` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `portland_or` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `regular_pickup` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/pickup_type` response property for the response status `200`
+- :warning: added the new `reno_nv` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `request_courier` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/pickup_type` response property for the response status `200`
+- :warning: added the new `return_service_requested` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_endorsement` response property for the response status `200`
+- :warning: added the new `return_service_requested` enum value to the `oneOf[subschema #3: ups_settings_response_body]/allOf[subschema #1: ups_account_settings]/mail_innovations_endorsement` response property for the response status `200`
+- :warning: added the new `sacramento_ca` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `salt_lake_city_ut` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `scranton_pa` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `seattle_wa` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `south_brunswick_nj` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `st_louis_mo` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `station` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/pickup_type` response property for the response status `200`
+- :warning: added the new `wheeling_il` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+- :warning: added the new `windsor_ct` enum value to the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response property for the response status `200`
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/pickup_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_endorsement` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `oneOf[subschema #2: fedex_settings_response_body]/allOf[subschema #1: fedex_account_settings_request_body]/allOf[subschema #1: fedex_account_settings]/smart_post_hub` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `oneOf[subschema #3: ups_settings_response_body]/allOf[subschema #1: ups_account_settings]/mail_innovations_endorsement` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `oneOf[subschema #3: ups_settings_response_body]/allOf[subschema #1: ups_account_settings]/pickup_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### PUT /v2/connections/carriers/{carrier_name}/{carrier_id}/settings
+- :warning: removed `#/components/schemas/update_dhl_express_settings_request_body, #/components/schemas/update_fedex_settings_request_body, #/components/schemas/update_newgistics_settings_request_body, #/components/schemas/update_ups_settings_request_body, #/components/schemas/update_amazon_buy_shipping_request_body` from the request body `oneOf` list
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added `#/components/schemas/update_dhl_express_settings_request_body, #/components/schemas/update_fedex_settings_request_body, #/components/schemas/update_newgistics_settings_request_body, #/components/schemas/update_ups_settings_request_body, #/components/schemas/update_amazon_buy_shipping_request_body` to the request body `anyOf` list
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/delivery_predictions
+-  endpoint added
+
+
+### POST /v2/documents/combined_labels
+- :warning: the `label_ids/items/` request property's maxLength was set to `25`
+- :warning: the `label_ids/items/` request property's minLength was set to `1`
+- :warning: added the pattern `^se(-[a-z0-9]+)+$` to the request property `label_ids/items/`
+- :warning: the `label_ids/items/` request property `type` changed from `any` to `string`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  removed `#/components/schemas/se_id` from the `label_ids/items/` request property `allOf` list
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/documents/{document_id}/download
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `410`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `425`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `503`
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_name` to the response with the `410` status
+-  added the optional property `errors/items/field_name` to the response with the `425` status
+-  added the optional property `errors/items/field_name` to the response with the `503` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `410` status
+-  added the optional property `errors/items/field_value` to the response with the `425` status
+-  added the optional property `errors/items/field_value` to the response with the `503` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `410`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `425`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `503`
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_code` to the response with the `410` status
+-  added the required property `errors/items/error_code` to the response with the `425` status
+-  added the required property `errors/items/error_code` to the response with the `503` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `410` status
+-  added the required property `errors/items/error_source` to the response with the `425` status
+-  added the required property `errors/items/error_source` to the response with the `503` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `410` status
+-  added the required property `errors/items/error_type` to the response with the `425` status
+-  added the required property `errors/items/error_type` to the response with the `503` status
+-  added the required property `errors/items/message` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `410` status
+-  added the required property `errors/items/message` to the response with the `425` status
+-  added the required property `errors/items/message` to the response with the `503` status
+
+
+### GET /v2/downloads/{dir}/{subdir}/{filename}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/environment/webhooks
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/webhook_event` from the `items/allOf[subschema #1: webhook]/event` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/webhook_header` from the `items/allOf[subschema #1: webhook]/headers/items/` response property `allOf` list for the response status `200`
+- :warning: added the new `batch` enum value to the `items/allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `batch_processed_v2` enum value to the `items/allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `carrier_connected` enum value to the `items/allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `fulfillment_rejected_v2` enum value to the `items/allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `fulfillment_shipped_v2` enum value to the `items/allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `label_created_v2` enum value to the `items/allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `order_source_refresh_complete` enum value to the `items/allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `rate` enum value to the `items/allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `report_complete` enum value to the `items/allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `sales_orders_imported` enum value to the `items/allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `shipment_created_v2` enum value to the `items/allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `track` enum value to the `items/allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `track_event_v2` enum value to the `items/allOf[subschema #1: webhook]/event` response property for the response status `200`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `items/allOf[subschema #1: webhook]/event` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `items/allOf[subschema #1: webhook]/headers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `items/allOf[subschema #1: webhook]/headers/items/key` to the response with the `200` status
+-  added the required property `items/allOf[subschema #1: webhook]/headers/items/value` to the response with the `200` status
+
+
+### POST /v2/environment/webhooks
+- :warning: added the new required request property `headers/items/key`
+- :warning: added the new required request property `headers/items/value`
+- :warning: request property `event` was restricted to a list of enum values
+- :warning: the `event` request property `type` changed from `any` to `string`
+- :warning: the `headers/items/` request property `type` changed from `any` to `object`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `409`
+- :warning: removed `#/components/schemas/webhook_event` from the `allOf[subschema #1: webhook]/event` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/webhook_header` from the `allOf[subschema #1: webhook]/headers/items/` response property `allOf` list for the response status `200`
+- :warning: added the new `batch` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `batch_processed_v2` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `carrier_connected` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `fulfillment_rejected_v2` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `fulfillment_shipped_v2` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `label_created_v2` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `order_source_refresh_complete` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `rate` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `report_complete` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `sales_orders_imported` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `shipment_created_v2` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `track` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `track_event_v2` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+-  removed `#/components/schemas/webhook_event` from the `event` request property `allOf` list
+-  removed `#/components/schemas/webhook_header` from the `headers/items/` request property `allOf` list
+-  added the new `batch` enum value to the request property `event`
+-  added the new `batch_processed_v2` enum value to the request property `event`
+-  added the new `carrier_connected` enum value to the request property `event`
+-  added the new `fulfillment_rejected_v2` enum value to the request property `event`
+-  added the new `fulfillment_shipped_v2` enum value to the request property `event`
+-  added the new `label_created_v2` enum value to the request property `event`
+-  added the new `order_source_refresh_complete` enum value to the request property `event`
+-  added the new `rate` enum value to the request property `event`
+-  added the new `report_complete` enum value to the request property `event`
+-  added the new `sales_orders_imported` enum value to the request property `event`
+-  added the new `shipment_created_v2` enum value to the request property `event`
+-  added the new `track` enum value to the request property `event`
+-  added the new `track_event_v2` enum value to the request property `event`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `409` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `409` status
+-  the `allOf[subschema #1: webhook]/event` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: webhook]/headers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `409`
+-  added the required property `allOf[subschema #1: webhook]/headers/items/key` to the response with the `200` status
+-  added the required property `allOf[subschema #1: webhook]/headers/items/value` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `409` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `409` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `409` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `409` status
+
+
+### DELETE /v2/environment/webhooks/{webhook_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/environment/webhooks/{webhook_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/webhook_event` from the `allOf[subschema #1: webhook]/event` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/webhook_header` from the `allOf[subschema #1: webhook]/headers/items/` response property `allOf` list for the response status `200`
+- :warning: added the new `batch` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `batch_processed_v2` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `carrier_connected` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `fulfillment_rejected_v2` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `fulfillment_shipped_v2` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `label_created_v2` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `order_source_refresh_complete` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `rate` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `report_complete` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `sales_orders_imported` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `shipment_created_v2` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `track` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+- :warning: added the new `track_event_v2` enum value to the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: webhook]/event` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: webhook]/headers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `allOf[subschema #1: webhook]/headers/items/key` to the response with the `200` status
+-  added the required property `allOf[subschema #1: webhook]/headers/items/value` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### PUT /v2/environment/webhooks/{webhook_id}
+- :warning: added the new required request property `headers/items/key`
+- :warning: added the new required request property `headers/items/value`
+- :warning: the `headers/items/` request property `type` changed from `any` to `object`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  removed `#/components/schemas/webhook_header` from the `headers/items/` request property `allOf` list
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/freight/provider_accounts
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### POST /v2/freight/provider_accounts
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `409`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `409` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `409` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `409`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `409` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `409` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `409` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `409` status
+
+
+### DELETE /v2/freight/provider_accounts/{freight_provider_account_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### PUT /v2/freight/provider_accounts/{freight_provider_account_id}/credentials
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/freight/quotes
+- :warning: the `insurance/allOf[subschema #1: freight_insurance]/insured_value` request property's exclusiveMinimum was set to `0.00`
+- :warning: removed the request property `handling_units/items/commodities/items/value`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  the request property `ship_from/allOf[subschema #1: freight_address]/address_line1` became optional
+-  the request property `ship_from/allOf[subschema #1: freight_address]/company_name` became optional
+-  the request property `ship_from/allOf[subschema #1: freight_address]/name` became optional
+-  the request property `ship_from/allOf[subschema #1: freight_address]/phone` became optional
+-  the request property `ship_to/allOf[subschema #1: freight_address]/address_line1` became optional
+-  the request property `ship_to/allOf[subschema #1: freight_address]/company_name` became optional
+-  the request property `ship_to/allOf[subschema #1: freight_address]/name` became optional
+-  the request property `ship_to/allOf[subschema #1: freight_address]/phone` became optional
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/freight/shipments
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the new optional `query` request parameter `created_at_end`
+-  added the new optional `query` request parameter `created_at_start`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `shipments/items/created_at` to the response with the `200` status
+-  added the optional property `shipments/items/notifications` to the response with the `200` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### POST /v2/freight/shipments
+- :warning: added `#/components/schemas/freight_book_address` to the `ship_from` request property `allOf` list
+- :warning: added `#/components/schemas/freight_book_address` to the `ship_to` request property `allOf` list
+- :warning: removed the request property `handling_units`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the new optional request property `notifications`
+-  removed `#/components/schemas/freight_address` from the `ship_from` request property `allOf` list
+-  removed `#/components/schemas/freight_address` from the `ship_to` request property `allOf` list
+-  added the optional property `created_at` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  added the optional property `notifications` to the response with the `200` status
+-  added the optional property `shipment_id` to the response with the `200` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### DELETE /v2/freight/shipments/{freight_shipment_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/freight/shipments/{freight_shipment_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `created_at` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  added the optional property `notifications` to the response with the `200` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/freight/shipments/{freight_shipment_id}/documents
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/freight/shipments/{freight_shipment_id}/tracking
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/freight/tracking
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/fulfillments
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/fulfillments
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### GET /v2/labels
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/label_messages` from the `labels/items/packages/items/allOf[subschema #1: label_package]/label_messages` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/order_source_name` from the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/pagination_link` from the `allOf[subschema #1: paged_list_response_body]/links` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `labels/items/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: the response property `labels/items/rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `labels/items/rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `labels/items/rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: added the new `amazon_ca` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `any` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `none` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `labels/items/delivery_prediction` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `labels/items/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: paged_list_response_body]/links` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `labels/items/packages/items/allOf[subschema #1: label_package]/label_messages` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `labels/items/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  added the required property `allOf[subschema #1: paged_list_response_body]/links/first` to the response with the `200` status
+-  added the required property `allOf[subschema #1: paged_list_response_body]/links/last` to the response with the `200` status
+-  added the required property `allOf[subschema #1: paged_list_response_body]/links/next` to the response with the `200` status
+-  added the required property `allOf[subschema #1: paged_list_response_body]/links/prev` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `labels/items/packages/items/allOf[subschema #1: label_package]/label_messages/reference1` to the response with the `200` status
+-  added the required property `labels/items/packages/items/allOf[subschema #1: label_package]/label_messages/reference2` to the response with the `200` status
+-  added the required property `labels/items/packages/items/allOf[subschema #1: label_package]/label_messages/reference3` to the response with the `200` status
+-  added the required property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+
+
+### POST /v2/labels
+- :warning: added the new required request property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference1`
+- :warning: added the new required request property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference2`
+- :warning: added the new required request property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference3`
+- :warning: added the new required request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight`
+- :warning: added the new required request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name`
+- :warning: added the new required request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type`
+- :warning: added the new required request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority`
+- :warning: added the new required request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type`
+- :warning: added the new required request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value`
+- :warning: request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` was restricted to a list of enum values
+- :warning: request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` was restricted to a list of enum values
+- :warning: the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` request property's maxLength was set to `25`
+- :warning: the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` request property's minLength was set to `1`
+- :warning: the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property's minLength was set to `1`
+- :warning: the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: added the pattern `^se(-[a-z0-9]+)+$` to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/`
+- :warning: the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` request property `type` changed from `any` to `object`
+- :warning: the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` request property `type` changed from `any` to `string`
+- :warning: the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` request property `type` changed from `any` to `string`
+- :warning: the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` request property `type` changed from `any` to `object`
+- :warning: the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` request property `type` changed from `any` to `string`
+- :warning: the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` request property `type` changed from `any` to `object`
+- :warning: the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` request property `type` changed from `any` to `object`
+- :warning: the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` request property `type` changed from `any` to `object`
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/label_messages` from the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/order_source_name` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: added the new `amazon_ca` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `any` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `none` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products`
+-  removed `#/components/schemas/collect_on_delivery_payment_type` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` request property `allOf` list
+-  removed `#/components/schemas/label_messages` from the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` request property `allOf` list
+-  removed `#/components/schemas/order_source_name` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` request property `allOf` list
+-  removed `#/components/schemas/package` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/se_id` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` request property `allOf` list
+-  removed `#/components/schemas/shipment_item` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` request property `allOf` list
+-  removed `#/components/schemas/tag` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` request property `allOf` list
+-  removed `#/components/schemas/tax_identifier` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` request property `allOf` list
+-  the request property `allOf[subschema #1: label]/rate_details/items/carrier_billing_code` became nullable
+-  the request property `allOf[subschema #1: label]/rate_details/items/carrier_description` became nullable
+-  the request property `allOf[subschema #1: label]/rate_details/items/carrier_memo` became nullable
+-  added the new `amazon_ca` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `amazon_us` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `any` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `brightpearl` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `cash` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `cash_equivalent` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `channel_advisor` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `cratejoy` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `ebay` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `etsy` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `groupon_goods` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `jane` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `magento` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `none` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `paypal` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `seller_active` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `shopify` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `squarespace` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `stitch_labs` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `three_dcart` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `tophatter` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `volusion` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `walmart` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `woo_commerce` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the optional property `allOf[subschema #1: label]/delivery_prediction` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference1` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference2` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference3` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/labels/external_shipment_id/{external_shipment_id}
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/label_messages` from the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/order_source_name` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: added the new `amazon_ca` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `any` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `none` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+-  added the optional property `allOf[subschema #1: label]/delivery_prediction` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference1` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference2` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference3` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/labels/rate_shopper_id/{rate_shopper_id}
+- :warning: added the new required request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/packages/items/weight`
+- :warning: added the new required request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/tags/items/name`
+- :warning: added the new required request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/tax_identifiers/items/identifier_type`
+- :warning: added the new required request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/tax_identifiers/items/issuing_authority`
+- :warning: added the new required request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/tax_identifiers/items/taxable_entity_type`
+- :warning: added the new required request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/tax_identifiers/items/value`
+- :warning: request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` was restricted to a list of enum values
+- :warning: request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code` was restricted to a list of enum values
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` request property `type` changed from `any` to `string`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/` request property `type` changed from `any` to `object`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code` request property `type` changed from `any` to `string`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/packages/items/` request property `type` changed from `any` to `object`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/tags/items/` request property `type` changed from `any` to `object`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/tax_identifiers/items/` request property `type` changed from `any` to `object`
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/label_messages` from the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/order_source_name` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: added the new `amazon_ca` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `any` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `none` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/allocation_status`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/asin`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/bundle_sku`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/external_order_id`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/external_order_item_id`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/fullfilment_sku`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/image_url`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/inventory_location`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/item_id`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/name`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/options`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/order_source_code`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/product_id`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/quantity`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/sales_order_id`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/sales_order_item_id`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/shipping_amount`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/sku`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/tax_amount`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/unit_price`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/upc`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/weight`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/packages/items/content_description`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/packages/items/dimensions`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/packages/items/external_package_id`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/packages/items/insured_value`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/packages/items/label_messages`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/packages/items/package_code`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/packages/items/package_id`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/packages/items/package_name`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/packages/items/products`
+-  removed `#/components/schemas/collect_on_delivery_payment_type` from the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` request property `allOf` list
+-  removed `#/components/schemas/order_source_name` from the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code` request property `allOf` list
+-  removed `#/components/schemas/package` from the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/packages/items/` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/shipment_item` from the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/items/items/` request property `allOf` list
+-  removed `#/components/schemas/tag` from the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/tags/items/` request property `allOf` list
+-  removed `#/components/schemas/tax_identifier` from the `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/tax_identifiers/items/` request property `allOf` list
+-  added the new `amazon_ca` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the new `amazon_us` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the new `any` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `brightpearl` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the new `cash` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `cash_equivalent` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `channel_advisor` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the new `cratejoy` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the new `ebay` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the new `etsy` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the new `groupon_goods` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the new `jane` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the new `magento` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the new `none` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `paypal` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the new `seller_active` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the new `shopify` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the new `squarespace` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the new `stitch_labs` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the new `three_dcart` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the new `tophatter` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the new `volusion` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the new `walmart` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the new `woo_commerce` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/order_source_code`
+-  added the optional property `allOf[subschema #1: label]/delivery_prediction` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference1` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference2` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference3` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/labels/rates/{rate_id}
+- :warning: request property `allOf[subschema #1: purchase_label_without_shipment]/label_download_type` was restricted to a list of enum values
+- :warning: request property `allOf[subschema #1: purchase_label_without_shipment]/validate_address` was restricted to a list of enum values
+- :warning: the `allOf[subschema #1: purchase_label_without_shipment]/label_download_type` request property `type` changed from `any` to `string`
+- :warning: the `allOf[subschema #1: purchase_label_without_shipment]/validate_address` request property `type` changed from `any` to `string`
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/label_messages` from the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/order_source_name` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: added the new `amazon_ca` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `any` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `none` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+-  removed `#/components/schemas/label_download_type` from the `allOf[subschema #1: purchase_label_without_shipment]/label_download_type` request property `allOf` list
+-  removed `#/components/schemas/validate_address` from the `allOf[subschema #1: purchase_label_without_shipment]/validate_address` request property `allOf` list
+-  added the new `inline` enum value to the request property `allOf[subschema #1: purchase_label_without_shipment]/label_download_type`
+-  added the new `no_validation` enum value to the request property `allOf[subschema #1: purchase_label_without_shipment]/validate_address`
+-  added the new `url` enum value to the request property `allOf[subschema #1: purchase_label_without_shipment]/label_download_type`
+-  added the new `validate_and_clean` enum value to the request property `allOf[subschema #1: purchase_label_without_shipment]/validate_address`
+-  added the new `validate_only` enum value to the request property `allOf[subschema #1: purchase_label_without_shipment]/validate_address`
+-  added the optional property `allOf[subschema #1: label]/delivery_prediction` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference1` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference2` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference3` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/labels/shipment/{shipment_id}
+- :warning: request property `label_download_type` was restricted to a list of enum values
+- :warning: request property `validate_address` was restricted to a list of enum values
+- :warning: the `label_download_type` request property `type` changed from `any` to `string`
+- :warning: the `validate_address` request property `type` changed from `any` to `string`
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/label_messages` from the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/order_source_name` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: added the new `amazon_ca` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `any` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `none` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+-  removed `#/components/schemas/label_download_type` from the `label_download_type` request property `allOf` list
+-  removed `#/components/schemas/validate_address` from the `validate_address` request property `allOf` list
+-  added the new `inline` enum value to the request property `label_download_type`
+-  added the new `no_validation` enum value to the request property `validate_address`
+-  added the new `url` enum value to the request property `label_download_type`
+-  added the new `validate_and_clean` enum value to the request property `validate_address`
+-  added the new `validate_only` enum value to the request property `validate_address`
+-  added the optional property `allOf[subschema #1: label]/delivery_prediction` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference1` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference2` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference3` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/labels/shipping_rules/{shipping_rule_id}
+- :warning: added the new required request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/packages/items/weight`
+- :warning: added the new required request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/tags/items/name`
+- :warning: added the new required request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/tax_identifiers/items/identifier_type`
+- :warning: added the new required request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/tax_identifiers/items/issuing_authority`
+- :warning: added the new required request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/tax_identifiers/items/taxable_entity_type`
+- :warning: added the new required request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/tax_identifiers/items/value`
+- :warning: request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` was restricted to a list of enum values
+- :warning: request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code` was restricted to a list of enum values
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` request property `type` changed from `any` to `string`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/` request property `type` changed from `any` to `object`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code` request property `type` changed from `any` to `string`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/packages/items/` request property `type` changed from `any` to `object`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/tags/items/` request property `type` changed from `any` to `object`
+- :warning: the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/tax_identifiers/items/` request property `type` changed from `any` to `object`
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/label_messages` from the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/order_source_name` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: added the new `amazon_ca` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `any` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `none` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/allocation_status`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/asin`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/bundle_sku`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/external_order_id`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/external_order_item_id`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/fullfilment_sku`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/image_url`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/inventory_location`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/item_id`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/name`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/options`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/order_source_code`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/product_id`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/quantity`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/sales_order_id`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/sales_order_item_id`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/shipping_amount`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/sku`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/tax_amount`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/unit_price`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/upc`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/weight`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/packages/items/content_description`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/packages/items/dimensions`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/packages/items/external_package_id`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/packages/items/insured_value`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/packages/items/label_messages`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/packages/items/package_code`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/packages/items/package_id`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/packages/items/package_name`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/packages/items/products`
+-  removed `#/components/schemas/collect_on_delivery_payment_type` from the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` request property `allOf` list
+-  removed `#/components/schemas/order_source_name` from the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code` request property `allOf` list
+-  removed `#/components/schemas/package` from the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/packages/items/` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/shipment_item` from the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/items/items/` request property `allOf` list
+-  removed `#/components/schemas/tag` from the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/tags/items/` request property `allOf` list
+-  removed `#/components/schemas/tax_identifier` from the `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/tax_identifiers/items/` request property `allOf` list
+-  added the new `amazon_ca` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the new `amazon_us` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the new `any` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `brightpearl` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the new `cash` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `cash_equivalent` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `channel_advisor` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the new `cratejoy` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the new `ebay` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the new `etsy` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the new `groupon_goods` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the new `jane` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the new `magento` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the new `none` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `paypal` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the new `seller_active` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the new `shopify` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the new `squarespace` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the new `stitch_labs` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the new `three_dcart` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the new `tophatter` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the new `volusion` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the new `walmart` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the new `woo_commerce` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/order_source_code`
+-  added the optional property `allOf[subschema #1: label]/delivery_prediction` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference1` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference2` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference3` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/labels/{label_id}
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/label_messages` from the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/order_source_name` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: added the new `amazon_ca` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `any` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `none` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+-  added the optional property `allOf[subschema #1: label]/delivery_prediction` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference1` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference2` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference3` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### POST /v2/labels/{label_id}/cancel_refund
+- :warning: the response property `rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/label_messages` from the `packages/items/allOf[subschema #1: label_package]/label_messages` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/order_source_name` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: added the new `amazon_ca` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `any` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `none` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+-  added the optional property `delivery_prediction` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  the `packages/items/allOf[subschema #1: label_package]/label_messages` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+-  added the required property `packages/items/allOf[subschema #1: label_package]/label_messages/reference1` to the response with the `200` status
+-  added the required property `packages/items/allOf[subschema #1: label_package]/label_messages/reference2` to the response with the `200` status
+-  added the required property `packages/items/allOf[subschema #1: label_package]/label_messages/reference3` to the response with the `200` status
+-  added the required property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+
+
+### GET /v2/labels/{label_id}/documents
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/labels/{label_id}/documents
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/labels/{label_id}/documents/send
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `503`
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_name` to the response with the `503` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `503` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `503`
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_code` to the response with the `503` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `503` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `503` status
+-  added the required property `errors/items/message` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `503` status
+
+
+### DELETE /v2/labels/{label_id}/documents/{document_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `409`
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_name` to the response with the `409` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `409` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `409`
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_code` to the response with the `409` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `409` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `409` status
+-  added the required property `errors/items/message` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `409` status
+
+
+### POST /v2/labels/{label_id}/return
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/label_messages` from the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/order_source_name` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: added the new `amazon_ca` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `any` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `none` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+-  added the optional property `allOf[subschema #1: label]/delivery_prediction` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference1` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference2` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference3` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### GET /v2/labels/{label_id}/track
+- :warning: removed `#/components/schemas/date_time` from the `allOf[subschema #1: tracking_information]/actual_delivery_date` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/date_time` from the `allOf[subschema #1: tracking_information]/estimated_delivery_date` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/tracking_number` from the `allOf[subschema #1: tracking_information]/tracking_number` response property `allOf` list for the response status `200`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: tracking_information]/tracking_number` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: tracking_information]/actual_delivery_date` response's property pattern `^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[-+]\d{2}:\d{2})$` was added for the status `200`
+-  the `allOf[subschema #1: tracking_information]/estimated_delivery_date` response's property pattern `^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[-+]\d{2}:\d{2})$` was added for the status `200`
+-  the `allOf[subschema #1: tracking_information]/actual_delivery_date` response's property `type/format` was narrowed from `any` to `string/date-time` for status `200`
+-  the `allOf[subschema #1: tracking_information]/estimated_delivery_date` response's property `type/format` was narrowed from `any` to `string/date-time` for status `200`
+-  the `allOf[subschema #1: tracking_information]/tracking_number` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### PUT /v2/labels/{label_id}/void
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/mailing/envelopes
+- :warning: added the new required request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight`
+- :warning: added the new required request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name`
+- :warning: added the new required request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type`
+- :warning: added the new required request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority`
+- :warning: added the new required request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type`
+- :warning: added the new required request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value`
+- :warning: request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` was restricted to a list of enum values
+- :warning: request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` was restricted to a list of enum values
+- :warning: the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` request property's maxLength was set to `25`
+- :warning: the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` request property's minLength was set to `1`
+- :warning: the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: added the pattern `^se(-[a-z0-9]+)+$` to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/`
+- :warning: the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` request property `type` changed from `any` to `string`
+- :warning: the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` request property `type` changed from `any` to `string`
+- :warning: the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` request property `type` changed from `any` to `object`
+- :warning: the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` request property `type` changed from `any` to `string`
+- :warning: the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` request property `type` changed from `any` to `object`
+- :warning: the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` request property `type` changed from `any` to `object`
+- :warning: the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` request property `type` changed from `any` to `object`
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/label_messages` from the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/order_source_name` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: added the new `amazon_ca` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `any` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `none` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products`
+-  removed `#/components/schemas/collect_on_delivery_payment_type` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` request property `allOf` list
+-  removed `#/components/schemas/order_source_name` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` request property `allOf` list
+-  removed `#/components/schemas/package` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/se_id` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` request property `allOf` list
+-  removed `#/components/schemas/shipment_item` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` request property `allOf` list
+-  removed `#/components/schemas/tag` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` request property `allOf` list
+-  removed `#/components/schemas/tax_identifier` from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` request property `allOf` list
+-  added the new `amazon_ca` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `amazon_us` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `any` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `brightpearl` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `cash` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `cash_equivalent` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `channel_advisor` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `cratejoy` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `ebay` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `etsy` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `groupon_goods` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `jane` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `magento` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `none` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `paypal` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `seller_active` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `shopify` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `squarespace` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `stitch_labs` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `three_dcart` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `tophatter` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `volusion` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `walmart` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `woo_commerce` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the optional property `allOf[subschema #1: label]/delivery_prediction` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference1` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference2` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference3` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### POST /v2/mailing/mail_labels
+- :warning: added the new required request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/weight`
+- :warning: added the new required request property `shipments/items/allOf[subschema #1: partial_shipment]/tags/items/name`
+- :warning: added the new required request property `shipments/items/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type`
+- :warning: added the new required request property `shipments/items/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority`
+- :warning: added the new required request property `shipments/items/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type`
+- :warning: added the new required request property `shipments/items/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value`
+- :warning: request property `shipments/items/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` was restricted to a list of enum values
+- :warning: request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code` was restricted to a list of enum values
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/batch_ids/items/` request property's maxLength was set to `25`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/batch_ids/items/` request property's minLength was set to `1`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: added the pattern `^se(-[a-z0-9]+)+$` to the request property `shipments/items/allOf[subschema #1: partial_shipment]/batch_ids/items/`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/batch_ids/items/` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/items/items/` request property `type` changed from `any` to `object`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/` request property `type` changed from `any` to `object`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/tags/items/` request property `type` changed from `any` to `object`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` request property `type` changed from `any` to `object`
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/label_messages` from the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/label_messages` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/order_source_name` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/order_source_name` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: added the new `amazon_ca` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_ca` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `any` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `any` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `none` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `none` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/allocation_status`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/asin`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/bundle_sku`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/external_order_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/image_url`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/inventory_location`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/item_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/name`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/options`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/order_source_code`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/product_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/quantity`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/sales_order_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/shipping_amount`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/sku`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/tax_amount`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/unit_price`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/upc`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/weight`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/content_description`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/dimensions`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/external_package_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/insured_value`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/label_messages`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/package_code`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/package_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/package_name`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/products`
+-  removed `#/components/schemas/collect_on_delivery_payment_type` from the `shipments/items/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` request property `allOf` list
+-  removed `#/components/schemas/order_source_name` from the `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code` request property `allOf` list
+-  removed `#/components/schemas/package` from the `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipments/items/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipments/items/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipments/items/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipments/items/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/se_id` from the `shipments/items/allOf[subschema #1: partial_shipment]/batch_ids/items/` request property `allOf` list
+-  removed `#/components/schemas/shipment_item` from the `shipments/items/allOf[subschema #1: partial_shipment]/items/items/` request property `allOf` list
+-  removed `#/components/schemas/tag` from the `shipments/items/allOf[subschema #1: partial_shipment]/tags/items/` request property `allOf` list
+-  removed `#/components/schemas/tax_identifier` from the `shipments/items/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` request property `allOf` list
+-  added the new `amazon_ca` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `amazon_us` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `any` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `brightpearl` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `cash` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `cash_equivalent` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `channel_advisor` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `cratejoy` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `ebay` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `etsy` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `groupon_goods` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `jane` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `magento` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `none` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `paypal` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `seller_active` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `shopify` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `squarespace` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `stitch_labs` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `three_dcart` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `tophatter` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `volusion` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `walmart` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `woo_commerce` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the optional property `allOf[subschema #1: label]/delivery_prediction` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/delivery_prediction` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference1` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference2` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference3` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+-  added the required property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference1` to the response with the `200` status
+-  added the required property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference2` to the response with the `200` status
+-  added the required property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference3` to the response with the `200` status
+-  added the required property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### POST /v2/mailing/netstamps
+- :warning: added the new required request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/weight`
+- :warning: added the new required request property `shipments/items/allOf[subschema #1: partial_shipment]/tags/items/name`
+- :warning: added the new required request property `shipments/items/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type`
+- :warning: added the new required request property `shipments/items/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority`
+- :warning: added the new required request property `shipments/items/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type`
+- :warning: added the new required request property `shipments/items/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value`
+- :warning: request property `shipments/items/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` was restricted to a list of enum values
+- :warning: request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code` was restricted to a list of enum values
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/batch_ids/items/` request property's maxLength was set to `25`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/batch_ids/items/` request property's minLength was set to `1`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: added the pattern `^se(-[a-z0-9]+)+$` to the request property `shipments/items/allOf[subschema #1: partial_shipment]/batch_ids/items/`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/batch_ids/items/` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/items/items/` request property `type` changed from `any` to `object`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/` request property `type` changed from `any` to `object`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/tags/items/` request property `type` changed from `any` to `object`
+- :warning: the `shipments/items/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` request property `type` changed from `any` to `object`
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/label_messages` from the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/label_messages` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/order_source_name` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/order_source_name` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: label]/rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: added the new `amazon_ca` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_ca` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `any` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `any` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `none` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `none` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/allocation_status`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/asin`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/bundle_sku`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/external_order_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/image_url`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/inventory_location`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/item_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/name`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/options`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/order_source_code`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/product_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/quantity`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/sales_order_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/shipping_amount`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/sku`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/tax_amount`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/unit_price`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/upc`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/items/items/weight`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/content_description`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/dimensions`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/external_package_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/insured_value`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/label_messages`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/package_code`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/package_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/package_name`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/products`
+-  removed `#/components/schemas/collect_on_delivery_payment_type` from the `shipments/items/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` request property `allOf` list
+-  removed `#/components/schemas/order_source_name` from the `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code` request property `allOf` list
+-  removed `#/components/schemas/package` from the `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipments/items/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipments/items/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipments/items/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipments/items/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/se_id` from the `shipments/items/allOf[subschema #1: partial_shipment]/batch_ids/items/` request property `allOf` list
+-  removed `#/components/schemas/shipment_item` from the `shipments/items/allOf[subschema #1: partial_shipment]/items/items/` request property `allOf` list
+-  removed `#/components/schemas/tag` from the `shipments/items/allOf[subschema #1: partial_shipment]/tags/items/` request property `allOf` list
+-  removed `#/components/schemas/tax_identifier` from the `shipments/items/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` request property `allOf` list
+-  added the new `amazon_ca` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `amazon_us` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `any` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `brightpearl` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `cash` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `cash_equivalent` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `channel_advisor` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `cratejoy` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `ebay` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `etsy` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `groupon_goods` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `jane` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `magento` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `none` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `paypal` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `seller_active` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `shopify` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `squarespace` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `stitch_labs` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `three_dcart` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `tophatter` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `volusion` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `walmart` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `woo_commerce` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the optional property `allOf[subschema #1: label]/delivery_prediction` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/delivery_prediction` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference1` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference2` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference3` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+-  added the required property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference1` to the response with the `200` status
+-  added the required property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference2` to the response with the `200` status
+-  added the required property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/packages/items/allOf[subschema #1: label_package]/label_messages/reference3` to the response with the `200` status
+-  added the required property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### GET /v2/manifests
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/se_id` from the `manifests/items/allOf[subschema #1: manifest]/label_ids/items/` response property `allOf` list for the response status `200`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `manifests/items/allOf[subschema #1: manifest]/label_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `manifests/items/allOf[subschema #1: manifest]/label_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `manifests/items/allOf[subschema #1: manifest]/label_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  the `manifests/items/allOf[subschema #1: manifest]/label_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/manifests
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error_with_label_id` from the `allOf[subschema #4: error_with_label_id_response_body]/errors/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/manifest_request_status` from the `allOf[subschema #2: manifest_request]/status` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: manifests]/manifests/items/label_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #3: deprecated_manifest]/label_ids/items/` response property `allOf` list for the response status `200`
+- :warning: added the new `completed` enum value to the `allOf[subschema #2: manifest_request]/status` response property for the response status `200`
+- :warning: added the new `in_progress` enum value to the `allOf[subschema #2: manifest_request]/status` response property for the response status `200`
+-  added the optional property `allOf[subschema #4: error_with_label_id_response_body]/errors/items/label_id` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `allOf[subschema #1: manifests]/manifests/items/label_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #3: deprecated_manifest]/label_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: manifests]/manifests/items/label_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #3: deprecated_manifest]/label_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: manifests]/manifests/items/label_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #3: deprecated_manifest]/label_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: manifests]/manifests/items/label_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #2: manifest_request]/status` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #3: deprecated_manifest]/label_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #4: error_with_label_id_response_body]/errors/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `allOf[subschema #4: error_with_label_id_response_body]/errors/items/error_code` to the response with the `200` status
+-  added the required property `allOf[subschema #4: error_with_label_id_response_body]/errors/items/error_source` to the response with the `200` status
+-  added the required property `allOf[subschema #4: error_with_label_id_response_body]/errors/items/error_type` to the response with the `200` status
+-  added the required property `allOf[subschema #4: error_with_label_id_response_body]/errors/items/message` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### GET /v2/manifests/requests/{manifest_request_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/error_with_label_id` from the `allOf[subschema #4: error_with_label_id_response_body]/errors/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/manifest_request_status` from the `allOf[subschema #2: manifest_request]/status` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: manifests]/manifests/items/label_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #3: deprecated_manifest]/label_ids/items/` response property `allOf` list for the response status `200`
+- :warning: added the new `completed` enum value to the `allOf[subschema #2: manifest_request]/status` response property for the response status `200`
+- :warning: added the new `in_progress` enum value to the `allOf[subschema #2: manifest_request]/status` response property for the response status `200`
+-  added the optional property `allOf[subschema #4: error_with_label_id_response_body]/errors/items/label_id` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: manifests]/manifests/items/label_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #3: deprecated_manifest]/label_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: manifests]/manifests/items/label_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #3: deprecated_manifest]/label_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: manifests]/manifests/items/label_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #3: deprecated_manifest]/label_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: manifests]/manifests/items/label_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #2: manifest_request]/status` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #3: deprecated_manifest]/label_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #4: error_with_label_id_response_body]/errors/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `allOf[subschema #4: error_with_label_id_response_body]/errors/items/error_code` to the response with the `200` status
+-  added the required property `allOf[subschema #4: error_with_label_id_response_body]/errors/items/error_source` to the response with the `200` status
+-  added the required property `allOf[subschema #4: error_with_label_id_response_body]/errors/items/error_type` to the response with the `200` status
+-  added the required property `allOf[subschema #4: error_with_label_id_response_body]/errors/items/message` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/manifests/{manifest_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: manifest]/label_ids/items/` response property `allOf` list for the response status `200`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: manifest]/label_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: manifest]/label_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: manifest]/label_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: manifest]/label_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/packages
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/package_code` from the `packages/items/allOf[subschema #1: package_type]/package_code` response property `allOf` list for the response status `200`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `packages/items/allOf[subschema #1: package_type]/package_code` response property's maxLength was set to `50` for the response status `200`
+-  the `packages/items/allOf[subschema #1: package_type]/package_code` response property's minLength was set to `1` for the response status `200`
+-  the `packages/items/allOf[subschema #1: package_type]/package_code` response's property pattern `^[a-z0-9]+(_[a-z0-9]+)*$` was added for the status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  the `packages/items/allOf[subschema #1: package_type]/package_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/packages
+- :warning: the `allOf[subschema #1: package_type]/package_code` request property's maxLength was set to `50`
+- :warning: the `allOf[subschema #1: package_type]/package_code` request property's minLength was set to `1`
+- :warning: added the pattern `^[a-z0-9]+(_[a-z0-9]+)*$` to the request property `allOf[subschema #1: package_type]/package_code`
+- :warning: the `allOf[subschema #1: package_type]/package_code` request property `type` changed from `any` to `string`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/package_code` from the `allOf[subschema #1: package_type]/package_code` response property `allOf` list for the response status `200`
+-  removed `#/components/schemas/package_code` from the `allOf[subschema #1: package_type]/package_code` request property `allOf` list
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `allOf[subschema #1: package_type]/package_code` response property's maxLength was set to `50` for the response status `200`
+-  the `allOf[subschema #1: package_type]/package_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: package_type]/package_code` response's property pattern `^[a-z0-9]+(_[a-z0-9]+)*$` was added for the status `200`
+-  the `allOf[subschema #1: package_type]/package_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### GET /v2/packages/{package_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/package_code` from the `allOf[subschema #1: package_type]/package_code` response property `allOf` list for the response status `200`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `allOf[subschema #1: package_type]/package_code` response property's maxLength was set to `50` for the response status `200`
+-  the `allOf[subschema #1: package_type]/package_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: package_type]/package_code` response's property pattern `^[a-z0-9]+(_[a-z0-9]+)*$` was added for the status `200`
+-  the `allOf[subschema #1: package_type]/package_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### PUT /v2/packages/{package_id}
+- :warning: the `allOf[subschema #1: package_type]/package_code` request property's maxLength was set to `50`
+- :warning: the `allOf[subschema #1: package_type]/package_code` request property's minLength was set to `1`
+- :warning: added the pattern `^[a-z0-9]+(_[a-z0-9]+)*$` to the request property `allOf[subschema #1: package_type]/package_code`
+- :warning: the `allOf[subschema #1: package_type]/package_code` request property `type` changed from `any` to `string`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  removed `#/components/schemas/package_code` from the `allOf[subschema #1: package_type]/package_code` request property `allOf` list
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/pickups
+- :warning: removed `#/components/schemas/error` from the `allOf[subschema #2: error_response_body]/errors/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/pickup` from the `allOf[subschema #1: list_pickup_response_body]/pickups/items/` response property `allOf` list for the response status `200`
+-  added the optional property `allOf[subschema #1: list_pickup_response_body]/pickups/items/cancelled_at` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: list_pickup_response_body]/pickups/items/carrier_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: list_pickup_response_body]/pickups/items/confirmation_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: list_pickup_response_body]/pickups/items/contact_details` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: list_pickup_response_body]/pickups/items/created_at` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: list_pickup_response_body]/pickups/items/label_ids` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: list_pickup_response_body]/pickups/items/pickup_address` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: list_pickup_response_body]/pickups/items/pickup_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: list_pickup_response_body]/pickups/items/pickup_notes` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: list_pickup_response_body]/pickups/items/pickup_windows` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: list_pickup_response_body]/pickups/items/warehouse_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2: error_response_body]/errors/items/field_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #2: error_response_body]/errors/items/field_value` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  added the optional write-only property `allOf[subschema #1: list_pickup_response_body]/pickups/items/pickup_window` to the response with the `200` status
+-  the `allOf[subschema #1: list_pickup_response_body]/pickups/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #2: error_response_body]/errors/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/error_code` to the response with the `200` status
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/error_source` to the response with the `200` status
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/error_type` to the response with the `200` status
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/message` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/pickups
+- :warning: the `allOf[subschema #1: pickup]/pickup_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: added the pattern `^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[-+]\d{2}:\d{2})$` to the request property `allOf[subschema #1: pickup]/pickup_window/end_at`
+- :warning: added the pattern `^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[-+]\d{2}:\d{2})$` to the request property `allOf[subschema #1: pickup]/pickup_window/start_at`
+- :warning: the `allOf[subschema #1: pickup]/pickup_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `allOf[subschema #1: pickup]/pickup_window/end_at` request property `type/format` changed from `any` to `string/date-time`
+- :warning: the `allOf[subschema #1: pickup]/pickup_window/start_at` request property `type/format` changed from `any` to `string/date-time`
+- :warning: the `allOf[subschema #1: pickup]/pickup_windows/items/` request property `type` changed from `any` to `object`
+- :warning: removed `#/components/schemas/date_time` from the `allOf[subschema #1: schedule_pickup_response_body]/allOf[subschema #1: pickup]/pickup_window/end_at` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/date_time` from the `allOf[subschema #1: schedule_pickup_response_body]/allOf[subschema #1: pickup]/pickup_window/start_at` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `allOf[subschema #2: error_response_body]/errors/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: schedule_pickup_response_body]/allOf[subschema #1: pickup]/pickup_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `subschema #1: pickup_windows` from the `allOf[subschema #1: schedule_pickup_response_body]/allOf[subschema #1: pickup]/pickup_windows/items/` response property `allOf` list for the response status `200`
+-  added the new optional request property `allOf[subschema #1: pickup]/pickup_windows/items/end_at`
+-  added the new optional request property `allOf[subschema #1: pickup]/pickup_windows/items/start_at`
+-  removed `#/components/schemas/date_time` from the `allOf[subschema #1: pickup]/pickup_window/end_at` request property `allOf` list
+-  removed `#/components/schemas/date_time` from the `allOf[subschema #1: pickup]/pickup_window/start_at` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `allOf[subschema #1: pickup]/pickup_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `subschema #1: pickup_windows` from the `allOf[subschema #1: pickup]/pickup_windows/items/` request property `allOf` list
+-  added the optional property `allOf[subschema #1: schedule_pickup_response_body]/allOf[subschema #1: pickup]/pickup_windows/items/end_at` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: schedule_pickup_response_body]/allOf[subschema #1: pickup]/pickup_windows/items/start_at` to the response with the `200` status
+-  added the optional property `allOf[subschema #2: error_response_body]/errors/items/field_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #2: error_response_body]/errors/items/field_value` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: schedule_pickup_response_body]/allOf[subschema #1: pickup]/pickup_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: schedule_pickup_response_body]/allOf[subschema #1: pickup]/pickup_window/end_at` response's property pattern `^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[-+]\d{2}:\d{2})$` was added for the status `200`
+-  the `allOf[subschema #1: schedule_pickup_response_body]/allOf[subschema #1: pickup]/pickup_window/start_at` response's property pattern `^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[-+]\d{2}:\d{2})$` was added for the status `200`
+-  the `allOf[subschema #1: schedule_pickup_response_body]/allOf[subschema #1: pickup]/pickup_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: schedule_pickup_response_body]/allOf[subschema #1: pickup]/pickup_window/end_at` response's property `type/format` was narrowed from `any` to `string/date-time` for status `200`
+-  the `allOf[subschema #1: schedule_pickup_response_body]/allOf[subschema #1: pickup]/pickup_window/start_at` response's property `type/format` was narrowed from `any` to `string/date-time` for status `200`
+-  the `allOf[subschema #1: schedule_pickup_response_body]/allOf[subschema #1: pickup]/pickup_windows/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #2: error_response_body]/errors/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/error_code` to the response with the `200` status
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/error_source` to the response with the `200` status
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/error_type` to the response with the `200` status
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/message` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### DELETE /v2/pickups/{pickup_id}
+- :warning: removed `#/components/schemas/error` from the `allOf[subschema #1: error_response_body]/errors/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/pickup_resource_id` from the `allOf[subschema #2: delete_scheduled_pickup_response_body]/pickup_id` response property `allOf` list for the response status `200`
+-  added the optional property `allOf[subschema #1: error_response_body]/errors/items/field_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: error_response_body]/errors/items/field_value` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #2: delete_scheduled_pickup_response_body]/pickup_id` response property's minLength was set to `4` for the response status `200`
+-  the `allOf[subschema #1: error_response_body]/errors/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #2: delete_scheduled_pickup_response_body]/pickup_id` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `allOf[subschema #1: error_response_body]/errors/items/error_code` to the response with the `200` status
+-  added the required property `allOf[subschema #1: error_response_body]/errors/items/error_source` to the response with the `200` status
+-  added the required property `allOf[subschema #1: error_response_body]/errors/items/error_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: error_response_body]/errors/items/message` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/pickups/{pickup_id}
+- :warning: removed `#/components/schemas/date_time` from the `allOf[subschema #1: pickup_response_body]/allOf[subschema #1: pickup]/pickup_window/end_at` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/date_time` from the `allOf[subschema #1: pickup_response_body]/allOf[subschema #1: pickup]/pickup_window/start_at` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `allOf[subschema #2: error_response_body]/errors/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: pickup_response_body]/allOf[subschema #1: pickup]/pickup_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `subschema #1: pickup_windows` from the `allOf[subschema #1: pickup_response_body]/allOf[subschema #1: pickup]/pickup_windows/items/` response property `allOf` list for the response status `200`
+-  added the optional property `allOf[subschema #1: pickup_response_body]/allOf[subschema #1: pickup]/pickup_windows/items/end_at` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: pickup_response_body]/allOf[subschema #1: pickup]/pickup_windows/items/start_at` to the response with the `200` status
+-  added the optional property `allOf[subschema #2: error_response_body]/errors/items/field_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #2: error_response_body]/errors/items/field_value` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: pickup_response_body]/allOf[subschema #1: pickup]/pickup_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: pickup_response_body]/allOf[subschema #1: pickup]/pickup_window/end_at` response's property pattern `^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[-+]\d{2}:\d{2})$` was added for the status `200`
+-  the `allOf[subschema #1: pickup_response_body]/allOf[subschema #1: pickup]/pickup_window/start_at` response's property pattern `^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[-+]\d{2}:\d{2})$` was added for the status `200`
+-  the `allOf[subschema #1: pickup_response_body]/allOf[subschema #1: pickup]/pickup_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: pickup_response_body]/allOf[subschema #1: pickup]/pickup_window/end_at` response's property `type/format` was narrowed from `any` to `string/date-time` for status `200`
+-  the `allOf[subschema #1: pickup_response_body]/allOf[subschema #1: pickup]/pickup_window/start_at` response's property `type/format` was narrowed from `any` to `string/date-time` for status `200`
+-  the `allOf[subschema #1: pickup_response_body]/allOf[subschema #1: pickup]/pickup_windows/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #2: error_response_body]/errors/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/error_code` to the response with the `200` status
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/error_source` to the response with the `200` status
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/error_type` to the response with the `200` status
+-  added the required property `allOf[subschema #2: error_response_body]/errors/items/message` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/products
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/products/create
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### POST /v2/products/deactivate
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/products/update
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/products/{product_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/purchase_orders
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### POST /v2/purchase_orders
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### GET /v2/purchase_orders/{purchase_order_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### PUT /v2/purchase_orders/{purchase_order_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/purchase_orders/{purchase_order_id}/documents/order_summary
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/purchase_orders/{purchase_order_id}/documents/received_summary
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/purchase_orders/{purchase_order_id}/receives
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/purchase_orders/{purchase_order_id}/shipping_details
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/purchase_orders/{purchase_order_id}/status
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/rate_shoppers
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### GET /v2/rate_shoppers/{rate_shopper_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/rates
+- :warning: added the new required request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/weight`
+- :warning: added the new required request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/tags/items/name`
+- :warning: added the new required request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/tax_identifiers/items/identifier_type`
+- :warning: added the new required request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/tax_identifiers/items/issuing_authority`
+- :warning: added the new required request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/tax_identifiers/items/taxable_entity_type`
+- :warning: added the new required request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/tax_identifiers/items/value`
+- :warning: request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` was restricted to a list of enum values
+- :warning: request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code` was restricted to a list of enum values
+- :warning: the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/batch_ids/items/` request property's maxLength was set to `25`
+- :warning: the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/batch_ids/items/` request property's minLength was set to `1`
+- :warning: the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property's minLength was set to `1`
+- :warning: the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: added the pattern `^se(-[a-z0-9]+)+$` to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/batch_ids/items/`
+- :warning: the `oneOf[subschema #1: calculate_rates_by_shipment_id]/allOf[subschema #1: rate_request_rate_options]/rate_options/allOf[subschema #1: rate_request_body]/preferred_currency` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #1: rate_request_rate_options]/rate_options/allOf[subschema #1: rate_request_body]/preferred_currency` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/batch_ids/items/` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/` request property `type` changed from `any` to `object`
+- :warning: the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/` request property `type` changed from `any` to `object`
+- :warning: the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/tags/items/` request property `type` changed from `any` to `object`
+- :warning: the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/tax_identifiers/items/` request property `type` changed from `any` to `object`
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/errors/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/order_source_name` from the `allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/created_at` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/rate_id` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/rate_id` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: the response property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/rate_id` became optional for the status `200`
+- :warning: the response property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/rate_id` became optional for the status `200`
+- :warning: added the new `amazon_ca` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `any` enum value to the `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `none` enum value to the `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `quick` enum value to the `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/rate_type/allOf[subschema #1: rate_type]/` response property for the response status `200`
+- :warning: added the new `quick` enum value to the `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/rate_type/allOf[subschema #1: rate_type]/` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added `#/components/schemas/se_id, subschema #1` to the `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/rate_id` response property `oneOf` list for the response status `200`
+- :warning: added `#/components/schemas/se_id, subschema #1` to the `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/rate_id` response property `oneOf` list for the response status `200`
+- :warning: the `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/created_at` response's property `type/format` changed from `string/date-time` to `any` for status `200`
+-  added the new optional request property `oneOf[subschema #1: calculate_rates_by_shipment_id]/allOf[subschema #1: rate_request_rate_options]/rate_options/allOf[subschema #1: rate_request_body]/rate_type`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #1: rate_request_rate_options]/rate_options/allOf[subschema #1: rate_request_body]/rate_type`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/allocation_status`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/asin`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/bundle_sku`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/external_order_id`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/external_order_item_id`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/fullfilment_sku`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/image_url`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/inventory_location`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/item_id`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/name`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/options`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/order_source_code`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/product_id`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/quantity`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/sales_order_id`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/sales_order_item_id`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/shipping_amount`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/sku`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/tax_amount`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/unit_price`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/upc`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/weight`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/content_description`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/dimensions`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/external_package_id`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/insured_value`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/label_messages`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/package_code`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/package_id`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/package_name`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/products`
+-  removed `#/components/schemas/collect_on_delivery_payment_type` from the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` request property `allOf` list
+-  removed `#/components/schemas/currency` from the `oneOf[subschema #1: calculate_rates_by_shipment_id]/allOf[subschema #1: rate_request_rate_options]/rate_options/allOf[subschema #1: rate_request_body]/preferred_currency` request property `allOf` list
+-  removed `#/components/schemas/currency` from the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #1: rate_request_rate_options]/rate_options/allOf[subschema #1: rate_request_body]/preferred_currency` request property `allOf` list
+-  removed `#/components/schemas/order_source_name` from the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code` request property `allOf` list
+-  removed `#/components/schemas/package` from the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/se_id` from the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/batch_ids/items/` request property `allOf` list
+-  removed `#/components/schemas/shipment_item` from the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/` request property `allOf` list
+-  removed `#/components/schemas/tag` from the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/tags/items/` request property `allOf` list
+-  removed `#/components/schemas/tax_identifier` from the `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/tax_identifiers/items/` request property `allOf` list
+-  added the new `amazon_ca` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `amazon_us` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `any` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `brightpearl` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `cash` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `cash_equivalent` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `channel_advisor` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `cratejoy` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `ebay` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `etsy` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `groupon_goods` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `jane` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `magento` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `none` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `paypal` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `seller_active` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `shopify` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `squarespace` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `stitch_labs` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `three_dcart` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `tophatter` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `volusion` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `walmart` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `woo_commerce` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/errors/items/field_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/errors/items/field_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/carrier_weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/delivery_prediction` to the response with the `200` status
+-  added the optional property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/display_scheme` to the response with the `200` status
+-  added the optional property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/carrier_weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/delivery_prediction` to the response with the `200` status
+-  added the optional property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/display_scheme` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the response optional property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/created_at` became read-only for the status `200`
+-  added `#/components/schemas/date_time` to the `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/created_at` response property `allOf` list for the response status `200`
+-  the `allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/errors/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+-  added the required property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/errors/items/error_code` to the response with the `200` status
+-  added the required property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/errors/items/error_source` to the response with the `200` status
+-  added the required property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/errors/items/error_type` to the response with the `200` status
+-  added the required property `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/errors/items/message` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### POST /v2/rates/bulk
+- :warning: added the new required request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/weight`
+- :warning: added the new required request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/tags/items/name`
+- :warning: added the new required request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/tax_identifiers/items/identifier_type`
+- :warning: added the new required request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/tax_identifiers/items/issuing_authority`
+- :warning: added the new required request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/tax_identifiers/items/taxable_entity_type`
+- :warning: added the new required request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/tax_identifiers/items/value`
+- :warning: request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` was restricted to a list of enum values
+- :warning: request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code` was restricted to a list of enum values
+- :warning: the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/batch_ids/items/` request property's maxLength was set to `25`
+- :warning: the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/batch_ids/items/` request property's minLength was set to `1`
+- :warning: the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: added the pattern `^se(-[a-z0-9]+)+$` to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/batch_ids/items/`
+- :warning: the `rate_options/allOf[subschema #1: rate_request_body]/preferred_currency` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/batch_ids/items/` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/` request property `type` changed from `any` to `object`
+- :warning: the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/` request property `type` changed from `any` to `object`
+- :warning: the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/tags/items/` request property `type` changed from `any` to `object`
+- :warning: the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/tax_identifiers/items/` request property `type` changed from `any` to `object`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error_code` from the `items/errors/items/allOf[subschema #1: error]/error_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error_source` from the `items/errors/items/allOf[subschema #1: error]/error_source` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error_type` from the `items/errors/items/allOf[subschema #1: error]/error_type` response property `allOf` list for the response status `200`
+- :warning: added the new `ShipStation` enum value to the `items/errors/items/allOf[subschema #1: error]/error_source` response property for the response status `200`
+- :warning: added the new `account_status` enum value to the `items/errors/items/allOf[subschema #1: error]/error_type` response property for the response status `200`
+- :warning: added the new `auto_fund_not_supported` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `batch_cannot_be_modified` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `business_rules` enum value to the `items/errors/items/allOf[subschema #1: error]/error_type` response property for the response status `200`
+- :warning: added the new `carrier` enum value to the `items/errors/items/allOf[subschema #1: error]/error_source` response property for the response status `200`
+- :warning: added the new `carrier_conflict` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `carrier_disconnected` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `carrier_not_connected` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `carrier_not_supported` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `confirmation_not_supported` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `customs_items_required` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `default_warehouse_cannot_be_deleted` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `field_conflict` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `field_value_required` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `forbidden` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `freight_connection_inactive` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `freight_provider_already_connected` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `freight_provider_id_required` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `freight_shipment_not_batchable` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `freight_shipment_not_found` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `freight_tracking_not_available` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `freight_tracking_not_found` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `identifier_conflict` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `identifiers_must_match` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `incompatible_paired_labels` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `insufficient_funds` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `integrations` enum value to the `items/errors/items/allOf[subschema #1: error]/error_type` response property for the response status `200`
+- :warning: added the new `invalid_address` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `invalid_billing_plan` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `invalid_charge_event` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `invalid_field_value` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `invalid_identifier` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `invalid_object` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `invalid_status` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `invalid_string_length` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `label_images_not_supported` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `meter_failure` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `no_rates_returned` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `order_source` enum value to the `items/errors/items/allOf[subschema #1: error]/error_source` response property for the response status `200`
+- :warning: added the new `order_source_not_active` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `rate_limit_exceeded` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `refresh_not_supported` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `request_body_required` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `return_label_not_supported` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `security` enum value to the `items/errors/items/allOf[subschema #1: error]/error_type` response property for the response status `200`
+- :warning: added the new `settings_not_supported` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `shipengine` enum value to the `items/errors/items/allOf[subschema #1: error]/error_source` response property for the response status `200`
+- :warning: added the new `subscription_inactive` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `system` enum value to the `items/errors/items/allOf[subschema #1: error]/error_type` response property for the response status `200`
+- :warning: added the new `terms_not_accepted` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `tracking_not_supported` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `trial_expired` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `unauthorized` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `unknown` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `unspecified` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `validation` enum value to the `items/errors/items/allOf[subschema #1: error]/error_type` response property for the response status `200`
+- :warning: added the new `verification_failure` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `warehouse_conflict` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `webhook_event_type_conflict` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+-  added the new optional request property `rate_options/allOf[subschema #1: rate_request_body]/rate_type`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/allocation_status`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/asin`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/bundle_sku`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/external_order_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/external_order_item_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/fullfilment_sku`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/image_url`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/inventory_location`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/item_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/name`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/options`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/order_source_code`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/product_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/quantity`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/sales_order_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/sales_order_item_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/shipping_amount`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/sku`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/tax_amount`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/unit_price`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/upc`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/weight`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/content_description`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/dimensions`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/external_package_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/insured_value`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/label_messages`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/package_code`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/package_id`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/package_name`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/products`
+-  removed `#/components/schemas/collect_on_delivery_payment_type` from the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` request property `allOf` list
+-  removed `#/components/schemas/currency` from the `rate_options/allOf[subschema #1: rate_request_body]/preferred_currency` request property `allOf` list
+-  removed `#/components/schemas/order_source_name` from the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code` request property `allOf` list
+-  removed `#/components/schemas/package` from the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/se_id` from the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/batch_ids/items/` request property `allOf` list
+-  removed `#/components/schemas/shipment_item` from the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/items/items/` request property `allOf` list
+-  removed `#/components/schemas/tag` from the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/tags/items/` request property `allOf` list
+-  removed `#/components/schemas/tax_identifier` from the `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/tax_identifiers/items/` request property `allOf` list
+-  added the new `amazon_ca` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `amazon_us` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `any` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `brightpearl` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `cash` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `cash_equivalent` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `channel_advisor` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `cratejoy` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `ebay` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `etsy` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `groupon_goods` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `jane` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `magento` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `none` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `paypal` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `seller_active` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `shopify` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `squarespace` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `stitch_labs` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `three_dcart` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `tophatter` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `volusion` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `walmart` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the new `woo_commerce` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/order_source_code`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `items/errors/items/allOf[subschema #1: error]/error_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `items/errors/items/allOf[subschema #1: error]/error_source` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `items/errors/items/allOf[subschema #1: error]/error_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### POST /v2/rates/estimate
+- :warning: request property `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/address_residential_indicator` was restricted to a list of enum values
+- :warning: request property `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/confirmation` was restricted to a list of enum values
+- :warning: request property `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/address_residential_indicator` was restricted to a list of enum values
+- :warning: request property `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/confirmation` was restricted to a list of enum values
+- :warning: the `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/from_country_code` request property's maxLength was set to `2`
+- :warning: the `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/to_country_code` request property's maxLength was set to `2`
+- :warning: the `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/from_country_code` request property's maxLength was set to `2`
+- :warning: the `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/to_country_code` request property's maxLength was set to `2`
+- :warning: the `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/from_country_code` request property's minLength was set to `2`
+- :warning: the `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/from_postal_code` request property's minLength was set to `1`
+- :warning: the `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/to_country_code` request property's minLength was set to `2`
+- :warning: the `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/to_postal_code` request property's minLength was set to `1`
+- :warning: the `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/from_country_code` request property's minLength was set to `2`
+- :warning: the `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/from_postal_code` request property's minLength was set to `1`
+- :warning: the `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/to_country_code` request property's minLength was set to `2`
+- :warning: the `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/to_postal_code` request property's minLength was set to `1`
+- :warning: the `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/address_residential_indicator` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/confirmation` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/from_country_code` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/from_postal_code` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/to_country_code` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/to_postal_code` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/address_residential_indicator` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/confirmation` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/from_country_code` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/from_postal_code` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/to_country_code` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/to_postal_code` request property `type` changed from `any` to `string`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/rate-estimate` from the `items/` response property `allOf` list for the response status `200`
+-  removed `#/components/schemas/address_residential_indicator` from the `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/address_residential_indicator` request property `allOf` list
+-  removed `#/components/schemas/address_residential_indicator` from the `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/address_residential_indicator` request property `allOf` list
+-  removed `#/components/schemas/country_code` from the `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/from_country_code` request property `allOf` list
+-  removed `#/components/schemas/country_code` from the `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/to_country_code` request property `allOf` list
+-  removed `#/components/schemas/country_code` from the `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/from_country_code` request property `allOf` list
+-  removed `#/components/schemas/country_code` from the `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/to_country_code` request property `allOf` list
+-  removed `#/components/schemas/delivery_confirmation` from the `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/confirmation` request property `allOf` list
+-  removed `#/components/schemas/delivery_confirmation` from the `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/confirmation` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/from_postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/to_postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/from_postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/to_postal_code` request property `allOf` list
+-  added the new `adult_signature` enum value to the request property `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `adult_signature` enum value to the request property `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `adult_signature_restricted_delivery` enum value to the request property `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `adult_signature_restricted_delivery` enum value to the request property `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `age_verification_16_plus` enum value to the request property `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `age_verification_16_plus` enum value to the request property `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `delivery` enum value to the request property `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `delivery` enum value to the request property `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `delivery_code` enum value to the request property `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `delivery_code` enum value to the request property `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `delivery_mailed` enum value to the request property `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `delivery_mailed` enum value to the request property `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `direct_signature` enum value to the request property `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `direct_signature` enum value to the request property `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `no` enum value to the request property `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/address_residential_indicator`
+-  added the new `no` enum value to the request property `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/address_residential_indicator`
+-  added the new `none` enum value to the request property `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `none` enum value to the request property `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `signature` enum value to the request property `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `signature` enum value to the request property `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `unknown` enum value to the request property `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/address_residential_indicator`
+-  added the new `unknown` enum value to the request property `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/address_residential_indicator`
+-  added the new `verbal_confirmation` enum value to the request property `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `verbal_confirmation` enum value to the request property `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/confirmation`
+-  added the new `yes` enum value to the request property `oneOf[subschema #1: estimate_rates_by_carrier_ids]/allOf[subschema #1: rate_estimate_options]/address_residential_indicator`
+-  added the new `yes` enum value to the request property `oneOf[subschema #2: estimate_rates_by_carrier_id]/allOf[subschema #1: rate_estimate_options]/address_residential_indicator`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `items/carrier_delivery_days` to the response with the `200` status
+-  added the optional property `items/delivery_days` to the response with the `200` status
+-  added the optional property `items/delivery_prediction` to the response with the `200` status
+-  added the optional property `items/estimated_delivery_date` to the response with the `200` status
+-  added the optional property `items/ship_date` to the response with the `200` status
+-  added the optional property `items/tax_amount` to the response with the `200` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `items/carrier_code` to the response with the `200` status
+-  added the required property `items/carrier_friendly_name` to the response with the `200` status
+-  added the required property `items/carrier_id` to the response with the `200` status
+-  added the required property `items/carrier_nickname` to the response with the `200` status
+-  added the required property `items/confirmation_amount` to the response with the `200` status
+-  added the required property `items/error_messages` to the response with the `200` status
+-  added the required property `items/guaranteed_service` to the response with the `200` status
+-  added the required property `items/insurance_amount` to the response with the `200` status
+-  added the required property `items/negotiated_rate` to the response with the `200` status
+-  added the required property `items/other_amount` to the response with the `200` status
+-  added the required property `items/package_type` to the response with the `200` status
+-  added the required property `items/rate_type` to the response with the `200` status
+-  added the required property `items/service_code` to the response with the `200` status
+-  added the required property `items/service_type` to the response with the `200` status
+-  added the required property `items/shipping_amount` to the response with the `200` status
+-  added the required property `items/trackable` to the response with the `200` status
+-  added the required property `items/validation_status` to the response with the `200` status
+-  added the required property `items/warning_messages` to the response with the `200` status
+-  added the required property `items/zone` to the response with the `200` status
+
+
+### GET /v2/rates/{rate_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: rate]/rate_id` response property `allOf` list for the response status `200`
+- :warning: the response property `allOf[subschema #1: rate]/rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: rate]/rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: rate]/rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: rate]/rate_id` became optional for the status `200`
+- :warning: added the new `quick` enum value to the `allOf[subschema #1: rate]/rate_type/allOf[subschema #1: rate_type]/` response property for the response status `200`
+- :warning: added `#/components/schemas/se_id, subschema #1` to the `allOf[subschema #1: rate]/rate_id` response property `oneOf` list for the response status `200`
+-  added the optional property `allOf[subschema #1: rate]/carrier_weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: rate]/delivery_prediction` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: rate]/display_scheme` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/service_points/list
+- :warning: the `oneOf[subschema #1: get_service_points_request_body]/address/country_code` request property's maxLength was set to `2`
+- :warning: the `oneOf[subschema #1: get_service_points_request_body]/address/country_code` request property's minLength was set to `2`
+- :warning: the `oneOf[subschema #1: get_service_points_request_body]/address/postal_code` request property's minLength was set to `1`
+- :warning: the `oneOf[subschema #1: get_service_points_request_body]/address/country_code` request property `type` changed from `any` to `string`
+- :warning: the `oneOf[subschema #1: get_service_points_request_body]/address/postal_code` request property `type` changed from `any` to `string`
+- :warning: removed `#/components/schemas/carrier_code` from the `service_points/items/carrier_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/country_code` from the `service_points/items/country_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/postal_code` from the `service_points/items/postal_code` response property `allOf` list for the response status `200`
+-  removed `#/components/schemas/country_code` from the `oneOf[subschema #1: get_service_points_request_body]/address/country_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `oneOf[subschema #1: get_service_points_request_body]/address/postal_code` request property `allOf` list
+-  added the optional property `errors/items/field_name` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `200` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `service_points/items/country_code` response property's maxLength was set to `2` for the response status `200`
+-  the `service_points/items/country_code` response property's minLength was set to `2` for the response status `200`
+-  the `service_points/items/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `service_points/items/carrier_code` response's property pattern `^[a-z0-9]+(_[a-z0-9]+)*$` was added for the status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  the `service_points/items/carrier_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `service_points/items/country_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `service_points/items/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  added the required property `errors/items/error_code` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `200` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `200` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `200` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/service_points/{carrier_code}/{country_code}/{service_point_id}
+- :warning: removed `#/components/schemas/carrier_code` from the `service_point/carrier_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/country_code` from the `service_point/country_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/postal_code` from the `service_point/postal_code` response property `allOf` list for the response status `200`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `service_point/country_code` response property's maxLength was set to `2` for the response status `200`
+-  the `service_point/country_code` response property's minLength was set to `2` for the response status `200`
+-  the `service_point/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `service_point/carrier_code` response's property pattern `^[a-z0-9]+(_[a-z0-9]+)*$` was added for the status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  the `service_point/carrier_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `service_point/country_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `service_point/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/shipments
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/order_source_name` from the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: added the new `amazon_ca` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `any` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `none` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+-  added the required property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+
+
+### POST /v2/shipments
+- :warning: the `shipments/items/` request property `type` changed from `any` to `object`
+- :warning: removed `#/components/schemas/create_shipment_response` from the `shipments/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the new optional request property `shipments/items/amount_paid`
+-  added the new optional request property `shipments/items/assigned_user`
+-  added the new optional request property `shipments/items/carrier_id`
+-  added the new optional request property `shipments/items/create_sales_order`
+-  added the new optional request property `shipments/items/deliver_by_date`
+-  added the new optional request property `shipments/items/display_scheme`
+-  added the new optional request property `shipments/items/external_shipment_id`
+-  added the new optional request property `shipments/items/internal_notes`
+-  added the new optional request property `shipments/items/is_gift`
+-  added the new optional request property `shipments/items/items`
+-  added the new optional request property `shipments/items/notes_for_gift`
+-  added the new optional request property `shipments/items/notes_from_buyer`
+-  added the new optional request property `shipments/items/notes_to_buyer`
+-  added the new optional request property `shipments/items/packages`
+-  added the new optional request property `shipments/items/requested_shipment_service`
+-  added the new optional request property `shipments/items/ship_from`
+-  added the new optional request property `shipments/items/ship_to`
+-  added the new optional request property `shipments/items/shipment_status`
+-  added the new optional request property `shipments/items/shipping_paid`
+-  added the new optional request property `shipments/items/store_id`
+-  added the new optional request property `shipments/items/tax_paid`
+-  added the new optional request property `shipments/items/validate_address`
+-  added the new optional request property `shipments/items/warehouse_id`
+-  added the new optional request property `shipments/items/zone`
+-  removed `#/components/schemas/create_shipment_request` from the `shipments/items/` request property `allOf` list
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added `#/components/schemas/shipment, subschema #2: create_shipment_response_fields` to the `shipments/items/` response property `allOf` list for the response status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `shipments/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### GET /v2/shipments/external_shipment_id/{external_shipment_id}
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/order_source_name` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: added the new `amazon_ca` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `any` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `none` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/shipments/hold
+-  endpoint added
+
+
+### POST /v2/shipments/restore
+-  endpoint added
+
+
+### POST /v2/shipments/user
+- :warning: the `shipment_ids/items/` request property's maxLength was set to `25`
+- :warning: the `shipment_ids/items/` request property's minLength was set to `1`
+- :warning: added the pattern `^se(-[a-z0-9]+)+$` to the request property `shipment_ids/items/`
+- :warning: the `shipment_ids/items/` request property `type` changed from `any` to `string`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/se_id` from the `shipment_ids/items/` response property `allOf` list for the response status `200`
+-  removed `#/components/schemas/se_id` from the `shipment_ids/items/` request property `allOf` list
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `shipment_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `shipment_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `shipment_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  the `shipment_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/shipments/{shipment_id}
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/order_source_name` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: added the new `amazon_ca` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `any` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `none` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### PUT /v2/shipments/{shipment_id}
+- :warning: added the new required request property `allOf[subschema #1: partial_shipment]/packages/items/weight`
+- :warning: added the new required request property `allOf[subschema #1: partial_shipment]/tags/items/name`
+- :warning: added the new required request property `allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type`
+- :warning: added the new required request property `allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority`
+- :warning: added the new required request property `allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type`
+- :warning: added the new required request property `allOf[subschema #1: partial_shipment]/tax_identifiers/items/value`
+- :warning: request property `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` was restricted to a list of enum values
+- :warning: request property `allOf[subschema #1: partial_shipment]/order_source_code` was restricted to a list of enum values
+- :warning: the `allOf[subschema #1: partial_shipment]/batch_ids/items/` request property's maxLength was set to `25`
+- :warning: the `allOf[subschema #1: partial_shipment]/batch_ids/items/` request property's minLength was set to `1`
+- :warning: the `allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property's minLength was set to `1`
+- :warning: the `allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: added the pattern `^se(-[a-z0-9]+)+$` to the request property `allOf[subschema #1: partial_shipment]/batch_ids/items/`
+- :warning: the `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` request property `type` changed from `any` to `string`
+- :warning: the `allOf[subschema #1: partial_shipment]/batch_ids/items/` request property `type` changed from `any` to `string`
+- :warning: the `allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `allOf[subschema #1: partial_shipment]/items/items/` request property `type` changed from `any` to `object`
+- :warning: the `allOf[subschema #1: partial_shipment]/order_source_code` request property `type` changed from `any` to `string`
+- :warning: the `allOf[subschema #1: partial_shipment]/packages/items/` request property `type` changed from `any` to `object`
+- :warning: the `allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `allOf[subschema #1: partial_shipment]/tags/items/` request property `type` changed from `any` to `object`
+- :warning: the `allOf[subschema #1: partial_shipment]/tax_identifiers/items/` request property `type` changed from `any` to `object`
+- :warning: removed `#/components/schemas/collect_on_delivery_payment_type` from the `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/order_source_name` from the `allOf[subschema #1: partial_shipment]/order_source_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/package` from the `allOf[subschema #1: partial_shipment]/packages/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: partial_shipment]/batch_ids/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/shipment_item` from the `allOf[subschema #1: partial_shipment]/items/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tag` from the `allOf[subschema #1: partial_shipment]/tags/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/tax_identifier` from the `allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response property `allOf` list for the response status `200`
+- :warning: added the new `amazon_ca` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `amazon_us` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `any` enum value to the `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `brightpearl` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cash` enum value to the `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `cash_equivalent` enum value to the `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `channel_advisor` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `cratejoy` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `ebay` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `etsy` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `groupon_goods` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `jane` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `magento` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `none` enum value to the `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response property for the response status `200`
+- :warning: added the new `paypal` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `seller_active` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `shopify` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `squarespace` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `stitch_labs` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `three_dcart` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `tophatter` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `volusion` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `walmart` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+- :warning: added the new `woo_commerce` enum value to the `allOf[subschema #1: partial_shipment]/order_source_code` response property for the response status `200`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/allocation_status`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/asin`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/bundle_sku`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/external_order_id`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/external_order_item_id`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/image_url`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/inventory_location`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/item_id`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/name`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/options`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/order_source_code`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/product_id`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/quantity`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/sales_order_id`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/shipping_amount`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/sku`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/tax_amount`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/unit_price`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/upc`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/items/items/weight`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/packages/items/content_description`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/packages/items/dimensions`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/packages/items/external_package_id`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/packages/items/insured_value`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/packages/items/label_messages`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/packages/items/package_code`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/packages/items/package_id`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/packages/items/package_name`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/packages/items/products`
+-  removed `#/components/schemas/collect_on_delivery_payment_type` from the `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` request property `allOf` list
+-  removed `#/components/schemas/order_source_name` from the `allOf[subschema #1: partial_shipment]/order_source_code` request property `allOf` list
+-  removed `#/components/schemas/package` from the `allOf[subschema #1: partial_shipment]/packages/items/` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/se_id` from the `allOf[subschema #1: partial_shipment]/batch_ids/items/` request property `allOf` list
+-  removed `#/components/schemas/shipment_item` from the `allOf[subschema #1: partial_shipment]/items/items/` request property `allOf` list
+-  removed `#/components/schemas/tag` from the `allOf[subschema #1: partial_shipment]/tags/items/` request property `allOf` list
+-  removed `#/components/schemas/tax_identifier` from the `allOf[subschema #1: partial_shipment]/tax_identifiers/items/` request property `allOf` list
+-  added the new `amazon_ca` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `amazon_us` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `any` enum value to the request property `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `brightpearl` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `cash` enum value to the request property `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `cash_equivalent` enum value to the request property `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `channel_advisor` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `cratejoy` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `ebay` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `etsy` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `groupon_goods` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `jane` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `magento` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `none` enum value to the request property `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type`
+-  added the new `paypal` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `seller_active` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `shopify` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `squarespace` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `stitch_labs` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `three_dcart` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `tophatter` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `volusion` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `walmart` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the new `woo_commerce` enum value to the request property `allOf[subschema #1: partial_shipment]/order_source_code`
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/allocation_status` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/asin` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/bundle_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/external_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/external_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/fullfilment_sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/image_url` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/inventory_location` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/options` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/order_source_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/product_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/quantity` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/sales_order_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/sales_order_item_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/shipping_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/sku` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/tax_amount` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/unit_price` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/upc` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/items/items/weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/content_description` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/dimensions` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/external_package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/insured_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/label_messages` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/package_code` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/package_id` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/package_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/products` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/shipment_package_id` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's maxLength was set to `25` for the response status `200`
+-  the `allOf[subschema #1: partial_shipment]/batch_ids/items/` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property pattern `^se(-[a-z0-9]+)+$` was added for the status `200`
+-  the `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/collect_on_delivery/payment_type` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/batch_ids/items/` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/customs/allOf[subschema #1: international_shipment_options]/importer_of_record/allOf[subschema #1: importer_of_records]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/items/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/order_source_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/packages/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/return_to/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/ship_from/allOf[subschema #1: shipping_address]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/ship_to/allOf[subschema #1: shipping_address_to]/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `allOf[subschema #1: partial_shipment]/tax_identifiers/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `allOf[subschema #1: partial_shipment]/packages/items/weight` to the response with the `200` status
+-  added the required property `allOf[subschema #1: partial_shipment]/tags/items/name` to the response with the `200` status
+-  added the required property `allOf[subschema #1: partial_shipment]/tax_identifiers/items/identifier_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: partial_shipment]/tax_identifiers/items/issuing_authority` to the response with the `200` status
+-  added the required property `allOf[subschema #1: partial_shipment]/tax_identifiers/items/taxable_entity_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: partial_shipment]/tax_identifiers/items/value` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### PUT /v2/shipments/{shipment_id}/cancel
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/shipments/{shipment_id}/documents
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/shipments/{shipment_id}/documents
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### DELETE /v2/shipments/{shipment_id}/documents/{document_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `409`
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_name` to the response with the `409` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `409` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `409`
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_code` to the response with the `409` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `409` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `409` status
+-  added the required property `errors/items/message` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `409` status
+
+
+### PUT /v2/shipments/{shipment_id}/hold
+-  endpoint added
+
+
+### POST /v2/shipments/{shipment_id}/internal_notes
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/shipments/{shipment_id}/labels
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/shipments/{shipment_id}/rates
+- :warning: removed `#/components/schemas/error` from the `allOf[subschema #1: rates_information]/errors/items/` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: rates_information]/created_at` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/rate_id` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/se_id` from the `allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/rate_id` response property `allOf` list for the response status `200`
+- :warning: the response property `allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/rate_details/items/carrier_billing_code` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/rate_details/items/carrier_description` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/rate_details/items/carrier_memo` became nullable for the status `200`
+- :warning: the response property `allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/rate_id` became optional for the status `200`
+- :warning: the response property `allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/rate_id` became optional for the status `200`
+- :warning: added the new `quick` enum value to the `allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/rate_type/allOf[subschema #1: rate_type]/` response property for the response status `200`
+- :warning: added the new `quick` enum value to the `allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/rate_type/allOf[subschema #1: rate_type]/` response property for the response status `200`
+- :warning: added `#/components/schemas/se_id, subschema #1` to the `allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/rate_id` response property `oneOf` list for the response status `200`
+- :warning: added `#/components/schemas/se_id, subschema #1` to the `allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/rate_id` response property `oneOf` list for the response status `200`
+- :warning: the `allOf[subschema #1: rates_information]/created_at` response's property `type/format` changed from `string/date-time` to `any` for status `200`
+-  added the optional property `allOf[subschema #1: rates_information]/errors/items/field_name` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: rates_information]/errors/items/field_value` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/carrier_weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/delivery_prediction` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: rates_information]/invalid_rates/items/allOf[subschema #1: rate]/display_scheme` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/carrier_weight` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/delivery_prediction` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: rates_information]/rates/items/allOf[subschema #1: rate]/display_scheme` to the response with the `200` status
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the response optional property `allOf[subschema #1: rates_information]/created_at` became read-only for the status `200`
+-  added `#/components/schemas/date_time` to the `allOf[subschema #1: rates_information]/created_at` response property `allOf` list for the response status `200`
+-  the `allOf[subschema #1: rates_information]/errors/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `allOf[subschema #1: rates_information]/errors/items/error_code` to the response with the `200` status
+-  added the required property `allOf[subschema #1: rates_information]/errors/items/error_source` to the response with the `200` status
+-  added the required property `allOf[subschema #1: rates_information]/errors/items/error_type` to the response with the `200` status
+-  added the required property `allOf[subschema #1: rates_information]/errors/items/message` to the response with the `200` status
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### PUT /v2/shipments/{shipment_id}/restore
+-  endpoint added
+
+
+### GET /v2/shipments/{shipment_id}/tags
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### DELETE /v2/shipments/{shipment_id}/tags/{tag_name}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/shipments/{shipment_id}/tags/{tag_name}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/suppliers
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### POST /v2/suppliers
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### GET /v2/suppliers/{supplier_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### PUT /v2/suppliers/{supplier_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/tags
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/tag` from the `tags/items/` response property `allOf` list for the response status `200`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  the `tags/items/` response's property `type` was narrowed from `any` to `object` for status `200`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+-  added the required property `tags/items/name` to the response with the `200` status
+
+
+### POST /v2/tags
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### DELETE /v2/tags/{tag_name}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/tags/{tag_name}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### PUT /v2/tags/{tag_name}/{new_tag_name}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/tokens/ephemeral
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### GET /v2/totes
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### POST /v2/totes
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### GET /v2/totes/quantities
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### DELETE /v2/totes/{tote_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `400` status
+
+
+### GET /v2/totes/{tote_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### PUT /v2/totes/{tote_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/tracking
+- :warning: removed `#/components/schemas/date_time` from the `allOf[subschema #1: tracking_information]/actual_delivery_date` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/date_time` from the `allOf[subschema #1: tracking_information]/estimated_delivery_date` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/tracking_number` from the `allOf[subschema #1: tracking_information]/tracking_number` response property `allOf` list for the response status `200`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: tracking_information]/tracking_number` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: tracking_information]/actual_delivery_date` response's property pattern `^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[-+]\d{2}:\d{2})$` was added for the status `200`
+-  the `allOf[subschema #1: tracking_information]/estimated_delivery_date` response's property pattern `^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[-+]\d{2}:\d{2})$` was added for the status `200`
+-  the `allOf[subschema #1: tracking_information]/actual_delivery_date` response's property `type/format` was narrowed from `any` to `string/date-time` for status `200`
+-  the `allOf[subschema #1: tracking_information]/estimated_delivery_date` response's property `type/format` was narrowed from `any` to `string/date-time` for status `200`
+-  the `allOf[subschema #1: tracking_information]/tracking_number` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/tracking/start
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/tracking/stop
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/users
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/warehouses
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/postal_code` from the `warehouses/items/allOf[subschema #1: warehouse]/origin_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `warehouses/items/allOf[subschema #1: warehouse]/return_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `warehouses/items/allOf[subschema #1: warehouse]/origin_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `warehouses/items/allOf[subschema #1: warehouse]/return_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  the `warehouses/items/allOf[subschema #1: warehouse]/origin_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `warehouses/items/allOf[subschema #1: warehouse]/return_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### POST /v2/warehouses
+- :warning: the `allOf[subschema #1: warehouse]/origin_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `allOf[subschema #1: warehouse]/return_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `allOf[subschema #1: warehouse]/origin_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `allOf[subschema #1: warehouse]/return_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: warehouse]/origin_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: warehouse]/return_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+-  removed `#/components/schemas/postal_code` from the `allOf[subschema #1: warehouse]/origin_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `allOf[subschema #1: warehouse]/return_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: warehouse]/origin_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: warehouse]/return_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: warehouse]/origin_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: warehouse]/return_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### DELETE /v2/warehouses/{warehouse_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### GET /v2/warehouses/{warehouse_id}
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: warehouse]/origin_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+- :warning: removed `#/components/schemas/postal_code` from the `allOf[subschema #1: warehouse]/return_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property `allOf` list for the response status `200`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `allOf[subschema #1: warehouse]/origin_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: warehouse]/return_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response property's minLength was set to `1` for the response status `200`
+-  the `allOf[subschema #1: warehouse]/origin_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `allOf[subschema #1: warehouse]/return_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` response's property `type` was narrowed from `any` to `string` for status `200`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### PUT /v2/warehouses/{warehouse_id}
+- :warning: the `allOf[subschema #1: warehouse]/origin_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `allOf[subschema #1: warehouse]/return_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property's minLength was set to `1`
+- :warning: the `allOf[subschema #1: warehouse]/origin_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: the `allOf[subschema #1: warehouse]/return_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `type` changed from `any` to `string`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  removed `#/components/schemas/postal_code` from the `allOf[subschema #1: warehouse]/origin_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  removed `#/components/schemas/postal_code` from the `allOf[subschema #1: warehouse]/return_address/allOf[subschema #1: address]/allOf[subschema #1: partial_address]/postal_code` request property `allOf` list
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+### PUT /v2/warehouses/{warehouse_id}/settings
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `400`
+- :warning: removed `#/components/schemas/error` from the `errors/items/` response property `allOf` list for the response status `404`
+-  added the optional property `errors/items/field_name` to the response with the `400` status
+-  added the optional property `errors/items/field_name` to the response with the `404` status
+-  added the optional property `errors/items/field_value` to the response with the `400` status
+-  added the optional property `errors/items/field_value` to the response with the `404` status
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `400`
+-  the `errors/items/` response's property `type` was narrowed from `any` to `object` for status `404`
+-  added the required property `errors/items/error_code` to the response with the `400` status
+-  added the required property `errors/items/error_code` to the response with the `404` status
+-  added the required property `errors/items/error_source` to the response with the `400` status
+-  added the required property `errors/items/error_source` to the response with the `404` status
+-  added the required property `errors/items/error_type` to the response with the `400` status
+-  added the required property `errors/items/error_type` to the response with the `404` status
+-  added the required property `errors/items/message` to the response with the `400` status
+-  added the required property `errors/items/message` to the response with the `404` status
+
+
+
+
+## Components
+-  removed the schema `create_and_process_batch_request_body`
+-  removed the schema `create_and_validate_shipment`
+
+
+## Info
+-  a breaking change was detected but the version is still `2.0.0`
+
 ## Initial snapshot
 
 Initial spec snapshot; no diff available.
