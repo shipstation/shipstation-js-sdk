@@ -1,3 +1,9 @@
+## [0.3.1](https://github.com/shipstation/shipstation-js-sdk/compare/v0.3.0...v0.3.1) (2026-10-14)
+
+### Bug Fixes
+
+* support anyOf and stop dropping fields in union request bodies ([#11](https://github.com/shipstation/shipstation-js-sdk/issues/11)) ([9e01758](https://github.com/shipstation/shipstation-js-sdk/commit/9e01758085169f1e38c8da640e309f6ef9641b72))
+
 ## [0.3.0](https://github.com/shipstation/shipstation-js-sdk/compare/v0.2.0...v0.3.0) (2026-10-06)
 
 ### Features
