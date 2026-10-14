@@ -1,0 +1,62 @@
+{{#anyOf}}
+import type { {{{.}}} } from './{{.}}{{importFileExtension}}';
+import {
+    instanceOf{{{.}}},
+    {{{.}}}FromJSON,
+    {{{.}}}FromJSONTyped,
+    {{{.}}}ToJSON,
+} from './{{.}}{{importFileExtension}}';
+{{/anyOf}}
+
+/**
+ * @type {{classname}}
+ * {{#lambda.indented_star_1}}{{{unescapedDescription}}}{{/lambda.indented_star_1}}
+ * @export
+ */
+export type {{classname}} = {{#anyOf}}{{{.}}}{{^-last}} | {{/-last}}{{/anyOf}};
+
+export function {{classname}}FromJSON(json: any): {{classname}} {
+    return {{classname}}FromJSONTyped(json, false);
+}
+
+export function {{classname}}FromJSONTyped(json: any, ignoreDiscriminator: boolean): {{classname}} {
+    if (json == null) {
+        return json;
+    }
+    if (typeof json !== 'object') {
+        return json;
+    }
+    // anyOf: merge every matching member so fields known only to a later member are kept
+    const result: any = {};
+    let matched = false;
+{{#anyOf}}
+    if (instanceOf{{{.}}}(json)) {
+        Object.assign(result, {{{.}}}FromJSONTyped(json, true));
+        matched = true;
+    }
+{{/anyOf}}
+    // No member matched: only reachable with untyped input; empty, same as upstream's oneOf fallback
+    return matched ? result : ({} as any);
+}
+
+export function {{classname}}ToJSON(json: any): any {
+    return {{classname}}ToJSONTyped(json, false);
+}
+
+export function {{classname}}ToJSONTyped(value?: {{classname}} | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+    if (typeof value !== 'object') {
+        return value;
+    }
+    // anyOf: merge every matching member so fields known only to a later member are kept
+    const result: any = {};
+{{#anyOf}}
+    if (instanceOf{{{.}}}(value)) {
+        Object.assign(result, {{{.}}}ToJSON(value as {{{.}}}));
+    }
+{{/anyOf}}
+    // No member matched: only reachable with untyped input; empty, same as upstream's oneOf fallback
+    return result;
+}

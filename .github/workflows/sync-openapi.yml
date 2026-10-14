@@ -129,6 +129,10 @@ jobs:
         if: steps.oasdiff.outputs.api_changed == 'true'
         run: npm run verify
 
+      - name: Test serialization of union request bodies
+        if: steps.oasdiff.outputs.api_changed == 'true'
+        run: npm test
+
       - name: Prepend entry to API-CHANGELOG.md
         if: steps.oasdiff.outputs.api_changed == 'true'
         run: |
