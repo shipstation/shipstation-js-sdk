@@ -28,13 +28,19 @@ export default tseslint.config(
         },
     },
     {
-        files: ['*.mjs', 'scripts/**/*.mjs'],
+        files: ['*.mjs', 'scripts/**/*.mjs', 'tests/**/*.mjs'],
         ...tseslint.configs.disableTypeChecked,
     },
     {
         files: ['scripts/**/*.mjs'],
         languageOptions: {
             globals: { console: 'readonly', process: 'readonly' },
+        },
+    },
+    {
+        files: ['tests/**/*.mjs'],
+        languageOptions: {
+            globals: { Response: 'readonly' },
         },
     },
     prettierConfig
