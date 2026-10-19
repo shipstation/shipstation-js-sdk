@@ -92,6 +92,11 @@ This package follows [semantic versioning](https://semver.org/), released automa
 ### Contributing
 
 Contributions, enhancements, and bug-fixes are welcome! [Open an issue](https://github.com/shipstation/shipstation-js-sdk/issues) on GitHub and [submit a pull request](https://github.com/shipstation/shipstation-js-sdk/pulls).
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for the development workflow and PR conventions, and
+[CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) for community expectations. CI runs `npm run verify` and
+`npm test` on every pull request.
+
+To report a security vulnerability, follow [SECURITY.md](./SECURITY.md) instead of opening a public issue.
 
 ### Generating the SDK locally
 
