@@ -41,7 +41,9 @@ jobs:
         with:
           cache: npm
           node-version-file: .nvmrc
-          registry-url: "https://registry.npmjs.org"
+
+      - name: Update npm for trusted publishing
+        run: npm install -g npm@^11.5.1
 
       - name: Install dependencies
         run: npm ci
@@ -60,6 +62,5 @@ jobs:
 
       - name: Release
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: npx semantic-release
