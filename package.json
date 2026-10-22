@@ -46,8 +46,7 @@
     "files": [
         "dist",
         "README.md",
-        "LICENSE",
-        "API-CHANGELOG.md"
+        "LICENSE"
     ],
     "sideEffects": false,
     "engines": {
