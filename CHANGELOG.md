@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/shipstation/shipstation-js-sdk/compare/v1.1.0...v1.2.0) (2026-10-26)
+
+### Features
+
+* do not comment on fail ([#22](https://github.com/shipstation/shipstation-js-sdk/issues/22)) ([8cfb51f](https://github.com/shipstation/shipstation-js-sdk/commit/8cfb51f0672e353beb2f843e95867c830e7e1a13))
+* removed release env variable ([#21](https://github.com/shipstation/shipstation-js-sdk/issues/21)) ([680d3aa](https://github.com/shipstation/shipstation-js-sdk/commit/680d3aa795b067fd48b71eeddc1ea1bfbc3dd563))
+
 ## [1.1.0](https://github.com/shipstation/shipstation-js-sdk/compare/v1.0.0...v1.1.0) (2026-10-26)
 
 ### Features
