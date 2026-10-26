@@ -1,3 +1,12 @@
+## [1.1.0](https://github.com/shipstation/shipstation-js-sdk/compare/v1.0.0...v1.1.0) (2026-10-26)
+
+### Features
+
+* avoid upload api changelog ([#19](https://github.com/shipstation/shipstation-js-sdk/issues/19)) ([323dd7e](https://github.com/shipstation/shipstation-js-sdk/commit/323dd7ecfc443a6d9a0225fe59821d8ee7295bad))
+* fixed node version ([#17](https://github.com/shipstation/shipstation-js-sdk/issues/17)) ([3ebad6b](https://github.com/shipstation/shipstation-js-sdk/commit/3ebad6b8c73e86c938c2633169a8f73c836ac46a))
+* publish to npm ([#15](https://github.com/shipstation/shipstation-js-sdk/issues/15)) ([bb9f2f6](https://github.com/shipstation/shipstation-js-sdk/commit/bb9f2f651c093b5bfc066e4095b1136ad8aff343))
+* trusted publish ([#16](https://github.com/shipstation/shipstation-js-sdk/issues/16)) ([d9037c0](https://github.com/shipstation/shipstation-js-sdk/commit/d9037c05873b1dc57e8435e060ec3c2034f17829))
+
 ## [1.0.0](https://github.com/shipstation/shipstation-js-sdk/compare/v0.3.1...v1.0.0) (2026-10-15)
 
 ### ⚠ BREAKING CHANGES
