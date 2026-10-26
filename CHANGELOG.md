@@ -1,3 +1,9 @@
+## [1.3.1](https://github.com/shipstation/shipstation-js-sdk/compare/v1.3.0...v1.3.1) (2026-10-26)
+
+### Bug Fixes
+
+* pin Node to 24.22.1 for CVE-2026-111497 (node2shell / HTTP2Shell) ([#20](https://github.com/shipstation/shipstation-js-sdk/issues/20)) ([12dc3cc](https://github.com/shipstation/shipstation-js-sdk/commit/12dc3cc47f05c7a0118186ba8fda24a28aedda37))
+
 ## [1.3.0](https://github.com/shipstation/shipstation-js-sdk/compare/v1.2.0...v1.3.0) (2026-10-26)
 
 ### Features
