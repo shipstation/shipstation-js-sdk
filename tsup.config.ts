@@ -5,7 +5,7 @@ export default defineConfig({
     format: ['esm', 'cjs'],
     target: 'node22',
     dts: true,
-    sourcemap: true,
+    sourcemap: false,
     clean: true,
     treeshake: true,
     outExtension({ format }) {
