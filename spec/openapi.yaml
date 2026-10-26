@@ -151,10 +151,11 @@ paths:
                 transaction_type:
                   description: |
                     The type of update to perform:
-                      increment: Increase inventory quantity for specified location.
-                      decrement: Decreate inventory quantity for specified location given a set of filters.
-                      adjust: Adjust on hand quantity of inventory for specified location to the quantity indicated. This is done by either adding or removing inventory in the condition specified.
-                      modify: Modify attributes on specified inventory. The filters work the same as for decrement transaction type.
+
+                    - `increment`: Increase inventory quantity for specified location.
+                    - `decrement`: Decrease inventory quantity for specified location given a set of filters.
+                    - `adjust`: Adjust on hand quantity of inventory for specified location to the quantity indicated. This is done by either adding or removing inventory in the condition specified.
+                    - `modify`: Modify attributes on specified inventory.
                   type: string
                   enum:
                     - increment
@@ -1990,7 +1991,7 @@ paths:
         There are two ways to request quotes:
 
         - **Inline.** Describe the shipment in the request: `ship_from`, `ship_to`, and `handling_units`.
-        - **Linked to an existing shipment.** Provide `shipment_id`. The origin is taken from the shipment's ship-from warehouse and the destination from the order's ship-to address, so `ship_from` and `ship_to` must be omitted. `handling_units`, `accessorials`, and `insurance` are optional in this mode: when provided they are saved as the shipment's freight configuration, and when omitted the previously saved configuration is reused.
+        - **Linked to an existing shipment.** Provide `shipment_id`. The origin is taken from the shipment's ship-from warehouse and the destination from the order's ship-to address, so `ship_from` must be omitted, and `ship_to` may contain only `location_type`. `handling_units`, `accessorials`, and `insurance` are optional in this mode: when provided they are saved as the shipment's freight configuration, and when omitted the previously saved configuration is reused. A `ship_to.location_type` you send is saved the same way.
 
         To book one of the returned offers, pass its `offer_id` to [Book a freight shipment](#operation/book_freight_shipment).
 
@@ -2030,7 +2031,7 @@ paths:
                   - error_source: shipengine
                     error_type: business_rules
                     error_code: unspecified
-                    message: ship_from and ship_to must not be provided when shipment_id is present
+                    message: ship_from must not be provided when shipment_id is present
 
         '404':
           description: The `shipment_id` does not identify a shipment on this account.
@@ -5220,6 +5221,9 @@ paths:
                       guaranteed_service: true
                       estimated_delivery_date: '2026-05-26T12:00:00Z'
                       carrier_delivery_days: 'Tuesday 5/26 by 12:00 PM'
+                      delivery_prediction:
+                        delivery_date: '2026-05-26'
+                        confidence_level: high
                       ship_date: '2026-05-22T00:00:00Z'
                       negotiated_rate: false
                       service_type: UPS Worldwide Express®
@@ -6272,6 +6276,253 @@ paths:
           $ref: '#/components/responses/NotFound'
 
         '500':
+          $ref: '#/components/responses/ServerError'
+
+  /v2/shipments/{shipment_id}/split:
+    x-visibility: public
+    summary: Split shipment
+    description: |
+      Split a shipment by moving some of its items into one or more new shipments.
+
+    parameters:
+      - $ref: '#/components/parameters/shipment_id_path_param'
+
+    post:
+      summary: Split a shipment
+      description: |
+        Move items from a shipment into one or more new shipments. Each entry in `shipments` creates one new
+        shipment holding the items and quantities listed for it. Items and quantities that you don't list
+        stay on the original shipment.
+
+        Each new shipment is based on the original shipment and stays linked to the same sales order, so
+        the order source keeps getting shipment notifications after the split.
+
+        To split a shipment:
+
+        - It must have a `shipment_status` of `pending`, `awaiting_payment`, or `on_hold`.
+        - It must be linked to a sales order. Check `sales_order_ids` on the shipment.
+        - It can't come from a marketplace that supplies its own shipping labels.
+        - All of the items you move must belong to the same sales order. To move items from more than one
+          sales order, make one request for each sales order.
+        - At least one item must stay on the original shipment.
+
+        Get the `item_id` values from the `items` array of the shipment, using
+        [Get shipment by id](#operation/get_shipment_by_id).
+
+      tags:
+        - shipments
+      x-plan:
+        - ss-standard_and_premium_plans
+        - ss-api-free_plan
+        - ss-api-advanced_and_enterprise_plans
+      operationId: split_shipment
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/split_shipment_request_body'
+            examples:
+              one_new_shipment:
+                summary: Move one unit of an item into a new shipment
+                value:
+                  shipments:
+                    - items:
+                        - item_id: '1402291169813'
+                          quantity: 1
+              two_new_shipments:
+                summary: Create two new shipments
+                value:
+                  shipments:
+                    - items:
+                        - item_id: '1402291169813'
+                          quantity: 2
+                    - items:
+                        - item_id: '1402291169814'
+                          quantity: 1
+                        - item_id: '1402291169815'
+                          quantity: 1
+
+      responses:
+        200:
+          description: The shipment was split.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/split_shipment_response_body'
+              example:
+                shipment_id: 'se-202902255'
+                new_shipment_ids:
+                  - 'se-202902301'
+
+        400:
+          description: |
+            The request contained errors, or the shipment can't be split. The `error_code` identifies the reason:
+
+            | `error_code` | Reason |
+            |---|---|
+            | `invalid_field_value` | A value in the request can't be used. For example, a quantity is larger than the quantity on the shipment, an item is listed twice in the same new shipment, or no items would stay on the original shipment. |
+            | `invalid_identifier` | An `item_id` isn't on the shipment. |
+            | `invalid_status` | The shipment has already shipped, has been cancelled, or is in another status that can't be split. |
+            | `sales_order_link_required` | The shipment isn't linked to a sales order. |
+            | `multiple_sales_orders` | The items you're moving belong to more than one sales order. |
+            | `bring_your_own_label_not_supported` | The shipment comes from a marketplace that supplies its own shipping labels. |
+            | `unspecified` | The split was rejected for another reason. The `message` explains why. |
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response_body'
+              examples:
+                quantity_too_large:
+                  summary: Quantity is larger than the quantity on the shipment
+                  value:
+                    request_id: 4b8e2f4c-1f6f-4b1a-9c4a-8f5e6d7c8b9a
+                    errors:
+                      - error_source: shipengine
+                        error_type: validation
+                        error_code: invalid_field_value
+                        message: Cannot move 3 of item 1402291169813; the shipment only has 2.
+                        field_name: quantity
+                multiple_sales_orders:
+                  summary: Items belong to more than one sales order
+                  value:
+                    request_id: 4b8e2f4c-1f6f-4b1a-9c4a-8f5e6d7c8b9a
+                    errors:
+                      - error_source: shipengine
+                        error_type: business_rules
+                        error_code: multiple_sales_orders
+                        message: The items being split out belong to more than one sales order. Split items from one sales order at a time.
+                invalid_status:
+                  summary: Shipment has already shipped
+                  value:
+                    request_id: 4b8e2f4c-1f6f-4b1a-9c4a-8f5e6d7c8b9a
+                    errors:
+                      - error_source: shipengine
+                        error_type: business_rules
+                        error_code: invalid_status
+                        message: Shipment se-202902255 cannot be changed because it has already shipped or been cancelled.
+                        field_name: shipment_id
+                        field_value: se-202902255
+
+        404:
+          description: The `shipment_id` does not identify a shipment on this account.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response_body'
+
+        500:
+          $ref: '#/components/responses/ServerError'
+
+  /v2/shipments/{shipment_id}/merge:
+    x-visibility: public
+    summary: Merge shipments
+    description: |
+      Merge other shipments into a shipment.
+
+    parameters:
+      - $ref: '#/components/parameters/shipment_id_path_param'
+
+    post:
+      summary: Merge shipments
+      description: |
+        Merge one or more shipments into the shipment in the URL. The items from each shipment in
+        `shipment_ids` move onto the shipment in the URL, and the shipments in `shipment_ids` are then
+        deleted.
+
+        The shipment in the URL stays linked to its own sales orders and becomes linked to the sales orders
+        of every shipment merged into it, so order sources keep getting shipment notifications. The merged
+        shipments can belong to different sales orders.
+
+        To merge shipments:
+
+        - Every shipment, including the one in the URL, must have a `shipment_status` of `pending`,
+          `awaiting_payment`, or `on_hold`.
+        - Every shipment must be linked to a sales order. Check `sales_order_ids` on each shipment.
+        - None of the shipments can come from a marketplace that supplies its own shipping labels.
+
+        If `shipment_ids` includes the shipment in the URL or lists a shipment more than once, the extra
+        entries are ignored.
+
+      tags:
+        - shipments
+      x-plan:
+        - ss-standard_and_premium_plans
+        - ss-api-free_plan
+        - ss-api-advanced_and_enterprise_plans
+      operationId: merge_shipments
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/merge_shipments_request_body'
+            example:
+              shipment_ids:
+                - 'se-202902301'
+                - 'se-202902302'
+
+      responses:
+        200:
+          description: The shipments were merged.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/merge_shipments_response_body'
+              example:
+                shipment_id: 'se-202902255'
+                merged_shipment_ids:
+                  - 'se-202902301'
+                  - 'se-202902302'
+
+        400:
+          description: |
+            The request contained errors, or the shipments can't be merged. The `error_code` identifies the reason:
+
+            | `error_code` | Reason |
+            |---|---|
+            | `invalid_field_value` | A value in the request can't be used. For example, `shipment_ids` contains only the shipment in the URL, or contains `null`. |
+            | `invalid_status` | One of the shipments has already shipped, has been cancelled, or is in another status that can't be merged. |
+            | `sales_order_link_required` | One of the shipments isn't linked to a sales order. |
+            | `bring_your_own_label_not_supported` | One of the shipments comes from a marketplace that supplies its own shipping labels. |
+            | `unspecified` | The merge was rejected for another reason. The `message` explains why. |
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response_body'
+              examples:
+                nothing_to_merge:
+                  summary: No shipment other than the target was provided
+                  value:
+                    request_id: 4b8e2f4c-1f6f-4b1a-9c4a-8f5e6d7c8b9a
+                    errors:
+                      - error_source: shipengine
+                        error_type: validation
+                        error_code: invalid_field_value
+                        message: At least one shipment other than the target shipment is required to merge.
+                        field_name: shipment_ids
+                sales_order_link_required:
+                  summary: A shipment isn't linked to a sales order
+                  value:
+                    request_id: 4b8e2f4c-1f6f-4b1a-9c4a-8f5e6d7c8b9a
+                    errors:
+                      - error_source: shipengine
+                        error_type: business_rules
+                        error_code: sales_order_link_required
+                        message: Shipment se-202902302 is not linked to a sales order, so it cannot be merged.
+                        field_name: shipment_id
+                        field_value: se-202902302
+
+        404:
+          description: The shipment in the URL, or one of the shipments in `shipment_ids`, does not identify a shipment on this account.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response_body'
+
+        500:
           $ref: '#/components/responses/ServerError'
 
   /v2/shipments/{shipment_id}/documents:
@@ -9974,6 +10225,7 @@ components:
         - dhl_express_uk
         - dpd
         - endicia
+        - epg_shipping
         - fedex
         - fedex_uk
         - firstmile
@@ -9982,7 +10234,6 @@ components:
         - ontrac
         - purolator_canada
         - royal_mail
-        - rr_donnelley
         - seko
         - sendle
         - stamps_com
@@ -10037,6 +10288,7 @@ components:
         - $ref: '#/components/schemas/connect_dhl_express_uk_request_body'
         - $ref: '#/components/schemas/connect_dpd_request_body'
         - $ref: '#/components/schemas/connect_endicia_request_body'
+        - $ref: '#/components/schemas/connect_epg_shipping_request_body'
         - $ref: '#/components/schemas/connect_fedex_request_body'
         - $ref: '#/components/schemas/connect_fedex_uk_request_body'
         - $ref: '#/components/schemas/connect_firstmile_request_body'
@@ -10046,7 +10298,6 @@ components:
         - $ref: '#/components/schemas/connect_ontrac_request_body'
         - $ref: '#/components/schemas/connect_purolator_request_body'
         - $ref: '#/components/schemas/connect_royal_mail_request_body'
-        - $ref: '#/components/schemas/connect_rr_donnelley_request_body'
         - $ref: '#/components/schemas/connect_seko_request_body'
         - $ref: '#/components/schemas/connect_sendle_request_body'
         - $ref: '#/components/schemas/connect_stamps_request_body'
@@ -10585,6 +10836,25 @@ components:
           example: 'your_passphrase'
           minLength: 1
           description: Passphrase
+    connect_epg_shipping_request_body:
+      title: connect_epg_shipping_request_body
+      type: object
+      description: An EPG (ePost Global) account information request body
+      required:
+        - nickname
+        - token
+      additionalProperties: false
+      properties:
+        nickname:
+          type: string
+          example: 'My Carrier Account'
+          minLength: 1
+          description: Nickname
+        token:
+          type: string
+          example: 'your_token'
+          minLength: 1
+          description: Token
     connect_fedex_request_body:
       title: connect_fedex_request_body
       type: object
@@ -11106,31 +11376,6 @@ components:
           example: 'My Carrier Account'
           minLength: 1
           description: Nickname
-    connect_rr_donnelley_request_body:
-      title: connect_rr_donnelley_request_body
-      type: object
-      description: A RR Donnelley account information request body
-      required:
-        - nickname
-        - username
-        - password
-      additionalProperties: false
-      properties:
-        nickname:
-          type: string
-          example: 'My Carrier Account'
-          minLength: 1
-          description: Nickname
-        username:
-          type: string
-          example: 'your_username'
-          minLength: 1
-          description: Username
-        password:
-          type: string
-          example: 'your_password'
-          minLength: 1
-          description: Password
     connect_seko_request_body:
       title: connect_seko_request_body
       type: object
@@ -11733,9 +11978,8 @@ components:
           description: Tariff and additional taxes associated with an international shipment.
 
         zone:
-          type: integer
+          type: [integer, 'null']
           format: int32
-          x-nullable: true
           readOnly: true
           minimum: 0
           example: 6
@@ -11744,17 +11988,15 @@ components:
             custom zones that vary depending upon the ship_to and ship_from location
 
         package_type:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           readOnly: true
           minLength: 1
           example: package
           description: package type that this rate was estimated for
 
         delivery_days:
-          type: integer
+          type: [integer, 'null']
           format: int32
-          x-nullable: true
           readOnly: true
           minimum: 1
           example: 5
@@ -11769,14 +12011,13 @@ components:
           example: true
 
         estimated_delivery_date:
-          x-nullable: true
           readOnly: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/date'
+            - type: 'null'
 
         carrier_delivery_days:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           readOnly: true
           minLength: 1
           example: '22'
@@ -11905,9 +12146,8 @@ components:
 
         external_shipment_id:
           readOnly: true
-          type: string
+          type: [string, 'null']
           maxLength: 50
-          x-nullable: true
           example: 'externalId-1234556'
           description: |
             A unique user-defined key to identify a shipment.  This can be used to retrieve the shipment.
@@ -11916,8 +12156,7 @@ components:
 
         external_order_id:
           readOnly: true
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           example: 'externalOrderId-1232434'
           description: ID that the Order Source assigned
 
@@ -11980,8 +12219,7 @@ components:
             Indicates whether this is a return label.  You may also want to set the `rma_number` so you know what is being returned.
 
         rma_number:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           example: 'asd12323'
           description: |
             An optional Return Merchandise Authorization number.  This field is useful for return labels.  You can set it to any string value.
@@ -12058,27 +12296,27 @@ components:
             Indicates whether the label has been [voided]
 
         voided_at:
-          x-nullable: true
           readOnly: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/date_time'
+            - type: 'null'
           description: |
             The date and time that the label was [voided] , or `null` if the label has not been voided
 
         void_type:
-          x-nullable: true
           readOnly: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/void_type'
+            - type: 'null'
           description: |
             Indicates how the label was voided. This field is `null` if the label has not been voided.
           example: manual
 
         refund_details:
-          x-nullable: true
           readOnly: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/refund_details'
+            - type: 'null'
           description: |
             Information about the Refund Assist request for this label. This field is `null` if the label is not eligible for Refund Assist.
 
@@ -12116,9 +12354,9 @@ components:
             Indicates whether the shipment is trackable, in which case the `tracking_status` field will reflect the current status and each package will have a `tracking_number`.
 
         label_image_id:
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/image_id'
+            - type: 'null'
           description: The label image resource that was used to create a custom label image.
 
         carrier_code:
@@ -12148,32 +12386,32 @@ components:
 
         form_download:
           readOnly: true
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/link'
+            - type: 'null'
           description: |
             The link to download the customs form (a.k.a. commercial invoice) for this shipment, if any.  Forms are in PDF format. This field is null if the shipment does not require a customs form, or if the carrier does not support it.
 
         qr_code_download:
           readOnly: true
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/optional_link'
+            - type: 'null'
           description: The QR code download for the package
 
         paperless_download:
           readOnly: true
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/paperless_download'
+            - type: 'null'
           description: |
             The paperless details which may contain elements like `href`, `instructions` and `handoff_code`.
 
         insurance_claim:
           readOnly: true
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/link'
+            - type: 'null'
           description: |
             The link to submit an insurance claim for the shipment.  This field is null if the shipment is not insured or if the insurance provider does not support online claim submission.
 
@@ -12193,9 +12431,8 @@ components:
                 additionalProperties: false
                 properties:
                   alternative_identifiers:
-                    type: array
+                    type: [array, 'null']
                     readOnly: true
-                    x-nullable: true
                     description: |
                       Alternative identifiers associated with this package.
 
@@ -12203,9 +12440,8 @@ components:
                       $ref: '#/components/schemas/alternative_identifier'
 
         alternative_identifiers:
-          type: array
+          type: [array, 'null']
           readOnly: true
-          x-nullable: true
           description: |
             Additional information some carriers may provide by which to identify a given label in their system.
 
@@ -12222,8 +12458,7 @@ components:
 
         tracking_url:
           readOnly: true
-          x-nullable: true
-          type: string
+          type: [string, 'null']
           example: https://www.fedex.com/fedextrack/?action=track&trackingnumber=1234
           description: |
             The URL to track the package. This URL is provided by the carrier and is unique to the tracking number.
@@ -12294,17 +12529,15 @@ components:
           example: '123456'
 
         external_batch_id:
-          type: string
+          type: [string, 'null']
           readOnly: true
-          x-nullable: true
           minLength: 0
           example: '12323aaaar'
           description: A string that uniquely identifies the external batch
 
         batch_notes:
-          type: string
+          type: [string, 'null']
           readOnly: true
-          x-nullable: true
           default: ''
           example: Batch for morning shipment
           description: Custom notes you can add for each created batch
@@ -12323,10 +12556,10 @@ components:
           description: The date and time the batch was created in ShipStation
 
         processed_at:
-          x-nullable: true
           readOnly: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/date_time'
+            - type: 'null'
           description: The date and time the batch was processed in ShipStation
 
         # deprecate?
@@ -12524,8 +12757,7 @@ components:
           description: A string that uniquely identifies the warehouse
 
         is_default:
-          x-nullable: true
-          type: boolean
+          type: [boolean, 'null']
           default: false
           example: true
           description: Designates which single warehouse is the default on the account
@@ -12587,10 +12819,9 @@ components:
           description: The custom dimensions for the package.
 
         description:
-          type: string
+          type: [string, 'null']
           maxLength: 500
           example: Packaging for laptops
-          x-nullable: true
           description: Provides a helpful description for the custom package.
     carrier_provided_package_type:
       title: carrier_provided_package_type
@@ -12626,10 +12857,9 @@ components:
           description: The dimensions for the package.
 
         description:
-          type: string
+          type: [string, 'null']
           maxLength: 500
           example: USPS Small Flat Rate Box
-          x-nullable: true
           description: Provides a helpful description for the package.
     pagination_link:
       title: pagination_link
@@ -12733,6 +12963,26 @@ components:
 
       allOf:
         - $ref: '#/components/schemas/partial_shipment'
+        - title: shipment_sales_order_fields
+          type: object
+          properties:
+            sales_order_ids:
+              type: array
+              readOnly: true
+              items:
+                type: string
+              description: |
+                The IDs of the sales orders that the shipment is linked to. The array is empty if the shipment
+                isn't linked to a sales order. This field is read-only and is ignored in requests.
+
+                A shipment must be linked to a sales order before it can be
+                [split](#operation/split_shipment) or [merged](#operation/merge_shipments).
+
+                > **Note:** After a split, the original shipment can still list a sales order even if all of
+                that sales order's items have moved to other shipments. To see which sales order each item
+                belongs to, use `items[].sales_order_id`.
+              example:
+                - '8c1f2a5e-3b7d-4e9a-a6c2-1d4f5e6a7b8c'
     address_validating_shipment:
       title: address_validating_shipment
       type: object
@@ -12772,57 +13022,52 @@ components:
           description: A string that uniquely identifies the shipment
 
         carrier_id:
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/se_id'
+            - type: 'null'
           description: The carrier account that is billed for the shipping charges
           example: 'se-1234567'
 
         service_code:
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/service_code'
+            - type: 'null'
           description: |
             The [carrier service] used to ship the package, such as `fedex_ground`, `usps_first_class_mail`, `flat_rate_envelope`, etc.
           example: 'usps_first_class_mail'
 
         requested_shipment_service:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: The requested shipment service
           example: 'usps_priority_mail'
 
         external_order_id:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           example: '1232434'
           description: ID that the Order Source assigned
 
         hold_until_date:
-          type: string
+          type: [string, 'null']
           format: date-time
-          x-nullable: true
           description: Date to hold the shipment until
           example: '2025-01-15T00:00:00.000Z'
 
         ship_by_date:
-          type: string
+          type: [string, 'null']
           format: date-time
-          x-nullable: true
           description: Date by which the shipment should be shipped
           example: '2025-01-15T00:00:00.000Z'
 
         deliver_by_date:
-          type: string
+          type: [string, 'null']
           format: date-time
-          x-nullable: true
           description: Date by which the shipment should be delivered
           example: '2025-01-20T00:00:00.000Z'
 
         retail_rate:
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/monetary_value'
+            - type: 'null'
           description: The retail rate for the shipment
 
         store_id:
@@ -12842,26 +13087,22 @@ components:
             external order sources
 
         notes_from_buyer:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Notes from the buyer
           example: 'Please handle with care'
 
         notes_to_buyer:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Notes to the buyer
           example: 'Thank you for your order!'
 
         notes_for_gift:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Gift notes
           example: 'Happy Birthday!'
 
         internal_notes:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Internal notes from the seller
           example: 'Check packaging before shipping'
 
@@ -12872,8 +13113,7 @@ components:
           example: true
 
         assigned_user:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: User assigned to the shipment
           example: 'user@example.com'
 
@@ -12893,29 +13133,25 @@ components:
           description: Amount paid for taxes
 
         zone:
-          type: integer
+          type: [integer, 'null']
           format: int32
-          x-nullable: true
           minimum: 0
           description: Shipping zone
           example: 1
 
         display_scheme:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Display scheme for the shipment
           example: 'label'
 
         tax_identifiers:
-          type: array
-          x-nullable: true
+          type: [array, 'null']
           items:
             $ref: '#/components/schemas/tax_identifier'
 
         external_shipment_id:
-          type: string
+          type: [string, 'null']
           maxLength: 50
-          x-nullable: true
           example: '1234556'
           description: |
             A user-defined key that identifies the source order. Multiple shipments can share the same `external_shipment_id` (common in split-shipping scenarios where one order results in multiple shipments). Functionally identical to `orderKey` in V1 API.
@@ -12923,9 +13159,8 @@ components:
             > **Warning:** The `external_shipment_id` is limited to 50 characters. Any additional characters will be truncated.
 
         shipment_number:
-          type: string
+          type: [string, 'null']
           maxLength: 50
-          x-nullable: true
           readOnly: false
           example: '10001'
           description: |
@@ -12934,9 +13169,9 @@ components:
             > **Warning:** The `shipment_number` is limited to 50 characters. Any additional characters will be truncated.
 
         ship_date:
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/date'
+            - type: 'null'
           description: |
             The date that the shipment was (or will be) shipped.  ShipStation will take the day of week into consideration. For example, if the carrier does not operate on Sundays, then a package that would have shipped on Sunday will ship on Monday instead.
 
@@ -12971,10 +13206,10 @@ components:
             The shipment's origin address. If you frequently ship from the same location, consider [creating a warehouse].  Then you can simply specify the `warehouse_id` rather than the complete address each time.
 
         warehouse_id:
-          x-nullable: true
           default: null
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/se_id'
+            - type: 'null'
           description: |
             The [warehouse] that the shipment is being shipped from.  Either `warehouse_id` or `ship_from` must be specified.
 
@@ -12986,8 +13221,7 @@ components:
             The return address for this shipment.  Defaults to the `ship_from` address.  Can be sent with a warehouse_id, in which case the return address can be overridden.  This allows you to have a different address printed on the label while maintaining the origin address.
 
         is_return:
-          type: boolean
-          x-nullable: true
+          type: [boolean, 'null']
           default: false
           description: |
             An optional indicator if the shipment is intended to be a return. Defaults to false if not provided.
@@ -13000,9 +13234,9 @@ components:
           description: The type of delivery confirmation for this shipment. Defaults to 'none' if not specified.
 
         customs:
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/international_shipment_options'
+            - type: 'null'
           description: |
             Customs information for international shipments.
 
@@ -13071,8 +13305,7 @@ components:
             If the shipment is associated with more than one batch, the IDs are ordered by batch status priority: `open`, `queued`, `processing`, `completed`, `completed_with_errors`, `archived`, `notifying`, then `invalid`.
 
         comparison_rate_type:
-          x-nullable: true
-          type: string
+          type: [string, 'null']
           description: Calculate a rate for this shipment with the requested carrier using a ratecard that differs from the default.  Only supported for UPS and USPS.
           example: 'retail'
     partial_shipment_for_rate_shopper:
@@ -13093,42 +13326,37 @@ components:
           description: A string that uniquely identifies the shipment
 
         requested_shipment_service:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: The requested shipment service
           example: 'usps_priority_mail'
 
         external_order_id:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           example: '1232434'
           description: ID that the Order Source assigned
 
         hold_until_date:
-          type: string
+          type: [string, 'null']
           format: date-time
-          x-nullable: true
           description: Date to hold the shipment until
           example: '2025-01-15T00:00:00.000Z'
 
         ship_by_date:
-          type: string
+          type: [string, 'null']
           format: date-time
-          x-nullable: true
           description: Date by which the shipment should be shipped
           example: '2025-01-15T00:00:00.000Z'
 
         deliver_by_date:
-          type: string
+          type: [string, 'null']
           format: date-time
-          x-nullable: true
           description: Date by which the shipment should be delivered
           example: '2025-01-20T00:00:00.000Z'
 
         retail_rate:
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/monetary_value'
+            - type: 'null'
           description: The retail rate for the shipment
 
         store_id:
@@ -13148,26 +13376,22 @@ components:
             external order sources
 
         notes_from_buyer:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Notes from the buyer
           example: 'Please handle with care'
 
         notes_to_buyer:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Notes to the buyer
           example: 'Thank you for your order!'
 
         notes_for_gift:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Gift notes
           example: 'Happy Birthday!'
 
         internal_notes:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Internal notes from the seller
           example: 'Check packaging before shipping'
 
@@ -13178,8 +13402,7 @@ components:
           example: true
 
         assigned_user:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: User assigned to the shipment
           example: 'user@example.com'
 
@@ -13199,29 +13422,25 @@ components:
           description: Amount paid for taxes
 
         zone:
-          type: integer
+          type: [integer, 'null']
           format: int32
-          x-nullable: true
           minimum: 0
           description: Shipping zone
           example: 1
 
         display_scheme:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Display scheme for the shipment
           example: 'label'
 
         tax_identifiers:
-          type: array
-          x-nullable: true
+          type: [array, 'null']
           items:
             $ref: '#/components/schemas/tax_identifier'
 
         external_shipment_id:
-          type: string
+          type: [string, 'null']
           maxLength: 50
-          x-nullable: true
           example: '1234556'
           description: |
             A user-defined key that identifies the source order. Multiple shipments can share the same `external_shipment_id` (common in split-shipping scenarios where one order results in multiple shipments). Functionally identical to `orderKey` in V1 API.
@@ -13229,9 +13448,8 @@ components:
             > **Warning:** The `external_shipment_id` is limited to 50 characters. Any additional characters will be truncated.
 
         shipment_number:
-          type: string
+          type: [string, 'null']
           maxLength: 50
-          x-nullable: true
           readOnly: false
           example: '10001'
           description: |
@@ -13240,9 +13458,9 @@ components:
             > **Warning:** The `shipment_number` is limited to 50 characters. Any additional characters will be truncated.
 
         ship_date:
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/date'
+            - type: 'null'
           description: |
             The date that the shipment was (or will be) shipped.  ShipStation will take the day of week into consideration. For example, if the carrier does not operate on Sundays, then a package that would have shipped on Sunday will ship on Monday instead.
 
@@ -13277,10 +13495,10 @@ components:
             The shipment's origin address. If you frequently ship from the same location, consider [creating a warehouse].  Then you can simply specify the `warehouse_id` rather than the complete address each time.
 
         warehouse_id:
-          x-nullable: true
           default: null
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/se_id'
+            - type: 'null'
           description: |
             The [warehouse] that the shipment is being shipped from.  Either `warehouse_id` or `ship_from` must be specified.
 
@@ -13292,8 +13510,7 @@ components:
             The return address for this shipment.  Defaults to the `ship_from` address.  Can be sent with a warehouse_id, in which case the return address can be overridden.  This allows you to have a different address printed on the label while maintaining the origin address.
 
         is_return:
-          type: boolean
-          x-nullable: true
+          type: [boolean, 'null']
           default: false
           description: |
             An optional indicator if the shipment is intended to be a return. Defaults to false if not provided.
@@ -13306,9 +13523,9 @@ components:
           description: The type of delivery confirmation for this shipment. Defaults to 'none' if not specified.
 
         customs:
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/international_shipment_options'
+            - type: 'null'
           description: |
             Customs information.  This is usually only needed for international shipments.
 
@@ -13355,8 +13572,7 @@ components:
           description: The combined weight of all packages in the shipment
 
         comparison_rate_type:
-          x-nullable: true
-          type: string
+          type: [string, 'null']
           description: Calculate a rate for this shipment with the requested carrier using a ratecard that differs from the default.  Only supported for UPS and USPS.
           example: 'retail'
     compare_bulk_rates_request_body:
@@ -13650,13 +13866,11 @@ components:
             - $ref: '#/components/schemas/document_status_value'
           description: The processing status of the document.
         error:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           example: The uploaded file could not be read.
           description: A description of the error when the document is `invalid` or `failed`; otherwise `null`.
         external_id:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           example: 1Z999AA10123456784
           description: The carrier-assigned identifier for the document once it has been sent; otherwise `null`.
     list_documents_response_body:
@@ -13776,9 +13990,8 @@ components:
       additionalProperties: false
       properties:
         instructions:
-          type: string
+          type: [string, 'null']
           minLength: 1
-          x-nullable: true
           description: |
             Additional text about how to handle the shipment at this address.
           example: 'any instructions'
@@ -13845,16 +14058,14 @@ components:
             The phone number of a contact person at this address.  The format of this phone number varies depending on the country.
 
         email:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           example: example@example.com
           description: |
             Email for the address owner.
 
         company_name:
-          type: string
+          type: [string, 'null']
           minLength: 1
-          x-nullable: true
           example: The Home Depot
           description: |
             If this is a business address, then the company name should be specified here.
@@ -13867,17 +14078,15 @@ components:
             The first line of the street address.  For some addresses, this may be the only line.  Other addresses may require 2 or 3 lines.
 
         address_line2:
-          type: string
+          type: [string, 'null']
           minLength: 1
-          x-nullable: true
           example: Unit 408
           description: |
             The second line of the street address.  For some addresses, this line may not be needed.
 
         address_line3:
-          type: string
+          type: [string, 'null']
           minLength: 1
-          x-nullable: true
           example: 'Building #7'
           description: |
             The third line of the street address.  For some addresses, this line may not be needed.
@@ -13954,8 +14163,7 @@ components:
 
         confirmation_number:
           readOnly: true
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: The carrier confirmation number for the scheduled pickup.
           example: 292513CL4A3
 
@@ -14274,9 +14482,8 @@ components:
           description: Tariff and additional taxes associated with an international shipment.
 
         zone:
-          type: integer
+          type: [integer, 'null']
           format: int32
-          x-nullable: true
           readOnly: true
           minimum: 0
           example: 6
@@ -14285,17 +14492,15 @@ components:
             custom zones that vary depending upon the ship_to and ship_from location
 
         package_type:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           readOnly: true
           minLength: 1
           example: package
           description: package type that this rate was estimated for
 
         delivery_days:
-          type: integer
+          type: [integer, 'null']
           format: int32
-          x-nullable: true
           readOnly: true
           minimum: 1
           example: 5
@@ -14310,15 +14515,14 @@ components:
           example: true
 
         estimated_delivery_date:
-          x-nullable: true
           readOnly: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/date'
+            - type: 'null'
           example: '2024-12-23T00:00:00.000Z'
 
         carrier_delivery_days:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           readOnly: true
           minLength: 1
           example: '22'
@@ -14538,10 +14742,10 @@ components:
           description: The original address that was sent for validation
 
         matched_address:
-          x-nullable: true
           readOnly: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/address'
+            - type: 'null'
           description: The matched address found by the ShipStation API
 
         messages:
@@ -14581,9 +14785,9 @@ components:
                   - $ref: '#/components/schemas/address_validation_message_type'
 
               detail_code:
-                x-nullable: true
-                allOf:
+                oneOf:
                   - $ref: '#/components/schemas/address_validation_detail_code'
+                  - type: 'null'
 
           description: The list of messages that were generated during the address validation request.
     label_package:
@@ -14672,13 +14876,12 @@ components:
           example: 'se-1234567'
 
         content_description:
-          type: string
+          type: [string, 'null']
           minLength: 1
           maxLength: 35
           description: |
             A short description of the package content. Required for shipments moving to, from, and through Mexico.
           example: 'Hand knitted wool socks'
-          x-nullable: true
 
         sequence:
           readOnly: true
@@ -14773,13 +14976,12 @@ components:
           example: 'se-1234545'
 
         content_description:
-          type: string
+          type: [string, 'null']
           minLength: 1
           maxLength: 35
           description: |
             A short description of the package content. Required for shipments moving to, from, and through Mexico.
           example: 'Hand knitted wool socks'
-          x-nullable: true
 
         products:
           type: array
@@ -14795,8 +14997,7 @@ components:
 
             properties:
               description:
-                type: string
-                x-nullable: true
+                type: [string, 'null']
                 maxLength: 100
                 default: null
                 description: A description of the item
@@ -14821,53 +15022,46 @@ components:
                 description: The item weight
 
               harmonized_tariff_code:
-                type: string
-                x-nullable: true
+                type: [string, 'null']
                 default: null
                 example: '3926.10'
                 description: The [Harmonized Tariff Code](https://en.wikipedia.org/wiki/Harmonized_System) of this item.
 
               country_of_origin:
-                x-nullable: true
                 default: null
-                allOf:
+                oneOf:
                   - $ref: '#/components/schemas/country_code'
+                  - type: 'null'
                 description: |
                   The two-letter [ISO 3166-1 country code](https://en.wikipedia.org/wiki/ISO_3166-1) where this item originated
 
               unit_of_measure:
-                type: string
-                x-nullable: true
+                type: [string, 'null']
                 example: 'pound'
 
               sku:
-                type: string
+                type: [string, 'null']
                 description: The SKU (Stock Keeping Unit) of the item
-                x-nullable: true
                 example: 'sku-1223344'
 
               sku_description:
-                type: string
+                type: [string, 'null']
                 description: Description of the Custom Item's SKU
-                x-nullable: true
                 example: 'this is a description'
 
               mid_code:
-                type: string
+                type: [string, 'null']
                 description: Manufacturers Identification code
-                x-nullable: true
                 example: 'GBCOM15BRI'
 
               product_url:
-                type: string
+                type: [string, 'null']
                 description: link to the item on the seller website
-                x-nullable: true
                 example: 'https://myproduct.com'
 
               vat_rate:
-                type: number
+                type: [number, 'null']
                 description: VAT rate applicable to the item
-                x-nullable: true
                 example: 0.2
 
               dangerous_goods:
@@ -14879,35 +15073,30 @@ components:
                 items:
                   $ref: '#/components/schemas/dangerous_goods'
               manufacturer_product_id_type:
-                type: string
-                x-nullable: true
                 default: null
-                allOf:
+                oneOf:
                   - $ref: '#/components/schemas/manufacturer_product_identifier_type'
+                  - type: 'null'
                 description: The type of identifier used for the manufacturer product ID.
                 example: gtin
               manufacturer_product_id:
-                type: string
-                x-nullable: true
+                type: [string, 'null']
                 default: null
                 description: The manufacturer's product identifier corresponding to the `manufacturer_product_id_type`.
                 example: '012345678905'
               manufacturer_ns_product_id:
-                type: string
-                x-nullable: true
+                type: [string, 'null']
                 default: null
                 description: A non-standardized product identifier unique to the manufacturer's own system that does not follow an internationally recognized standard (e.g. a SKU).
                 example: 'MY-SKU-12345'
               cpsc_certificates:
-                type: array
-                x-nullable: true
+                type: [array, 'null']
                 default: null
                 description: List of CPSC eFiling certificates associated with this product.
                 items:
                   $ref: '#/components/schemas/cpsc_certificate'
               cpsc_disclaim:
-                type: object
-                x-nullable: true
+                type: [object, 'null']
                 default: null
                 description: CPSC disclaimer information for products that do not require a Certificate of Compliance, even though their HTS code is flagged as potentially subject to CPSC regulation. Use either `cpsc_certificates` or `cpsc_disclaim` per product, not both.
                 required:
@@ -14935,8 +15124,7 @@ components:
                       `970.XXX` (Export), `980.000` (Other Use - `intended_use_description` recommended).
                     example: '130.006'
                   intended_use_description:
-                    type: string
-                    x-nullable: true
+                    type: [string, 'null']
                     default: null
                     maxLength: 100
                     description: >
@@ -14965,24 +15153,21 @@ components:
 
       properties:
         reference1:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           description: |
             The first line of the custom label message.  Some carriers may prefix this line with something like "REF", "Reference", "Trx Ref No.", etc.
           example: 'Reference'
 
         reference2:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           description: |
             The second line of the custom label message.  Some carriers may prefix this line with something like "INV", "Reference 2", "Trx Ref No.", etc.
           example: 'Reference 2'
 
         reference3:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           description: |
             The third line of the custom label message.  Some carriers may prefix this line with something like "PO", "Reference 3", etc.
@@ -15021,36 +15206,31 @@ components:
 
       properties:
         id_number:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           description: UN number to identify the dangerous goods.
           example: '1234r1'
 
         shipping_name:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           description: Trade description of the dangerous goods.
           example: 'things with dangerous goods'
 
         technical_name:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           description: Recognized Technical or chemical name of dangerous goods.
           example: 'chloric acid'
 
         product_class:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           description: Dangerous goods product class based on regulation.
           example: '1987'
 
         product_class_subsidiary:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           description: A secondary of product class for substances presenting more than one particular hazard
           example: '1987'
@@ -15078,8 +15258,7 @@ components:
           example: 1
 
         packaging_instruction:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           description: The specific standardized packaging instructions from the relevant regulatory agency that have been applied to the parcel/container.
           example: 'Packaging materials and containers that are in contact with food products must comply with the provisions established by Regulation '
@@ -15095,8 +15274,7 @@ components:
           example: 'section_1'
 
         packaging_type:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           description: The type of exterior packaging used to contain the dangerous good.
           example: 'X'
@@ -15112,15 +15290,13 @@ components:
           example: 'ground'
 
         transport_category:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           description: Transport category assign to dangerous goods for the transport purpose.
           example: '6.1'
 
         regulation_authority:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           description: Name of the regulatory authority.
           example: 'AEAT'
@@ -15136,27 +15312,23 @@ components:
           example: 'excepted_quantity'
 
         radioactive:
-          type: boolean
-          x-nullable: true
+          type: [boolean, 'null']
           example: false
           description: Indication if the substance is radioactive.
 
         reportable_quantity:
-          type: boolean
-          x-nullable: true
+          type: [boolean, 'null']
           example: false
           description: Indication if the substance needs to be reported to regulatory authority based on the quantity.
 
         tunnel_code:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           description: Defines which types of tunnels the shipment is allowed to go through
           example: 'all'
 
         additional_description:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           description: Provider additonal description regarding the dangerous goods. This is used as a placed holder to provider additional context and varies by carrier
           example: 'any description'
@@ -15173,8 +15345,7 @@ components:
           description: The amount of dangerous goods.
           example: 12
         unit:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           description: The unit of dangerous goods.
           example: 'GBP'
@@ -15194,16 +15365,14 @@ components:
           description: The URL of the linked resource, if any
 
         instructions:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           description: |
             The instructions for the paperless download.
           example: 'any instructions'
 
         handoff_code:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           example: '122334'
           description: |
@@ -15242,34 +15411,32 @@ components:
 
       properties:
         bill_to_account:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           description: |
             This field is used to [bill shipping costs to a third party].  This field must be used in conjunction with the `bill_to_country_code`, `bill_to_party`, and `bill_to_postal_code` fields.
           example: '123456789'
 
         bill_to_country_code:
-          x-nullable: true
           default: null
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/country_code'
+            - type: 'null'
           description: |
             The two-letter [ISO 3166-1 country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the third-party that is responsible for shipping costs.
           example: 'US'
 
         bill_to_party:
-          x-nullable: true
           default: null
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/bill_to_party'
+            - type: 'null'
           description: |
             Indicates whether to bill shipping costs to the recipient or to a third-party.  When billing to a third-party, the `bill_to_account`, `bill_to_country_code`, and `bill_to_postal_code` fields must also be set.
           example: 'third_party'
 
         bill_to_postal_code:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           description: |
             The postal code of the third-party that is responsible for shipping costs.
@@ -15295,9 +15462,9 @@ components:
           example: true
 
         dry_ice_weight:
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/weight'
+            - type: 'null'
           description: The weight of the dry ice in the shipment
 
         non_machinable:
@@ -15325,24 +15492,21 @@ components:
               example: 'today'
 
         use_ups_ground_freight_pricing:
-          type: boolean
-          x-nullable: true
+          type: [boolean, 'null']
           default: null
           description: |
             Whether to use [UPS Ground Freight pricing] If enabled, then a `freight_class` must also be specified.
           example: true
 
         freight_class:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           example: '77.5'
           description: |
             The National Motor Freight Traffic Association [freight class](http://www.nmfta.org/pages/nmfc?AspxAutoDetectCookieSupport=1), such as "77.5", "110", or "250".
 
         custom_field1:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           maxLength: 100
           description: |
@@ -15350,8 +15514,7 @@ components:
           example: 'custom field 1'
 
         custom_field2:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           maxLength: 100
           description: |
@@ -15359,8 +15522,7 @@ components:
           example: 'custom field 2'
 
         custom_field3:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           maxLength: 100
           description: |
@@ -15368,22 +15530,20 @@ components:
           example: 'custom field 3'
 
         origin_type:
-          x-nullable: true
           default: null
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/origin_type'
+            - type: 'null'
 
         additional_handling:
-          type: boolean
-          x-nullable: true
+          type: [boolean, 'null']
           default: null
           description: |
             Indicate to the carrier that this shipment requires additional handling.
           example: true
 
         shipper_release:
-          type: boolean
-          x-nullable: true
+          type: [boolean, 'null']
           default: null
           example: true
 
@@ -15430,8 +15590,7 @@ components:
               description: Phone number of the contact
               example: '123456578789'
         movement_indicator:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           default: null
           description: >-
             An indicator that will tell the carrier the type of
@@ -15461,13 +15620,11 @@ components:
               description: An indicator that allows a shipper to declare the shipment as not-at-risk.
               example: true
         ancillary_endorsements_option:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Ancillary endorsements option for the shipment
           example: 'forward'
         return_pickup_attempts:
-          type: integer
-          x-nullable: true
+          type: [integer, 'null']
           description: Number of return pickup attempts
           example: 3
         own_document_upload:
@@ -15501,10 +15658,10 @@ components:
           description: Ensures the shipment is immediately flagged for return to the sender if the initial delivery attempt fails
           example: false
         regulated_content_type:
-          x-nullable: true
           default: null
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/regulated_content_type'
+            - type: 'null'
           description: Indicates the category of goods in the shipment that is subject to special regulatory or compliance requirements
         netstamps_options:
           type: object
@@ -15642,8 +15799,7 @@ components:
                 description: A string that uniquely identifies the customs item
 
               description:
-                type: string
-                x-nullable: true
+                type: [string, 'null']
                 maxLength: 100
                 default: null
                 description: A description of the item
@@ -15675,36 +15831,32 @@ components:
                 description: The item weight
 
               harmonized_tariff_code:
-                type: string
-                x-nullable: true
+                type: [string, 'null']
                 default: null
                 example: '3926.10'
                 description: The [Harmonized Tariff Code](https://en.wikipedia.org/wiki/Harmonized_System) of this item.
 
               country_of_origin:
-                x-nullable: true
                 default: null
-                allOf:
+                oneOf:
                   - $ref: '#/components/schemas/country_code'
+                  - type: 'null'
                 description: |
                   The two-letter [ISO 3166-1 country code](https://en.wikipedia.org/wiki/ISO_3166-1) where this item originated
                 example: 'GB'
 
               unit_of_measure:
-                type: string
-                x-nullable: true
+                type: [string, 'null']
                 example: 'pound'
 
               sku:
-                type: string
+                type: [string, 'null']
                 description: The SKU (Stock Keeping Unit) of the customs item
-                x-nullable: true
                 example: 'sku-1234'
 
               sku_description:
-                type: string
+                type: [string, 'null']
                 description: Description of the Custom Item's SKU
-                x-nullable: true
                 example: 'this is a description'
     importer_of_records:
       title: importer_of_records
@@ -15736,16 +15888,14 @@ components:
             The phone number of a contact person at this address.  The format of this phone number varies depending on the country.
 
         email:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           example: example@example.com
           description: |
             Email for the address owner.
 
         company_name:
-          type: string
+          type: [string, 'null']
           minLength: 1
-          x-nullable: true
           example: The Home Depot
           description: |
             If this is a business address, then the company name should be specified here. Either `name` or the `company_name` field should always be set.
@@ -15758,17 +15908,15 @@ components:
             The first line of the street address.  For some addresses, this may be the only line.  Other addresses may require 2 or 3 lines.
 
         address_line2:
-          type: string
+          type: [string, 'null']
           minLength: 1
-          x-nullable: true
           example: Unit 408
           description: |
             The second line of the street address.  For some addresses, this line may not be needed.
 
         address_line3:
-          type: string
+          type: [string, 'null']
           minLength: 1
-          x-nullable: true
           example: 'Building #7'
           description: |
             The third line of the street address.  For some addresses, this line may not be needed.
@@ -15847,9 +15995,8 @@ components:
       additionalProperties: false
       properties:
         instructions:
-          type: string
+          type: [string, 'null']
           minLength: 1
-          x-nullable: true
           description: |
             Additional text about how to handle the shipment at this address.
           example: 'any instruction'
@@ -15911,15 +16058,17 @@ components:
           description: item name
           example: 'box'
         sales_order_id:
-          type: string
-          x-nullable: true
-          description: sales order id
-          example: '12345'
+          type: [string, 'null']
+          description: |
+            The ID of the sales order that this item belongs to. In shipment responses, this is `null` if the
+            item isn't linked to a sales order.
+          example: '8c1f2a5e-3b7d-4e9a-a6c2-1d4f5e6a7b8c'
         sales_order_item_id:
-          type: string
-          x-nullable: true
-          description: sales order item id
-          example: '1234556'
+          type: [string, 'null']
+          description: |
+            The ID of the sales order line item that this item belongs to. In shipment responses, this is
+            `null` if the item isn't linked to a sales order.
+          example: '2e7b9c4d-6a1f-4c3e-8b5d-9f0a1b2c3d4e'
         quantity:
           type: integer
           format: int32
@@ -15927,28 +16076,23 @@ components:
           description: The quantity of this item included in the shipment
           example: 1
         sku:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Item Stock Keeping Unit
           example: 'sku-1234'
         bundle_sku:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Bundle SKU for the item
           example: 'bundle-123'
         external_order_id:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: external order id
           example: '123445'
         external_order_item_id:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: external order item id
           example: '12'
         asin:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           minLength: 10
           maxLength: 10
           example: B00005N5PF
@@ -15956,18 +16100,17 @@ components:
         order_source_code:
           $ref: '#/components/schemas/order_source_name'
         item_id:
-          type: string
-          x-nullable: true
-          description: Unique identifier for the item
+          type: [string, 'null']
+          description: |
+            Unique identifier for the item. Use this value as `item_id` when you
+            [split a shipment](#operation/split_shipment).
           example: '1402291169813'
         allocation_status:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Allocation status of the item
           example: 'allocated'
         image_url:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           format: uri
           description: URL to the item image
           example: 'https://example.com/image.jpg'
@@ -15976,26 +16119,22 @@ components:
             - $ref: '#/components/schemas/weight'
           description: Weight of the individual item
         unit_price:
-          type: number
-          x-nullable: true
+          type: [number, 'null']
           minimum: 0
           description: Unit price of the item
           example: 88.00
         tax_amount:
-          type: number
-          x-nullable: true
+          type: [number, 'null']
           minimum: 0
           description: Tax amount for the item
           example: 5.50
         shipping_amount:
-          type: number
-          x-nullable: true
+          type: [number, 'null']
           minimum: 0
           description: Shipping amount for the item
           example: 10.00
         inventory_location:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Inventory location of the item
           example: 'warehouse-a'
         options:
@@ -16014,18 +16153,15 @@ components:
                 example: 'Red'
           description: Item options/variants
         product_id:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Product ID
           example: '10408926'
         fullfilment_sku:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Fulfillment SKU
           example: 'fulfill-123'
         upc:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Universal Product Code
           example: '123456789012'
     manifest_download:
@@ -16073,9 +16209,8 @@ components:
           description: The account number that the carrier is connected to.
 
         connection_status:
-          type: string
+          type: [string, 'null']
           readOnly: true
-          x-nullable: true
           enum:
             - pending_approval
             - approved
@@ -16111,9 +16246,9 @@ components:
 
         funding_source_id:
           readOnly: true
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/se_id'
+            - type: 'null'
           description: Funding source ID for the carrier
 
         primary:
@@ -18417,7 +18552,7 @@ components:
         |--------------|-----------------------------------
         |`pdf`         | All carriers
         |`png`         | `fedex` <br> `stamps_com` <br> `ups` <br> `usps`
-        |`zpl`         | `access_worldwide` <br> `apc` <br> `asendia` <br> `dhl_global_mail` <br> `dhl_express` <br> `dhl_express_australia` <br> `dhl_express_canada` <br> `dhl_express_worldwide` <br> `dhl_express_uk` <br> `dpd` <br> `endicia` <br> `fedex` <br> `fedex_uk` <br> `firstmile` <br> `imex` <br> `newgistics` <br> `ontrac` <br> `rr_donnelley` <br> `stamps_com` <br> `ups` <br> `usps`
+        |`zpl`         | `access_worldwide` <br> `apc` <br> `asendia` <br> `dhl_global_mail` <br> `dhl_express` <br> `dhl_express_australia` <br> `dhl_express_canada` <br> `dhl_express_worldwide` <br> `dhl_express_uk` <br> `dpd` <br> `endicia` <br> `fedex` <br> `fedex_uk` <br> `firstmile` <br> `imex` <br> `newgistics` <br> `ontrac` <br> `stamps_com` <br> `ups` <br> `usps`
     manifest_request_status:
       title: manifest_request_status
       type: string
@@ -18845,6 +18980,7 @@ components:
       enum:
         - auto_fund_not_supported
         - batch_cannot_be_modified
+        - bring_your_own_label_not_supported
         - carrier_conflict
         - carrier_disconnected
         - carrier_not_connected
@@ -18865,11 +19001,13 @@ components:
         - invalid_string_length
         - label_images_not_supported
         - meter_failure
+        - multiple_sales_orders
         - order_source_not_active
         - rate_limit_exceeded
         - refresh_not_supported
         - request_body_required
         - return_label_not_supported
+        - sales_order_link_required
         - settings_not_supported
         - subscription_inactive
         - terms_not_accepted
@@ -18976,30 +19114,30 @@ components:
 
         amount_paid:
           readOnly: true
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/monetary_value'
+            - type: 'null'
           description: The amount that was originally paid for the label
 
         amount_requested:
           readOnly: true
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/monetary_value'
+            - type: 'null'
           description: The amount requested to be refunded
 
         amount_approved:
           readOnly: true
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/monetary_value'
+            - type: 'null'
           description: The amount approved for refund by the carrier
 
         amount_credited:
           readOnly: true
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/monetary_value'
+            - type: 'null'
           description: The amount that has been credited back to the account
 
     insurance_provider:
@@ -19152,6 +19290,7 @@ components:
         - label_created_v2
         - shipment_created_v2
         - track_event_v2
+        - freight_track_event_v2
       description: The possible webhook event values
     batches_sort_by:
       title: batches_sort_by
@@ -19912,9 +20051,9 @@ components:
           description: The display format that the label should be shown in.
 
         label_image_id:
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/image_id'
+            - type: 'null'
           description: The label image resource that was used to create a custom label image.
     create_label_from_shipment_request_body:
       title: create_label_from_shipment_request_body
@@ -20002,9 +20141,8 @@ components:
             custom_field3
           example: 'Custom field 3'
         external_shipment_id:
-          type: string
+          type: [string, 'null']
           maxLength: 100
-          x-nullable: true
           description: >-
             Optional - A unique user-defined key to identify a shipment limited to 100 characters.
           example: 'my-shipment-001'
@@ -20024,14 +20162,12 @@ components:
 
       properties:
         ship_to_service_point_id:
-          x-nullable: true
-          type: string
+          type: [string, 'null']
           description: A unique identifier for a carrier service point where the shipment will be delivered by the carrier. This will take precedence over a shipment's ship to address.
           example: '614940'
 
         ship_from_service_point_id:
-          x-nullable: true
-          type: string
+          type: [string, 'null']
           description: A unique identifier for a carrier drop off point where a merchant plans to deliver packages. This will take precedence over a shipment's ship from address.
           example: '614940'
     create_netstamps_labels_request_body:
@@ -20108,8 +20244,7 @@ components:
           description: Indicates whether these are return labels.
 
         rma_number:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           example: 'asd12323'
           description: An optional Return Merchandise Authorization number for return labels.
 
@@ -20129,20 +20264,18 @@ components:
             - $ref: '#/components/schemas/validate_address'
 
         label_image_id:
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/image_id'
+            - type: 'null'
           description: The label image resource that was used to create a custom label image.
 
         ship_to_service_point_id:
-          x-nullable: true
-          type: string
+          type: [string, 'null']
           description: A unique identifier for a carrier service point where the shipment will be delivered.
           example: '614940'
 
         ship_from_service_point_id:
-          x-nullable: true
-          type: string
+          type: [string, 'null']
           description: A unique identifier for a carrier drop off point where a merchant plans to deliver packages.
           example: '614940'
 
@@ -20230,8 +20363,7 @@ components:
           description: Indicates whether these are return labels.
 
         rma_number:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           example: 'asd12323'
           description: An optional Return Merchandise Authorization number for return labels.
 
@@ -20251,20 +20383,18 @@ components:
             - $ref: '#/components/schemas/validate_address'
 
         label_image_id:
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/image_id'
+            - type: 'null'
           description: The label image resource that was used to create a custom label image.
 
         ship_to_service_point_id:
-          x-nullable: true
-          type: string
+          type: [string, 'null']
           description: A unique identifier for a carrier service point where the shipment will be delivered.
           example: '614940'
 
         ship_from_service_point_id:
-          x-nullable: true
-          type: string
+          type: [string, 'null']
           description: A unique identifier for a carrier drop off point where a merchant plans to deliver packages.
           example: '614940'
 
@@ -20343,8 +20473,7 @@ components:
           description: Indicates whether this is a return label.
 
         rma_number:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           example: 'asd12323'
           description: An optional Return Merchandise Authorization number for return labels.
 
@@ -20364,20 +20493,18 @@ components:
             - $ref: '#/components/schemas/validate_address'
 
         label_image_id:
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/image_id'
+            - type: 'null'
           description: The label image resource that was used to create a custom label image.
 
         ship_to_service_point_id:
-          x-nullable: true
-          type: string
+          type: [string, 'null']
           description: A unique identifier for a carrier service point where the shipment will be delivered.
           example: '614940'
 
         ship_from_service_point_id:
-          x-nullable: true
-          type: string
+          type: [string, 'null']
           description: A unique identifier for a carrier drop off point where a merchant plans to deliver packages.
           example: '614940'
 
@@ -20520,42 +20647,37 @@ components:
 
       properties:
         requested_shipment_service:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: The requested shipment service
           example: 'usps_priority_mail'
 
         external_order_id:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           example: '1232434'
           description: ID that the Order Source assigned
 
         hold_until_date:
-          type: string
+          type: [string, 'null']
           format: date-time
-          x-nullable: true
           description: Date to hold the shipment until
           example: '2025-01-15T00:00:00.000Z'
 
         ship_by_date:
-          type: string
+          type: [string, 'null']
           format: date-time
-          x-nullable: true
           description: Date by which the shipment should be shipped
           example: '2025-01-15T00:00:00.000Z'
 
         deliver_by_date:
-          type: string
+          type: [string, 'null']
           format: date-time
-          x-nullable: true
           description: Date by which the shipment should be delivered
           example: '2025-01-20T00:00:00.000Z'
 
         retail_rate:
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/monetary_value'
+            - type: 'null'
           description: The retail rate for the shipment
 
         store_id:
@@ -20575,26 +20697,22 @@ components:
             external order sources
 
         notes_from_buyer:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Notes from the buyer
           example: 'Please handle with care'
 
         notes_to_buyer:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Notes to the buyer
           example: 'Thank you for your order!'
 
         notes_for_gift:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Gift notes
           example: 'Happy Birthday!'
 
         internal_notes:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Internal notes from the seller
           example: 'Check packaging before shipping'
 
@@ -20605,8 +20723,7 @@ components:
           example: true
 
         assigned_user:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: User assigned to the shipment
           example: 'user@example.com'
 
@@ -20626,29 +20743,25 @@ components:
           description: Amount paid for taxes
 
         zone:
-          type: integer
+          type: [integer, 'null']
           format: int32
-          x-nullable: true
           minimum: 0
           description: Shipping zone
           example: 1
 
         display_scheme:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Display scheme for the shipment
           example: 'label'
 
         tax_identifiers:
-          type: array
-          x-nullable: true
+          type: [array, 'null']
           items:
             $ref: '#/components/schemas/tax_identifier'
 
         external_shipment_id:
-          type: string
+          type: [string, 'null']
           maxLength: 50
-          x-nullable: true
           example: '1234556'
           description: |
             A user-defined key that identifies the source order. Multiple shipments can share the same `external_shipment_id` (common in split-shipping scenarios where one order results in multiple shipments). Functionally identical to `orderKey` in V1 API.
@@ -20656,9 +20769,8 @@ components:
             > **Warning:** The `external_shipment_id` is limited to 50 characters. Any additional characters will be truncated.
 
         shipment_number:
-          type: string
+          type: [string, 'null']
           maxLength: 50
-          x-nullable: true
           readOnly: false
           example: '10001'
           description: |
@@ -20667,9 +20779,9 @@ components:
             > **Warning:** The `shipment_number` is limited to 50 characters. Any additional characters will be truncated.
 
         ship_date:
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/date'
+            - type: 'null'
           description: |
             The date that the shipment was (or will be) shipped.  ShipStation will take the day of week into consideration. For example, if the carrier does not operate on Sundays, then a package that would have shipped on Sunday will ship on Monday instead.
 
@@ -20685,10 +20797,10 @@ components:
             The shipment's origin address. If you frequently ship from the same location, consider [creating a warehouse].  Then you can simply specify the `warehouse_id` rather than the complete address each time.
 
         warehouse_id:
-          x-nullable: true
           default: null
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/se_id'
+            - type: 'null'
           description: |
             The [warehouse] that the shipment is being shipped from.  Either `warehouse_id` or `ship_from` must be specified.
 
@@ -20700,8 +20812,7 @@ components:
             The return address for this shipment.  Defaults to the `ship_from` address.  Can be sent with a warehouse_id, in which case the return address can be overridden.  This allows you to have a different address printed on the label while maintaining the origin address.
 
         is_return:
-          type: boolean
-          x-nullable: true
+          type: [boolean, 'null']
           default: false
           description: |
             An optional indicator if the shipment is intended to be a return. Defaults to false if not provided.
@@ -20714,9 +20825,9 @@ components:
           description: The type of delivery confirmation for this shipment. Defaults to 'none' if not specified.
 
         customs:
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/international_shipment_options'
+            - type: 'null'
           description: |
             Customs information.  This is usually only needed for international shipments.
 
@@ -20757,8 +20868,7 @@ components:
             > **Note:** Some carriers only allow one package per shipment.  If you attempt to create a multi-package shipment for a carrier that doesn't allow it, an error will be returned.
 
         comparison_rate_type:
-          x-nullable: true
-          type: string
+          type: [string, 'null']
           description: Calculate a rate for this shipment with the requested carrier using a ratecard that differs from the default.  Only supported for UPS and USPS.
           example: 'retail'
     process_batch_request_body:
@@ -20974,17 +21084,16 @@ components:
           description: Address validation option
 
         external_shipment_id:
-          type: string
+          type: [string, 'null']
           maxLength: 50
-          x-nullable: true
           example: '1751939189'
           description: |
             A unique user-defined key to identify a shipment. This can be used to retrieve the shipment.
 
         carrier_id:
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/se_id'
+            - type: 'null'
           description: The carrier account that is billed for the shipping charges
           example: 'se-2774150'
 
@@ -20995,32 +21104,27 @@ components:
           example: true
 
         store_id:
-          x-nullable: true
-          type: string
+          type: [string, 'null']
           description: The store ID associated with the shipment
           example: '1582173'
 
         notes_from_buyer:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Notes from the buyer
           example: 'I am a note from the buyer'
 
         notes_to_buyer:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Notes to the buyer
           example: 'Thank you for your order!'
 
         notes_for_gift:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Gift notes
           example: 'I am a gift note'
 
         internal_notes:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Internal notes from the seller
           example: 'Check packaging before shipping'
 
@@ -21031,35 +21135,30 @@ components:
           example: true
 
         zone:
-          type: integer
+          type: [integer, 'null']
           format: int32
-          x-nullable: true
           minimum: 0
           description: Shipping zone
           example: 0
 
         display_scheme:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: Display scheme for the shipment
           example: 'paperless'
 
         requested_shipment_service:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: The requested shipment service
           example: 'usps_priority_mail'
 
         deliver_by_date:
-          type: string
+          type: [string, 'null']
           format: date-time
-          x-nullable: true
           description: Date by which the shipment should be delivered
           example: '2025-01-20T00:00:00.000Z'
 
         assigned_user:
-          type: string
-          x-nullable: true
+          type: [string, 'null']
           description: User assigned to the shipment
           example: 'a2df9fa5-b7ee-467f-be4e-9c660542c187'
 
@@ -21095,9 +21194,9 @@ components:
           description: The shipment's origin address
 
         warehouse_id:
-          x-nullable: true
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/se_id'
+            - type: 'null'
           description: |
             The warehouse ID to use as the ship from location. This is an alternative to providing a ship_from address object.
             You cannot specify both warehouse_id and ship_from in the same request.
@@ -21347,6 +21446,136 @@ components:
           description: The ID of the user to assign to the batch. The user must be an active member of your account.
           example: 'a2df9fa5-b7ee-467f-be4e-9c660542c187'
 
+    split_shipment_request_body:
+      title: split_shipment_request_body
+      type: object
+
+      description: A request body for splitting a shipment into one or more new shipments
+
+      required:
+        - shipments
+
+      additionalProperties: false
+
+      properties:
+        shipments:
+          type: array
+          minItems: 1
+          maxItems: 100
+          description: |
+            The new shipments to create. Each entry creates one new shipment that holds the listed items.
+            Items and quantities that you don't list stay on the original shipment.
+          items:
+            type: object
+            title: split_shipment_new_shipment
+            description: A new shipment to create from the original shipment
+            required:
+              - items
+            additionalProperties: false
+            properties:
+              items:
+                type: array
+                minItems: 1
+                maxItems: 200
+                description: The items to move from the original shipment into this new shipment
+                items:
+                  type: object
+                  title: split_shipment_item
+                  description: An item to move, and how many units of it to move
+                  required:
+                    - item_id
+                    - quantity
+                  additionalProperties: false
+                  properties:
+                    item_id:
+                      type: string
+                      minLength: 1
+                      description: |
+                        The `item_id` of an item on the original shipment, from the `items` array returned by
+                        [Get shipment by id](#operation/get_shipment_by_id). Each item can be listed only once
+                        in the same new shipment.
+                      example: '1402291169813'
+                    quantity:
+                      type: integer
+                      format: int32
+                      minimum: 1
+                      description: |
+                        The number of units of the item to move into the new shipment. Across all new
+                        shipments, the total for an item can't be more than the quantity on the original shipment.
+                      example: 1
+
+    split_shipment_response_body:
+      title: split_shipment_response_body
+      type: object
+
+      description: A response body for splitting a shipment
+
+      additionalProperties: false
+
+      properties:
+        shipment_id:
+          allOf:
+            - $ref: '#/components/schemas/se_id'
+          description: The original shipment, which keeps the items that weren't moved
+          example: 'se-202902255'
+
+        new_shipment_ids:
+          type: array
+          items:
+            $ref: '#/components/schemas/se_id'
+          description: The new shipments, in the same order as the `shipments` array in the request
+          example:
+            - 'se-202902301'
+
+    merge_shipments_request_body:
+      title: merge_shipments_request_body
+      type: object
+
+      description: A request body for merging shipments into a shipment
+
+      required:
+        - shipment_ids
+
+      additionalProperties: false
+
+      properties:
+        shipment_ids:
+          type: array
+          minItems: 1
+          maxItems: 100
+          items:
+            $ref: '#/components/schemas/se_id'
+          description: |
+            The shipments to merge into the shipment in the URL. At least one of them must be a shipment other
+            than the one in the URL.
+          example:
+            - 'se-202902301'
+            - 'se-202902302'
+
+    merge_shipments_response_body:
+      title: merge_shipments_response_body
+      type: object
+
+      description: A response body for merging shipments
+
+      additionalProperties: false
+
+      properties:
+        shipment_id:
+          allOf:
+            - $ref: '#/components/schemas/se_id'
+          description: The shipment that now holds all of the items
+          example: 'se-202902255'
+
+        merged_shipment_ids:
+          type: array
+          items:
+            $ref: '#/components/schemas/se_id'
+          description: The shipments that were merged in. These shipments have been deleted.
+          example:
+            - 'se-202902301'
+            - 'se-202902302'
+
     assign_user_response_body:
       title: assign_user_response_body
       type: object
@@ -21420,9 +21649,9 @@ components:
               description: An array of errors that occurred while creating the shipment.
 
             address_validation:
-              x-nullable: true
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/address_validation_result'
+                - type: 'null'
               description: The address validation result
 
     update_shipment_request_body:
@@ -22578,7 +22807,35 @@ components:
             - null
           example: commercial
           description: |
-            How the carrier should classify this location. Location type affects accessorial charges — for example, residential and limited-access locations usually carry a surcharge. An unrecognized value is rejected with a `400 Bad Request`.
+            How the carrier should classify this location. Location type affects accessorial charges — for example, residential and limited-access locations usually carry a surcharge. An unrecognized value is rejected with a `400 Bad Request`. It describes the kind of site and is independent of the `residential_*` and `construction_site_*` accessorials, so a limited-access destination can also request `residential_delivery`.
+
+    freight_destination_location_type:
+      title: freight_destination_location_type
+      type: object
+      description: |
+        The destination of a freight quote that is linked to a shipment with `shipment_id`. The address comes from the shipment, so only `location_type` can be set. It is saved with the shipment's freight configuration and used when you quote or book that shipment again.
+      additionalProperties: false
+      required:
+        - location_type
+      properties:
+        location_type:
+          type: string
+          enum:
+            - airport
+            - carrier_terminal
+            - commercial
+            - construction
+            - container_freight_station
+            - distribution_center
+            - government_facility
+            - limited_access
+            - pier_port_wharf
+            - residential
+            - secured_access
+            - trade_show
+          example: limited_access
+          description: |
+            How the carrier should classify the destination. An unrecognized value is rejected with a `400 Bad Request`.
 
     freight_book_address:
       title: freight_book_address
@@ -22635,6 +22892,16 @@ components:
           default: false
           example: false
           description: The origin is a grocery consolidation facility.
+        residential_pickup:
+          type: boolean
+          default: false
+          example: false
+          description: The origin is a residential address. This is independent of `ship_from.location_type`, so it can be combined with any location type.
+        construction_site_pickup:
+          type: boolean
+          default: false
+          example: false
+          description: The origin is a construction site. This is independent of `ship_from.location_type`, so it can be combined with any location type.
         liftgate_delivery:
           type: boolean
           default: false
@@ -22665,6 +22932,16 @@ components:
           default: false
           example: false
           description: The destination is a grocery consolidation facility.
+        residential_delivery:
+          type: boolean
+          default: false
+          example: true
+          description: The destination is a residential address. This is independent of `ship_to.location_type`, so it can be combined with any location type, such as `limited_access`.
+        construction_site_delivery:
+          type: boolean
+          default: false
+          example: false
+          description: The destination is a construction site. This is independent of `ship_to.location_type`, so it can be combined with any location type.
         sort_and_segregate:
           type: boolean
           default: false
@@ -23224,17 +23501,18 @@ components:
           allOf:
             - $ref: '#/components/schemas/se_id'
           description: |
-            An existing shipment to quote for. When provided, the origin is taken from the shipment's ship-from warehouse and the destination from the order's ship-to address, and `ship_from` and `ship_to` must be omitted. The `handling_units`, `accessorials`, and `insurance` you send are saved as the shipment's freight configuration; omit them to reuse the configuration already saved.
+            An existing shipment to quote for. When provided, the origin is taken from the shipment's ship-from warehouse and the destination from the order's ship-to address, so `ship_from` must be omitted and `ship_to` may contain only `location_type`. The `handling_units`, `accessorials`, `insurance`, and `ship_to.location_type` you send are saved as the shipment's freight configuration; omit them to reuse the configuration already saved.
         ship_from:
           allOf:
             - $ref: '#/components/schemas/freight_address'
           description: |
             The origin address. Required when `shipment_id` is omitted, and must not be provided when `shipment_id` is present.
         ship_to:
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/freight_address'
+            - $ref: '#/components/schemas/freight_destination_location_type'
           description: |
-            The destination address. Required when `shipment_id` is omitted, and must not be provided when `shipment_id` is present.
+            The destination address. Required when `shipment_id` is omitted. When `shipment_id` is present, the address comes from the shipment and only `location_type` may be provided.
         shipment_date:
           type: [string, 'null']
           format: date-time
