@@ -45,6 +45,31 @@ function errorTranslationMiddleware(): Middleware {
 }
 
 /**
+ * Refuses a URL with a dot segment (`.`, `..` or a percent-encoded form of either) after
+ * `basePath`: fetch's URL parser would resolve it, and the request would reach an endpoint other
+ * than the one the SDK built the path for. A `URL` or `Request` is already resolved.
+ */
+function withPathCheck(fetchApi: FetchAPI, basePath: string): FetchAPI {
+    return async (url, init) => {
+        // dot segments of the configured base URL itself were always resolved, and still are
+        const path = typeof url === 'string' && url.startsWith(`${basePath}/`) ? url.slice(basePath.length) : url;
+        // the parser drops tabs and newlines, treats `\` as `/` and trims leading and trailing C0
+        // controls and spaces (`[^!-\uFFFF]`, U+0000 to U+0020) before it resolves dot segments
+        const segments =
+            typeof path === 'string'
+                ? path
+                      .replace(/[\t\n\r]/g, '')
+                      .split(/[?#]/, 1)[0]
+                      .split(/[/\\]/)
+                : [];
+        if (segments.some((segment) => /^[^!-\uFFFF]*(?:\.|%2e){1,2}[^!-\uFFFF]*$/i.test(segment))) {
+            throw new ShipStationError('Refusing to send a request whose path contains a dot segment');
+        }
+        return fetchApi(url, init);
+    };
+}
+
+/**
  * Entry point of the SDK. Instantiate it once and reuse it for every call to
  * the ShipStation API v2.
  */
@@ -60,15 +85,16 @@ export class ShipStationAPI {
             throw new Error('A ShipStation API key is required.');
         }
 
+        const baseUrl = config.baseUrl ?? DEFAULT_BASE_URL;
         const timeout = config.timeout ?? DEFAULT_TIMEOUT;
-        const fetchApi = withTimeout(config.fetch ?? fetch, timeout);
+        const fetchApi = withPathCheck(withTimeout(config.fetch ?? fetch, timeout), baseUrl);
         const headers = {
             [USER_AGENT_HEADER]: buildUserAgent(),
             ...(config.onBehalfOf ? { [ON_BEHALF_OF_HEADER]: config.onBehalfOf } : {}),
         };
 
         this.configuration = new Configuration({
-            basePath: config.baseUrl ?? DEFAULT_BASE_URL,
+            basePath: baseUrl,
             apiKey: config.apiKey,
             fetchApi,
             middleware: [errorTranslationMiddleware(), ...(config.middleware ?? [])],
