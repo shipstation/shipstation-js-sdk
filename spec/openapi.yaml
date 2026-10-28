@@ -2140,10 +2140,22 @@ paths:
             default: 25
           example: 50
           description: The number of freight shipments to return per page. Values above `500` are capped at `500`.
-        - $ref: '#/components/parameters/created_at_start_query_param'
-          description: Only return freight shipments created on or after this date/time.
-        - $ref: '#/components/parameters/created_at_end_query_param'
-          description: Only return freight shipments created on or before this date/time.
+        - name: created_at_start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+          example: '2026-09-01T00:00:00Z'
+          description: Only return freight shipments created on or after this date and time, in ISO 8601 format. The start of the range is inclusive.
+        - name: created_at_end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+          example: '2026-11-01T00:00:00Z'
+          description: Only return freight shipments created before this date and time, in ISO 8601 format. The end of the range is exclusive.
 
       responses:
         '200':
@@ -23907,6 +23919,12 @@ components:
           allOf:
             - $ref: '#/components/schemas/se_id'
           description: The identifier of the freight shipment.
+        shipment_id:
+          anyOf:
+            - $ref: '#/components/schemas/se_id'
+            - type: 'null'
+          example: se-333551084
+          description: The ID of the base shipment associated with the freight shipment, allowing pairing between standard shipment records and freight shipment records. `null` when no base shipment is associated. This is rare, because a base shipment is created when you book without one.
         freight_provider_account_id:
           allOf:
             - $ref: '#/components/schemas/se_id'
