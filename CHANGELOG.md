@@ -1,3 +1,9 @@
+## [1.4.1](https://github.com/shipstation/shipstation-js-sdk/compare/v1.4.0...v1.4.1) (2026-10-28)
+
+### Bug Fixes
+
+* **ci:** pin generator and oasdiff images by digest, restrict generator mounts ([#27](https://github.com/shipstation/shipstation-js-sdk/issues/27)) ([76e6599](https://github.com/shipstation/shipstation-js-sdk/commit/76e65991ab25d1c5b1ffdfc937a052f78fce4e2c))
+
 ## [1.4.0](https://github.com/shipstation/shipstation-js-sdk/compare/v1.3.1...v1.4.0) (2026-10-28)
 
 ### Features
