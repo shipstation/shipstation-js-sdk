@@ -3,7 +3,8 @@
 # openapi-generator (typescript-fetch), via Docker. Version pinned deliberately.
 set -euo pipefail
 
-GENERATOR_VERSION="${OPENAPI_GENERATOR_VERSION:-v7.25.0}"
+# Pinned by digest: a re-pushed tag must not change what runs. Update both together.
+GENERATOR_IMAGE="openapitools/openapi-generator-cli:v7.25.0@sha256:2ab0a9680222de65dc9d3baf861aa02b99e1b80c211d8221ebf3ae8f8a102524"
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 SPEC_FILE="${SHIPSTATION_SPEC_FILE:-$REPO_ROOT/spec/openapi.yaml}"
@@ -46,12 +47,15 @@ echo "==> Seeding outputDir with .openapi-generator-ignore (openapi-generator re
 mkdir -p "$GENERATED_DIR"
 cp "$REPO_ROOT/.openapi-generator-ignore" "$GENERATED_DIR/.openapi-generator-ignore"
 
-echo "==> Generating with openapitools/openapi-generator-cli:${GENERATOR_VERSION}"
+echo "==> Generating with ${GENERATOR_IMAGE}"
+# Only src/generated is writable; config and templates are mounted read-only.
 docker run --rm \
     "${USER_ARGS[@]+"${USER_ARGS[@]}"}" \
-    -v "$REPO_ROOT:/local" \
+    -v "$REPO_ROOT/openapi-generator-config.yaml:/local/openapi-generator-config.yaml:ro" \
+    -v "$REPO_ROOT/templates:/local/templates:ro" \
+    -v "$GENERATED_DIR:/local/src/generated" \
     "${SPEC_MOUNT[@]}" \
-    "openapitools/openapi-generator-cli:${GENERATOR_VERSION}" generate \
+    "$GENERATOR_IMAGE" generate \
     -c /local/openapi-generator-config.yaml
 
 rm -f "$GENERATED_DIR/.openapi-generator-ignore"

@@ -93,7 +93,7 @@ jobs:
             docker run --rm \
               -v "$RUNNER_TEMP/base:/base:ro" \
               -v "$PWD/$(dirname "$LOCAL_SPEC_PATH"):/rev:ro" \
-              tufin/oasdiff:v1.32.1 "$1" "/base/$(basename "$LOCAL_SPEC_PATH")" "/rev/$(basename "$LOCAL_SPEC_PATH")" \
+              tufin/oasdiff:v1.32.1@sha256:3b14fe0112e5d1bf862f91ab234a4bcd161a3f399e98f8b0b665ce70857694ac "$1" "/base/$(basename "$LOCAL_SPEC_PATH")" "/rev/$(basename "$LOCAL_SPEC_PATH")" \
               "${@:2}"
           }
 
