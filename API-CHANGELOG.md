@@ -1,5 +1,16 @@
 # ShipStation API v2 — contract changes
 
+## 2026-10-28
+
+## API Changes
+
+### GET /v2/freight/shipments
+-  added the optional property `shipments/items/shipment_id` to the response with the `200` status
+
+
+### GET /v2/freight/shipments/{freight_shipment_id}
+-  added the optional property `shipment_id` to the response with the `200` status
+
 ## 2026-10-26
 
 ## API Changes
