@@ -1,5 +1,147 @@
 # ShipStation API v2 — contract changes
 
+## 2026-10-29
+
+## API Changes
+
+### GET /v2/labels
+- :warning: added the new `x_cover` enum value to the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  removed the `xcover` enum value from the `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+
+
+### POST /v2/labels
+- :warning: removed the enum value `xcover` of the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/`
+- :warning: added the new `x_cover` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  added the new `x_cover` enum value to the request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/`
+-  removed the `xcover` enum value from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+
+
+### GET /v2/labels/external_shipment_id/{external_shipment_id}
+- :warning: added the new `x_cover` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  removed the `xcover` enum value from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+
+
+### POST /v2/labels/rate_shopper_id/{rate_shopper_id}
+- :warning: removed the enum value `xcover` of the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/insurance_provider/allOf[subschema #1: insurance_provider]/`
+- :warning: added the new `x_cover` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  added the new `x_cover` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/insurance_provider/allOf[subschema #1: insurance_provider]/`
+-  removed the `xcover` enum value from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+
+
+### POST /v2/labels/rates/{rate_id}
+- :warning: added the new `x_cover` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  removed the `xcover` enum value from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+
+
+### POST /v2/labels/shipment/{shipment_id}
+- :warning: added the new `x_cover` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  removed the `xcover` enum value from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+
+
+### POST /v2/labels/shipping_rules/{shipping_rule_id}
+- :warning: removed the enum value `xcover` of the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/insurance_provider/allOf[subschema #1: insurance_provider]/`
+- :warning: added the new `x_cover` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  added the new `x_cover` enum value to the request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/insurance_provider/allOf[subschema #1: insurance_provider]/`
+-  removed the `xcover` enum value from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+
+
+### GET /v2/labels/{label_id}
+- :warning: added the new `x_cover` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  removed the `xcover` enum value from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+
+
+### POST /v2/labels/{label_id}/cancel_refund
+- :warning: added the new `x_cover` enum value to the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  removed the `xcover` enum value from the `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+
+
+### POST /v2/labels/{label_id}/return
+- :warning: added the new `x_cover` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  removed the `xcover` enum value from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+
+
+### POST /v2/mailing/envelopes
+- :warning: removed the enum value `xcover` of the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/`
+- :warning: added the new `x_cover` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  added the new `x_cover` enum value to the request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/`
+-  removed the `xcover` enum value from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+
+
+### POST /v2/mailing/mail_labels
+- :warning: removed the enum value `xcover` of the request property `shipments/items/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/`
+- :warning: added the new `x_cover` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+- :warning: added the new `x_cover` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  added the new `x_cover` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/`
+-  removed the `xcover` enum value from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  removed the `xcover` enum value from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+
+
+### POST /v2/mailing/netstamps
+- :warning: removed the enum value `xcover` of the request property `shipments/items/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/`
+- :warning: added the new `x_cover` enum value to the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+- :warning: added the new `x_cover` enum value to the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  added the new `x_cover` enum value to the request property `shipments/items/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/`
+-  removed the `xcover` enum value from the `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  removed the `xcover` enum value from the `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+
+
+### POST /v2/rates
+- :warning: removed the enum value `xcover` of the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/`
+- :warning: added the new `x_cover` enum value to the `allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  added the new `x_cover` enum value to the request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/`
+-  removed the `xcover` enum value from the `allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+
+
+### POST /v2/rates/bulk
+- :warning: removed the enum value `xcover` of the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/`
+-  added the new `x_cover` enum value to the request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/`
+
+
+### POST /v2/service_points/list
+- :warning: added the new required request property `providers`
+- :warning: removed `#/components/schemas/get_service_points_request_body` from the request body `oneOf` list
+- :warning: the request's body `type` changed from `any` to `object`
+-  added the new optional request property `address`
+-  added the new optional request property `address_query`
+-  added the new optional request property `lat`
+-  added the new optional request property `long`
+-  added the new optional request property `max_results`
+-  added the new optional request property `radius`
+-  added the new optional request property `shipment`
+
+
+### GET /v2/shipments
+- :warning: added the new `x_cover` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  removed the `xcover` enum value from the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+
+
+### POST /v2/shipments
+- :warning: added the new `x_cover` enum value to the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  removed the `xcover` enum value from the `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+
+
+### GET /v2/shipments/external_shipment_id/{external_shipment_id}
+- :warning: added the new `x_cover` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  removed the `xcover` enum value from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+
+
+### GET /v2/shipments/{shipment_id}
+- :warning: added the new `x_cover` enum value to the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  removed the `xcover` enum value from the `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+
+
+### PUT /v2/shipments/{shipment_id}
+- :warning: removed the enum value `xcover` of the request property `allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/`
+- :warning: added the new `x_cover` enum value to the `allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+-  added the new `x_cover` enum value to the request property `allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/`
+-  removed the `xcover` enum value from the `allOf[subschema #1: partial_shipment]/insurance_provider/allOf[subschema #1: insurance_provider]/` response property for the response status `200`
+
+
+
+
+## Info
+-  a breaking change was detected but the version is still `2.0.0`
+
 ## 2026-10-28
 
 ## API Changes

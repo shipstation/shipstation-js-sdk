@@ -17405,9 +17405,7 @@ components:
                 - pudo
                 - locker
     get_service_points_request:
-      title: get_service_points_request
-      oneOf:
-        - $ref: '#/components/schemas/get_service_points_request_body'
+      $ref: '#/components/schemas/get_service_points_request_body'
     get_service_points_request_body:
       title: get_service_points_request_body
       type: object
@@ -19159,10 +19157,12 @@ components:
         - none
         - shipsurance
         - parcelguard
-        - xcover
+        - x_cover
         - carrier
         - third_party
-      description: The possible insurance provider values
+      description: >-
+        The possible insurance provider values. Requests also accept `xcover`
+        as an alias of `x_cover`.
     currency:
       title: currency
       type: string
