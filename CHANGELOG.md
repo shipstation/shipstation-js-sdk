@@ -1,3 +1,9 @@
+## [1.5.0](https://github.com/shipstation/shipstation-js-sdk/compare/v1.4.1...v1.5.0) (2026-10-29)
+
+### Features
+
+* sync ShipStation API v2 spec ([#30](https://github.com/shipstation/shipstation-js-sdk/issues/30)) ([04fc8c4](https://github.com/shipstation/shipstation-js-sdk/commit/04fc8c49916d98ccb2e3b1daa219cf2e46fe00fd))
+
 ## [1.4.1](https://github.com/shipstation/shipstation-js-sdk/compare/v1.4.0...v1.4.1) (2026-10-28)
 
 ### Bug Fixes
