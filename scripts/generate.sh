@@ -18,6 +18,8 @@ if [ ! -f "$SPEC_FILE" ]; then
     exit 1
 fi
 
+node "$REPO_ROOT/scripts/check-spec-paths.mjs" "$SPEC_FILE"
+
 if ! docker info >/dev/null 2>&1; then
     echo "error: Docker daemon is not running" >&2
     exit 1

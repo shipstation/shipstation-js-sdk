@@ -15,21 +15,29 @@ env:
   PR_BRANCH: chore/spec-sync
   API_CHANGELOG: API-CHANGELOG.md
 
+permissions: {}
+
 jobs:
-  sync:
+  # The downloaded spec is unreviewed, so the jobs are split: `fetch` reads it, `verify` generates and runs code from it
+  # with no secrets and a read-only token, and only `pr` (which runs nothing from the spec) can write.
+  fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 10
     permissions:
-      contents: write
-      pull-requests: write
+      contents: read
     env:
       DOCS_REPO: ${{ secrets.DOCS_REPO }}
       DOCS_SPEC_PATH: ${{ secrets.DOCS_SPEC_PATH }}
+    outputs:
+      api_changed: ${{ steps.oasdiff.outputs.api_changed }}
+      docs_commit_sha: ${{ steps.docs_commit.outputs.sha }}
+      artifact_id: ${{ steps.upload.outputs.artifact-id }}
     steps:
       - name: Checkout default branch
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: main
+          persist-credentials: false
 
       - name: Gate on spec blob SHA
         id: gate
@@ -108,48 +116,99 @@ jobs:
           oasdiff changelog -f markdown > "$RUNNER_TEMP/api-changelog-entry.md" || \
             echo "_oasdiff produced no report; review the spec diff manually._" > "$RUNNER_TEMP/api-changelog-entry.md"
 
-      - name: Setup Node
+          mkdir -p "$RUNNER_TEMP/spec-sync"
+          cp "$LOCAL_SPEC_PATH" "$RUNNER_TEMP/api-changelog-entry.md" "$RUNNER_TEMP/spec-sync/"
+
+      - name: Upload spec and change report
         if: steps.oasdiff.outputs.api_changed == 'true'
+        id: upload
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: spec-sync
+          path: ${{ runner.temp }}/spec-sync
+          if-no-files-found: error
+          retention-days: 1
+
+  verify:
+    needs: fetch
+    if: needs.fetch.outputs.api_changed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout default branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          persist-credentials: false
+
+      - name: Download spec and change report
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          artifact-ids: ${{ needs.fetch.outputs.artifact_id }}
+          path: ${{ runner.temp }}/spec-sync
+
+      - name: Setup Node
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version-file: .nvmrc
-          cache: npm
 
       - name: Install dependencies
-        if: steps.oasdiff.outputs.api_changed == 'true'
         run: npm ci
 
       - name: Generate SDK from the new spec
-        if: steps.oasdiff.outputs.api_changed == 'true'
         env:
           SHIPSTATION_SPEC_FILE: ${{ github.workspace }}/${{ env.LOCAL_SPEC_PATH }}
-        run: npm run codegen
+        run: |
+          cp "$RUNNER_TEMP/spec-sync/openapi.yaml" "$LOCAL_SPEC_PATH"
+          npm run codegen
 
       - name: Validate (typecheck + lint + format + build)
-        if: steps.oasdiff.outputs.api_changed == 'true'
         run: npm run verify
 
       - name: Test serialization of union request bodies
-        if: steps.oasdiff.outputs.api_changed == 'true'
         run: npm test
 
-      - name: Prepend entry to API-CHANGELOG.md
-        if: steps.oasdiff.outputs.api_changed == 'true'
+  pr:
+    needs: [fetch, verify]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      DOCS_REPO: ${{ secrets.DOCS_REPO }}
+      DOCS_SPEC_PATH: ${{ secrets.DOCS_SPEC_PATH }}
+    steps:
+      - name: Checkout default branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          persist-credentials: false
+
+      # Taken from `fetch` by artifact id, not from `verify`, which ran code from the spec.
+      - name: Download spec and change report
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          artifact-ids: ${{ needs.fetch.outputs.artifact_id }}
+          path: ${{ runner.temp }}/spec-sync
+
+      - name: Apply new spec and prepend entry to API-CHANGELOG.md
         run: |
+          cp "$RUNNER_TEMP/spec-sync/openapi.yaml" "$LOCAL_SPEC_PATH"
           .github/scripts/prepend-changelog-entry.sh \
-            "$RUNNER_TEMP/api-changelog-entry.md" "$API_CHANGELOG"
+            "$RUNNER_TEMP/spec-sync/api-changelog-entry.md" "$API_CHANGELOG"
 
       - name: Build PR body
-        if: steps.oasdiff.outputs.api_changed == 'true'
         env:
-          DOCS_COMMIT_SHA: ${{ steps.docs_commit.outputs.sha }}
+          DOCS_COMMIT_SHA: ${{ needs.fetch.outputs.docs_commit_sha }}
         run: |
           .github/scripts/build-pr-body.sh \
             "$DOCS_REPO" "$DOCS_SPEC_PATH" "$LOCAL_SPEC_PATH" \
             "$DOCS_COMMIT_SHA" "$RUNNER_TEMP/pr-body.md"
 
       - name: Create or update spec-sync PR
-        if: steps.oasdiff.outputs.api_changed == 'true'
         uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7
         with:
           token: ${{ secrets.SPEC_BOT_TOKEN || secrets.GITHUB_TOKEN }}
@@ -160,7 +219,7 @@ jobs:
             ${{ env.LOCAL_SPEC_PATH }}
           commit-message: |
             feat: sync ShipStation API v2 spec
-            Source: ${{ env.DOCS_REPO }}@${{ steps.docs_commit.outputs.sha }}
+            Source: ${{ env.DOCS_REPO }}@${{ needs.fetch.outputs.docs_commit_sha }}
             Path:   ${{ env.DOCS_SPEC_PATH }}
           title: "feat: sync ShipStation API v2 spec"
           body-path: ${{ runner.temp }}/pr-body.md
