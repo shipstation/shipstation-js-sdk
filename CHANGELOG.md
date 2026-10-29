@@ -1,3 +1,9 @@
+## [1.5.1](https://github.com/shipstation/shipstation-js-sdk/compare/v1.5.0...v1.5.1) (2026-10-29)
+
+### Bug Fixes
+
+* **ci:** harden spec sync workflow ([#26](https://github.com/shipstation/shipstation-js-sdk/issues/26)) ([80d516e](https://github.com/shipstation/shipstation-js-sdk/commit/80d516e3e301ce7328ab2e49da8d10940d9f8b1e))
+
 ## [1.5.0](https://github.com/shipstation/shipstation-js-sdk/compare/v1.4.1...v1.5.0) (2026-10-29)
 
 ### Features
