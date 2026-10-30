@@ -2982,14 +2982,17 @@ paths:
 
   /v2/labels/{label_id}/return:
     x-visibility: public
-    summary: Return labels.  This currently creates a return for all SKUs on the referenced label.
+    summary: Return labels.
 
     parameters:
       - $ref: '#/components/parameters/label_id_path_param'
 
     post:
       summary: Create a return label
-      description: Create a return label for a previously created outbound label. The return label will automatically swap the ship to and ship from addresses from the original label.
+      description: |
+        Create a return label for a previously created outbound label. The return label automatically swaps the ship-to and ship-from addresses from the original label.
+
+        By default, the return inherits the outbound label's carrier, service, package configuration, and items. Optional override fields on the request let you process partial returns, switch carriers when the original is unavailable, or pick a return-capable service when the outbound service does not support returns.
       tags:
         - labels
       x-plan:
@@ -20067,6 +20070,107 @@ components:
             - $ref: '#/components/schemas/image_id'
             - type: 'null'
           description: The label image resource that was used to create a custom label image.
+
+        carrier_id:
+          allOf:
+            - $ref: '#/components/schemas/se_id'
+          description: |
+            Override the carrier used in the outbound label.
+            When provided, `service_code` is also required.
+          example: 'se-1234567'
+
+        service_code:
+          type: string
+          description: |
+            Override the shipping service used for the return. Useful for selecting a return-capable service when the outbound service does not support returns.
+            When provided, `carrier_id` is also required.
+          example: ups_ground
+
+        package:
+          oneOf:
+            - $ref: '#/components/schemas/return_label_package'
+            - type: 'null'
+          description: |
+            Override the package weight, dimensions, and per-package reference fields for the return.
+            Only supported when the outbound label has a single package; multi-package outbound labels with a `package` override are rejected.
+
+        confirmation:
+          allOf:
+            - $ref: '#/components/schemas/delivery_confirmation'
+          description: |
+            Override the delivery confirmation type for the return. When omitted, the outbound shipment's confirmation is used.
+
+        package_code:
+          allOf:
+            - $ref: '#/components/schemas/package_code'
+          description: |
+            Override the package type (e.g. `thick_envelope`, `small_flat_rate_box`, `package`). When omitted, the outbound shipment's package type is used.
+
+        items:
+          type: array
+          description: |
+            When provided, restricts the return to the listed order items (a partial return). When omitted, all items on the original order are included at full quantity.
+          items:
+            $ref: '#/components/schemas/return_label_item'
+
+    return_label_package:
+      title: return_label_package
+      type: object
+      additionalProperties: false
+      description: |
+        Override values applied to the return shipment's package. Cannot be used with multi package shipments.
+      properties:
+        weight:
+          allOf:
+            - $ref: '#/components/schemas/weight'
+          description: Override the package weight.
+        dimensions:
+          allOf:
+            - $ref: '#/components/schemas/dimensions'
+          description: Override the package dimensions.
+        reference1:
+          type: string
+          description: First line of custom label message.
+          example: RMA-12345
+        reference2:
+          type: string
+          description: Package reference 2.
+          example: INV-98765
+        reference3:
+          type: string
+          description: Package reference 3.
+          example: PO-44221
+
+    return_label_item:
+      title: return_label_item
+      type: object
+      additionalProperties: false
+      description: |
+        Identifies an order item being returned. Either `order_item_id` or `sku` must be supplied.
+        Prefer `order_item_id`; if `sku` matches multiple order lines, the request is rejected with a 400.
+      oneOf:
+        - required: [order_item_id, quantity]
+        - required: [sku, quantity]
+      properties:
+        order_item_id:
+          type: integer
+          format: int64
+          description: |
+            The order item id from the original order. Preferred over `sku` because it's unambiguous when an order has multiple lines with the same SKU.
+          example: 4583921
+        sku:
+          type: string
+          description: |
+            The SKU of the order line. Convenient when the order has a single line per SKU. Rejected with a 400 when more than one order line matches.
+          example: WIDGET-RED-LG
+        quantity:
+          type: integer
+          format: int32
+          minimum: 1
+          description: |
+            Number of units of this item being returned. Must be greater than 0 and may not exceed the order line's quantity.
+          example: 1
+
     create_label_from_shipment_request_body:
       title: create_label_from_shipment_request_body
       type: object
