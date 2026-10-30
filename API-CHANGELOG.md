@@ -1,5 +1,17 @@
 # ShipStation API v2 — contract changes
 
+## 2026-10-30
+
+## API Changes
+
+### POST /v2/labels/{label_id}/return
+-  added the new optional request property `carrier_id`
+-  added the new optional request property `confirmation`
+-  added the new optional request property `items`
+-  added the new optional request property `package`
+-  added the new optional request property `package_code`
+-  added the new optional request property `service_code`
+
 ## 2026-10-29
 
 ## API Changes
