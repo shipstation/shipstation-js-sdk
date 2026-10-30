@@ -306,6 +306,14 @@ export class {{classname}} extends runtime.BaseAPI {
 
         let urlPath = `{{{path}}}`;
         {{#pathParams}}
+        {{! encodeURIComponent leaves these as they are, and fetch would resolve the dot segments (or the
+            server the empty one) and send the request to another endpoint }}
+        if (['', '.', '..'].includes(String(requestParameters['{{paramName}}']))) {
+            throw new runtime.RequiredError(
+                '{{paramName}}',
+                'Required parameter "{{paramName}}" must not be empty, "." or ".." when calling {{nickname}}().'
+            );
+        }
         {{#isDateTimeType}}
         if (requestParameters['{{paramName}}'] instanceof Date) {
             urlPath = urlPath.replace({{=<< >>=}}'{<<baseName>>}'<<={{ }}=>>, encodeURIComponent(runtime.serializeDateTime(requestParameters['{{paramName}}'])));
