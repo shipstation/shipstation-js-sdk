@@ -1,3 +1,9 @@
+## [1.6.1](https://github.com/shipstation/shipstation-js-sdk/compare/v1.6.0...v1.6.1) (2026-10-30)
+
+### Bug Fixes
+
+* scrub path parameters ([#28](https://github.com/shipstation/shipstation-js-sdk/issues/28)) ([f11670a](https://github.com/shipstation/shipstation-js-sdk/commit/f11670a09b408f346d0928e3b19be9b964c395ed))
+
 ## [1.6.0](https://github.com/shipstation/shipstation-js-sdk/compare/v1.5.1...v1.6.0) (2026-10-30)
 
 ### Features
