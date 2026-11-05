@@ -7125,6 +7125,7 @@ paths:
         - tags
       x-plan:
         - ss-api-free_plan
+        - ss-standard_and_premium_plans
         - ss-api-advanced_and_enterprise_plans
       operationId: delete_tag
       responses:
@@ -7162,6 +7163,7 @@ paths:
         - tags
       x-plan:
         - ss-api-free_plan
+        - ss-standard_and_premium_plans
         - ss-api-advanced_and_enterprise_plans
       operationId: rename_tag
       responses:
@@ -22759,6 +22761,8 @@ components:
         ShipStation's own predicted delivery estimate, from its delivery prediction model rather than quoted by the carrier.
 
         This complements the carrier's own estimate rather than replacing it — where carrier fields are present, they are still populated. The whole object is omitted when a prediction is not available for the carrier, service, and lane, so treat its absence as "no prediction" rather than as an error.
+
+        Predictions are currently available for UPS, USPS, and FedEx services within the United States.
 
         To request predictions on their own, without rating or buying anything, use [Predict delivery dates](#operation/create_delivery_predictions).
       additionalProperties: false
