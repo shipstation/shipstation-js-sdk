@@ -7125,6 +7125,7 @@ paths:
         - tags
       x-plan:
         - ss-api-free_plan
+        - ss-standard_and_premium_plans
         - ss-api-advanced_and_enterprise_plans
       operationId: delete_tag
       responses:
@@ -7162,6 +7163,7 @@ paths:
         - tags
       x-plan:
         - ss-api-free_plan
+        - ss-standard_and_premium_plans
         - ss-api-advanced_and_enterprise_plans
       operationId: rename_tag
       responses:

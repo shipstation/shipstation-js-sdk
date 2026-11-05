@@ -1,5 +1,9 @@
 # ShipStation API v2 — contract changes
 
+## 2026-11-05
+
+No changes to report, but the specs are different
+
 ## 2026-10-30
 
 ## API Changes
