@@ -5304,7 +5304,12 @@ paths:
 
     post:
       summary: Estimate rates
-      description: Get Rate Estimates
+      description: |
+        Get Rate Estimates
+
+        Rate estimates don't support `advanced_options.duties_and_taxes_payment`. For DDP shipments they always return
+        estimated duties and taxes (`estimated_duties`, `estimated_taxes` and `estimated_import_fees`), even on carriers
+        that support guaranteed duties and taxes. To get guaranteed amounts, use the rates endpoint with a shipment.
       tags:
         - rates
       x-plan:
@@ -7125,6 +7130,7 @@ paths:
         - tags
       x-plan:
         - ss-api-free_plan
+        - ss-standard_and_premium_plans
         - ss-api-advanced_and_enterprise_plans
       operationId: delete_tag
       responses:
@@ -7162,6 +7168,7 @@ paths:
         - tags
       x-plan:
         - ss-api-free_plan
+        - ss-standard_and_premium_plans
         - ss-api-advanced_and_enterprise_plans
       operationId: rename_tag
       responses:
@@ -8350,6 +8357,27 @@ paths:
                         type: [boolean, 'null']
                         description: Whether customs is required
                         example: null
+                      mid_code:
+                        type: [string, 'null']
+                        description: Manufacturers Identification code. Up to 15 characters, letters and digits only.
+                        example: 'GBCOM15BRI'
+                      manufacturer_product_id_type:
+                        default: null
+                        oneOf:
+                          - $ref: '#/components/schemas/manufacturer_product_identifier_type'
+                          - type: 'null'
+                        description: The type of identifier used for the manufacturer product ID.
+                        example: gtin
+                      manufacturer_product_id:
+                        type: [string, 'null']
+                        default: null
+                        description: The manufacturer's product identifier corresponding to the `manufacturer_product_id_type`.
+                        example: '012345678905'
+                      manufacturer_ns_product_id:
+                        type: [string, 'null']
+                        default: null
+                        description: A non-standardized product identifier unique to the manufacturer's own system that does not follow an internationally recognized standard (e.g. a SKU). Up to 2000 characters.
+                        example: 'MY-SKU-12345'
                       tags:
                         type: [array, 'null']
                         description: Tags to assign. Only `tag_id` is used on write; `name` and `color` are response-only fields returned when reading a product.
@@ -8609,6 +8637,27 @@ paths:
                         type: [boolean, 'null']
                         description: Whether customs is required
                         example: null
+                      mid_code:
+                        type: [string, 'null']
+                        description: Manufacturers Identification code. Up to 15 characters, letters and digits only. In updates, omit or use null to retain the current value; use an empty string to clear it.
+                        example: 'GBCOM15BRI'
+                      manufacturer_product_id_type:
+                        default: null
+                        oneOf:
+                          - $ref: '#/components/schemas/manufacturer_product_identifier_type'
+                          - type: 'null'
+                        description: The type of identifier used for the manufacturer product ID.
+                        example: gtin
+                      manufacturer_product_id:
+                        type: [string, 'null']
+                        default: null
+                        description: The manufacturer's product identifier corresponding to the `manufacturer_product_id_type`.
+                        example: '012345678905'
+                      manufacturer_ns_product_id:
+                        type: [string, 'null']
+                        default: null
+                        description: A non-standardized product identifier unique to the manufacturer's own system that does not follow an internationally recognized standard (e.g. a SKU). Up to 2000 characters. In updates, omit or use null to retain the current value; use an empty string to clear it.
+                        example: 'MY-SKU-12345'
                       tags:
                         type: [array, 'null']
                         description: Tags to assign. Only `tag_id` is used on write; `name` and `color` are response-only fields returned when reading a product.
@@ -10153,6 +10202,27 @@ components:
           type: [boolean, 'null']
           description: Whether customs is required
           example: null
+        mid_code:
+          type: [string, 'null']
+          description: Manufacturers Identification code. Up to 15 characters, letters and digits only.
+          example: 'GBCOM15BRI'
+        manufacturer_product_id_type:
+          default: null
+          oneOf:
+            - $ref: '#/components/schemas/manufacturer_product_identifier_type'
+            - type: 'null'
+          description: The type of identifier used for the manufacturer product ID.
+          example: gtin
+        manufacturer_product_id:
+          type: [string, 'null']
+          default: null
+          description: The manufacturer's product identifier corresponding to the `manufacturer_product_id_type`.
+          example: '012345678905'
+        manufacturer_ns_product_id:
+          type: [string, 'null']
+          default: null
+          description: A non-standardized product identifier unique to the manufacturer's own system that does not follow an internationally recognized standard (e.g. a SKU). Up to 2000 characters.
+          example: 'MY-SKU-12345'
         tags:
           type: [array, 'null']
           items:
@@ -12467,7 +12537,7 @@ components:
           type: array
           readOnly: true
           description: |
-            A breakdown of individual charges that make up this label, such as base shipping cost and additional fees. For DDP shipments it also includes duties, taxes, and import fees (prepaid on Wallet carriers, estimated on BYOA carriers).
+            A breakdown of individual charges that make up this label, such as base shipping cost and additional fees. For DDP shipments it also includes duties, taxes, and import fees (prepaid when the duties and taxes are guaranteed, estimated when the carrier bills them; see `advanced_options.duties_and_taxes_payment`).
           items:
             $ref: '#/components/schemas/rate_detail'
 
@@ -13169,7 +13239,7 @@ components:
           maxLength: 50
           example: '1234556'
           description: |
-            A user-defined key that identifies the source order. Multiple shipments can share the same `external_shipment_id` (common in split-shipping scenarios where one order results in multiple shipments). Functionally identical to `orderKey` in V1 API.
+            A user-defined key that identifies the source order. Multiple shipments can share the same `external_shipment_id` (common in split-shipping scenarios where one order results in multiple shipments).
 
             > **Warning:** The `external_shipment_id` is limited to 50 characters. Any additional characters will be truncated.
 
@@ -13259,6 +13329,8 @@ components:
             > To prepay duties and taxes (DDP / PDT), set `customs.terms_of_trade_code` to `ddp`.
 
             > Please note that the guaranteed prepaid duties and taxes option is available only for eligible ShipStation carriers.
+
+            > Use `advanced_options.duties_and_taxes_payment` to choose between `guaranteed` and `carrier_billed` duties and taxes. See [Duties and taxes payment](/apis/@shipstation-v2/docs/shipping/duties-and-taxes-payment.md).
 
         advanced_options:
           readOnly: false
@@ -13458,7 +13530,7 @@ components:
           maxLength: 50
           example: '1234556'
           description: |
-            A user-defined key that identifies the source order. Multiple shipments can share the same `external_shipment_id` (common in split-shipping scenarios where one order results in multiple shipments). Functionally identical to `orderKey` in V1 API.
+            A user-defined key that identifies the source order. Multiple shipments can share the same `external_shipment_id` (common in split-shipping scenarios where one order results in multiple shipments).
 
             > **Warning:** The `external_shipment_id` is limited to 50 characters. Any additional characters will be truncated.
 
@@ -14384,7 +14456,7 @@ components:
           type: string
           example: 'shipping'
           description: |
-            The category of charge. Common values include `shipping` and `additional_fees`. DDP shipments (`customs.terms_of_trade_code: "ddp"`) also return `prepaid_duties`, `prepaid_taxes` and `prepaid_import_fees` on Wallet carriers, or `estimated_duties`, `estimated_taxes` and `estimated_import_fees` on BYOA (Bring Your Own Account) carriers.
+            The category of charge. Common values include `shipping` and `additional_fees`. DDP shipments (`customs.terms_of_trade_code: "ddp"`) also return `prepaid_duties`, `prepaid_taxes` and `prepaid_import_fees` when the duties and taxes are guaranteed, or `estimated_duties`, `estimated_taxes` and `estimated_import_fees` when the carrier bills them (see `advanced_options.duties_and_taxes_payment`).
 
         carrier_description:
           type: [string, 'null']
@@ -14410,7 +14482,9 @@ components:
           type: string
           example: 'carrier'
           description: |
-            The source that produced the charge. Common values are `carrier` for carrier-billed charges and `dutiestax` for duties and taxes on DDP shipments (prepaid on Wallet carriers, estimated on BYOA carriers).
+            The source that produced the charge. Common values are `carrier` for carrier-billed charges and `dutiestax` for duties and taxes on DDP shipments (prepaid when the duties and taxes are guaranteed, estimated when the carrier bills them; see `advanced_options.duties_and_taxes_payment`).
+
+            > **Note:** The casing of this value differs by endpoint. Label responses return lowercase values (e.g. `carrier`, `dutiestax`). Rate responses return PascalCase values (e.g. `Carrier`, `DutiesTax`). This reflects the actual API behavior.
     rate:
       title: rate
       type: object
@@ -14634,7 +14708,7 @@ components:
           type: array
           readOnly: true
           description: |
-            A breakdown of individual charges that make up this rate, such as base shipping cost and additional fees. For DDP shipments it also includes duties, taxes, and import fees (prepaid on Wallet carriers, estimated on BYOA carriers).
+            A breakdown of individual charges that make up this rate, such as base shipping cost and additional fees. For DDP shipments it also includes duties, taxes, and import fees (prepaid when the duties and taxes are guaranteed, estimated when the carrier bills them; see `advanced_options.duties_and_taxes_payment`).
           items:
             $ref: '#/components/schemas/rate_detail'
 
@@ -14698,6 +14772,20 @@ components:
           readOnly: true
           example: true
           description: Supports international shipping.
+
+        supported_duties_and_taxes_payments:
+          type: array
+          readOnly: true
+          items:
+            type: string
+            enum:
+              - guaranteed
+              - carrier_billed
+          description: |
+            The `advanced_options.duties_and_taxes_payment` values this service supports. International services return
+            the carrier's `supported_duties_and_taxes_payments`; domestic-only services return an empty array.
+          example:
+            - carrier_billed
 
         is_multi_package_supported:
           type: boolean
@@ -15146,6 +15234,12 @@ components:
                       A plain-language description of the product's intended use. Max 100 characters.
                       Recommended by CPSC when `intended_use_code` is `980.000` (Other Use).
                     example: ''
+              regulations:
+                default: null
+                oneOf:
+                  - $ref: '#/components/schemas/regulations'
+                  - type: 'null'
+                description: Regulatory compliance data for this product. Each regulation is its own field (for example, `eudr`); future regulations are added as further nullable properties.
     label_messages:
       title: label_messages
       type: object
@@ -15467,8 +15561,35 @@ components:
           type: boolean
           default: false
           description: |
-            Indicates that the shipper is paying the international delivery duties for this shipment.  This option is supported by UPS, FedEx, and DHL Express.
+            Indicates that the shipper is paying the international delivery duties for this shipment.  This option is supported by UPS, FedEx, and DHL Express. Use `duties_and_taxes_payment` to choose how the duties and taxes are paid.
           example: true
+
+        duties_and_taxes_payment:
+          type: [string, 'null']
+          default: null
+          enum:
+            - guaranteed
+            - carrier_billed
+            - null
+          description: |
+            How duties and taxes are paid on a DDP shipment. Only valid when the shipment is DDP
+            (`advanced_options.delivered_duty_paid: true` or `customs.terms_of_trade_code: ddp`).
+
+            - `guaranteed`: duties and taxes are fixed when the label is created and charged to you. On Wallet carriers
+              they are paid from the carrier's funding source. On BYOA (Bring Your Own Account) carriers they are paid
+              from your US managed funding source (ShipStation Balance), and only US origins are supported.
+              The label is not returned if the duties and taxes can't be validated or charged.
+            - `carrier_billed`: the carrier bills the actual duties and taxes to your own carrier account later. You get
+              an estimate only. Available on BYOA carriers only.
+
+            If omitted, BYOA carriers use `carrier_billed`. Wallet carriers use `guaranteed` when the shipment is
+            eligible for guaranteed duties and taxes, and otherwise the value is `null`.
+            Responses return the value in effect, or `null` when the shipment isn't DDP or has no carrier.
+
+            Use the carrier's `supported_duties_and_taxes_payments` to see which values it offers. This field cannot be
+            combined with partner-specific duties and taxes options. See
+            [Duties and taxes payment](/apis/@shipstation-v2/docs/shipping/duties-and-taxes-payment.md).
+          example: guaranteed
 
         dry_ice:
           type: boolean
@@ -16289,6 +16410,24 @@ components:
           readOnly: true
           example: true
           description: The carrier is disabled by the current ShipStation account's billing plan.
+
+        supported_duties_and_taxes_payments:
+          type: array
+          readOnly: true
+          items:
+            type: string
+            enum:
+              - guaranteed
+              - carrier_billed
+          description: |
+            The `advanced_options.duties_and_taxes_payment` values this carrier supports. Always present; can be empty.
+            `guaranteed` is listed when guaranteed duties and taxes are enabled for this carrier and your account for at
+            least one origin country, so it is a capability, not a promise for a specific shipment. BYOA carriers always
+            list `carrier_billed`; Wallet carriers never do. A BYOA carrier can list `guaranteed` and still reject a label
+            with `funding_source_missing_configuration` when your account has no US managed funding source.
+          example:
+            - guaranteed
+            - carrier_billed
 
         services:
           type: array
@@ -19044,6 +19183,7 @@ components:
         - freight_tracking_not_found
         - freight_shipment_not_batchable
         - freight_provider_already_connected
+        - funding_source_missing_configuration
 
       description: The error code specified for the failed API Call
     error_type:
@@ -19056,6 +19196,7 @@ components:
         - security
         - system
         - integrations
+        - funding_sources
       description: |
         The type of error
     error_source:
@@ -20880,7 +21021,7 @@ components:
           maxLength: 50
           example: '1234556'
           description: |
-            A user-defined key that identifies the source order. Multiple shipments can share the same `external_shipment_id` (common in split-shipping scenarios where one order results in multiple shipments). Functionally identical to `orderKey` in V1 API.
+            A user-defined key that identifies the source order. Multiple shipments can share the same `external_shipment_id` (common in split-shipping scenarios where one order results in multiple shipments).
 
             > **Warning:** The `external_shipment_id` is limited to 50 characters. Any additional characters will be truncated.
 
@@ -22124,6 +22265,38 @@ components:
           description: The version identifier of the CPSC certificate.
           example: 'v1.0'
 
+    regulations:
+      title: regulations
+      type: object
+      description: Regulatory compliance data for a product. Each regulation is its own field (for example, `eudr`); future regulations are added as further nullable properties.
+      additionalProperties: false
+      properties:
+        eudr:
+          oneOf:
+            - $ref: '#/components/schemas/eudr'
+            - type: 'null'
+          default: null
+          description: EUDR (EU Deforestation Regulation) compliance data for this product.
+
+    eudr:
+      title: eudr
+      type: object
+      description: EUDR (EU Deforestation Regulation) compliance data for a product. References a Due Diligence Statement (DDS) filed in the EU Information System (Traces NT).
+      additionalProperties: false
+      properties:
+        dds_reference_number:
+          type: [string, 'null']
+          default: null
+          maxLength: 20
+          description: Due Diligence Statement (DDS) reference number under the EU Deforestation Regulation (EUDR). Up to 20 alphanumeric characters.
+          example: 'EUDDS2026123456'
+        taric_document_code:
+          type: [string, 'null']
+          default: null
+          maxLength: 4
+          description: The TARIC document code associated with the EUDR declaration (for example, C716 for a standard DDS submission, Y129/Y133 for specific exemptions). Exactly 4 characters (1 letter followed by 3 digits).
+          example: 'C716'
+
     checkout_rates_service_selection:
       title: checkout_rates_service_selection
       type: object
@@ -22759,6 +22932,8 @@ components:
         ShipStation's own predicted delivery estimate, from its delivery prediction model rather than quoted by the carrier.
 
         This complements the carrier's own estimate rather than replacing it — where carrier fields are present, they are still populated. The whole object is omitted when a prediction is not available for the carrier, service, and lane, so treat its absence as "no prediction" rather than as an error.
+
+        Predictions are currently available for UPS, USPS, and FedEx services within the United States.
 
         To request predictions on their own, without rating or buying anything, use [Predict delivery dates](#operation/create_delivery_predictions).
       additionalProperties: false
