@@ -1,5 +1,237 @@
 # ShipStation API v2 — contract changes
 
+## 2026-11-10
+
+## API Changes
+
+### GET /v2/environment/webhooks
+-  removed the `report_complete` enum value from the `items/allOf[subschema #1: webhook]/event` response property for the response status `200`
+
+
+### POST /v2/environment/webhooks
+- :warning: removed the enum value `report_complete` of the request property `event`
+-  removed the `report_complete` enum value from the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+
+
+### GET /v2/environment/webhooks/{webhook_id}
+-  removed the `report_complete` enum value from the `allOf[subschema #1: webhook]/event` response property for the response status `200`
+
+
+### GET /v2/labels
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+
+
+### POST /v2/labels
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number`
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+
+
+### GET /v2/labels/external_shipment_id/{external_shipment_id}
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+
+
+### POST /v2/labels/rate_shopper_id/{rate_shopper_id}
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/customs/oneOf[subschema #1: international_shipment_options]/license_number`
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+
+
+### POST /v2/labels/rates/{rate_id}
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+
+
+### POST /v2/labels/shipment/{shipment_id}
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+
+
+### POST /v2/labels/shipping_rules/{shipping_rule_id}
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/customs/oneOf[subschema #1: international_shipment_options]/license_number`
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+
+
+### GET /v2/labels/{label_id}
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+
+
+### POST /v2/labels/{label_id}/cancel_refund
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+
+
+### POST /v2/labels/{label_id}/return
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+
+
+### POST /v2/mailing/envelopes
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number`
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+
+
+### POST /v2/mailing/mail_labels
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number`
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+
+
+### POST /v2/mailing/netstamps
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number`
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+
+
+### POST /v2/rates
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number`
+-  added the optional property `allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+
+
+### POST /v2/rates/bulk
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number`
+
+
+### GET /v2/shipments
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+
+
+### POST /v2/shipments
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+
+
+### GET /v2/shipments/external_shipment_id/{external_shipment_id}
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+
+
+### GET /v2/shipments/{shipment_id}
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+
+
+### PUT /v2/shipments/{shipment_id}
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number`
+-  added the optional property `allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/buyer_shipping_amount_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/certificate_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/duties_paid` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/export_declaration_number` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/customs/oneOf[subschema #1: international_shipment_options]/license_number` to the response with the `200` status
+
+
+
+
+## Info
+-  a breaking change was detected but the version is still `2.0.0`
+
 ## 2026-11-09
 
 ## API Changes
