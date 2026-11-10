@@ -1,5 +1,1192 @@
 # ShipStation API v2 — contract changes
 
+## 2026-11-09
+
+## API Changes
+
+### GET /v2/account/settings
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/account/settings/images
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/account/settings/images
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### DELETE /v2/account/settings/images/{label_image_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/account/settings/images/{label_image_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### PUT /v2/account/settings/images/{label_image_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/addresses/validate
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### GET /v2/batches
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `batches/items/allOf[subschema #1: batch]/process_errors/items/error_code` response property for the response status `200`
+- :warning: added the new `funding_sources` enum value to the `batches/items/allOf[subschema #1: batch]/process_errors/items/error_type` response property for the response status `200`
+
+
+### POST /v2/batches
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `allOf[subschema #1: batch]/process_errors/items/error_code` response property for the response status `200`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `allOf[subschema #1: batch]/process_errors/items/error_code` response property for the response status `207`
+- :warning: added the new `funding_sources` enum value to the `allOf[subschema #1: batch]/process_errors/items/error_type` response property for the response status `200`
+- :warning: added the new `funding_sources` enum value to the `allOf[subschema #1: batch]/process_errors/items/error_type` response property for the response status `207`
+
+
+### GET /v2/batches/external_batch_id/{external_batch_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `allOf[subschema #1: batch]/process_errors/items/error_code` response property for the response status `200`
+- :warning: added the new `funding_sources` enum value to the `allOf[subschema #1: batch]/process_errors/items/error_type` response property for the response status `200`
+
+
+### DELETE /v2/batches/{batch_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/batches/{batch_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `allOf[subschema #1: batch]/process_errors/items/error_code` response property for the response status `200`
+- :warning: added the new `funding_sources` enum value to the `allOf[subschema #1: batch]/process_errors/items/error_type` response property for the response status `200`
+
+
+### PUT /v2/batches/{batch_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/batches/{batch_id}/add
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### GET /v2/batches/{batch_id}/errors
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/batches/{batch_id}/process/labels
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/batches/{batch_id}/remove
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### DELETE /v2/batches/{batch_id}/user
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### PUT /v2/batches/{batch_id}/user
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/carriers
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `allOf[subschema #2: error_response_body]/errors/items/error_code` response property for the response status `200`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `allOf[subschema #2: error_response_body]/errors/items/error_code` response property for the response status `207`
+- :warning: added the new `funding_sources` enum value to the `allOf[subschema #2: error_response_body]/errors/items/error_type` response property for the response status `200`
+- :warning: added the new `funding_sources` enum value to the `allOf[subschema #2: error_response_body]/errors/items/error_type` response property for the response status `207`
+-  added the optional property `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/services/items/allOf[subschema #1: service]/supported_duties_and_taxes_payments` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/services/items/allOf[subschema #1: service]/supported_duties_and_taxes_payments` to the response with the `207` status
+-  added the optional property `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/supported_duties_and_taxes_payments` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: list_carriers_response_body]/carriers/items/allOf[subschema #1: carrier]/supported_duties_and_taxes_payments` to the response with the `207` status
+
+
+### DELETE /v2/carriers/{carrier_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/carriers/{carrier_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+-  added the optional property `allOf[subschema #1: carrier]/services/items/allOf[subschema #1: service]/supported_duties_and_taxes_payments` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: carrier]/supported_duties_and_taxes_payments` to the response with the `200` status
+
+
+### PUT /v2/carriers/{carrier_id}/add_funds
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/carriers/{carrier_id}/options
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/carriers/{carrier_id}/packages
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/carriers/{carrier_id}/services
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+-  added the optional property `services/items/allOf[subschema #1: service]/supported_duties_and_taxes_payments` to the response with the `200` status
+
+
+### POST /v2/checkout_rates
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### GET /v2/checkout_rates/quotes/{quote_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/checkout_rates/{config_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/checkout_rates/{config_id}/options
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `409`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `409`
+
+
+### DELETE /v2/checkout_rates/{config_id}/options/{option_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/checkout_rates/{config_id}/options/{option_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### PUT /v2/checkout_rates/{config_id}/options/{option_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `409`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `409`
+
+
+### POST /v2/checkout_rates/{config_id}/quotes
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/connections/carriers/{carrier_name}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### DELETE /v2/connections/carriers/{carrier_name}/{carrier_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/connections/carriers/{carrier_name}/{carrier_id}/settings
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### PUT /v2/connections/carriers/{carrier_name}/{carrier_id}/settings
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/delivery_predictions
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### POST /v2/documents/combined_labels
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/documents/{document_id}/download
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `410`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `425`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `503`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `410`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `425`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `503`
+
+
+### GET /v2/downloads/{dir}/{subdir}/{filename}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/environment/webhooks
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### POST /v2/environment/webhooks
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `409`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `409`
+
+
+### DELETE /v2/environment/webhooks/{webhook_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/environment/webhooks/{webhook_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### PUT /v2/environment/webhooks/{webhook_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/freight/provider_accounts
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### POST /v2/freight/provider_accounts
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `409`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `409`
+
+
+### DELETE /v2/freight/provider_accounts/{freight_provider_account_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### PUT /v2/freight/provider_accounts/{freight_provider_account_id}/credentials
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/freight/quotes
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/freight/shipments
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### POST /v2/freight/shipments
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### DELETE /v2/freight/shipments/{freight_shipment_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/freight/shipments/{freight_shipment_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/freight/shipments/{freight_shipment_id}/documents
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/freight/shipments/{freight_shipment_id}/tracking
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/freight/tracking
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/fulfillments
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/fulfillments
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### GET /v2/labels
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `labels/items/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+
+
+### POST /v2/labels
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment`
+-  added the new optional request property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations`
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+
+
+### GET /v2/labels/external_shipment_id/{external_shipment_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+
+
+### POST /v2/labels/rate_shopper_id/{rate_shopper_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_rate_shopper]/packages/items/products/items/regulations`
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+
+
+### POST /v2/labels/rates/{rate_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+
+
+### POST /v2/labels/shipment/{shipment_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+
+
+### POST /v2/labels/shipping_rules/{shipping_rule_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment`
+-  added the new optional request property `shipment/allOf[subschema #1: partial_shipment_for_shipping_rule]/packages/items/products/items/regulations`
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+
+
+### GET /v2/labels/{label_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+
+
+### POST /v2/labels/{label_id}/cancel_refund
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+
+
+### GET /v2/labels/{label_id}/documents
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/labels/{label_id}/documents
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/labels/{label_id}/documents/send
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `503`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `503`
+
+
+### DELETE /v2/labels/{label_id}/documents/{document_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `409`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `409`
+
+
+### POST /v2/labels/{label_id}/return
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+
+
+### GET /v2/labels/{label_id}/track
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### PUT /v2/labels/{label_id}/void
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/mailing/envelopes
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment`
+-  added the new optional request property `shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations`
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+
+
+### POST /v2/mailing/mail_labels
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations`
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+
+
+### POST /v2/mailing/netstamps
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment`
+-  added the new optional request property `shipments/items/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations`
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `allOf[subschema #2]/associated_labels/items/allOf[subschema #1: label]/shipment/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+
+
+### GET /v2/manifests
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/manifests
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `allOf[subschema #4: error_with_label_id_response_body]/errors/items/error_code` response property for the response status `200`
+- :warning: added the new `funding_sources` enum value to the `allOf[subschema #4: error_with_label_id_response_body]/errors/items/error_type` response property for the response status `200`
+
+
+### GET /v2/manifests/requests/{manifest_request_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `allOf[subschema #4: error_with_label_id_response_body]/errors/items/error_code` response property for the response status `200`
+- :warning: added the new `funding_sources` enum value to the `allOf[subschema #4: error_with_label_id_response_body]/errors/items/error_type` response property for the response status `200`
+
+
+### GET /v2/manifests/{manifest_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/packages
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/packages
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### GET /v2/packages/{package_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### PUT /v2/packages/{package_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/pickups
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `allOf[subschema #2: error_response_body]/errors/items/error_code` response property for the response status `200`
+- :warning: added the new `funding_sources` enum value to the `allOf[subschema #2: error_response_body]/errors/items/error_type` response property for the response status `200`
+
+
+### POST /v2/pickups
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `allOf[subschema #2: error_response_body]/errors/items/error_code` response property for the response status `200`
+- :warning: added the new `funding_sources` enum value to the `allOf[subschema #2: error_response_body]/errors/items/error_type` response property for the response status `200`
+
+
+### DELETE /v2/pickups/{pickup_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `allOf[subschema #1: error_response_body]/errors/items/error_code` response property for the response status `200`
+- :warning: added the new `funding_sources` enum value to the `allOf[subschema #1: error_response_body]/errors/items/error_type` response property for the response status `200`
+
+
+### GET /v2/pickups/{pickup_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `allOf[subschema #2: error_response_body]/errors/items/error_code` response property for the response status `200`
+- :warning: added the new `funding_sources` enum value to the `allOf[subschema #2: error_response_body]/errors/items/error_type` response property for the response status `200`
+
+
+### GET /v2/products
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+-  added the optional property `products/items/manufacturer_ns_product_id` to the response with the `200` status
+-  added the optional property `products/items/manufacturer_product_id` to the response with the `200` status
+-  added the optional property `products/items/manufacturer_product_id_type` to the response with the `200` status
+-  added the optional property `products/items/mid_code` to the response with the `200` status
+
+
+### POST /v2/products/create
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+-  added the new optional request property `products/items/manufacturer_ns_product_id`
+-  added the new optional request property `products/items/manufacturer_product_id`
+-  added the new optional request property `products/items/manufacturer_product_id_type`
+-  added the new optional request property `products/items/mid_code`
+
+
+### POST /v2/products/deactivate
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/products/update
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+-  added the new optional request property `products/items/manufacturer_ns_product_id`
+-  added the new optional request property `products/items/manufacturer_product_id`
+-  added the new optional request property `products/items/manufacturer_product_id_type`
+-  added the new optional request property `products/items/mid_code`
+-  added the optional property `updated_products/items/manufacturer_ns_product_id` to the response with the `200` status
+-  added the optional property `updated_products/items/manufacturer_product_id` to the response with the `200` status
+-  added the optional property `updated_products/items/manufacturer_product_id_type` to the response with the `200` status
+-  added the optional property `updated_products/items/mid_code` to the response with the `200` status
+
+
+### GET /v2/products/{product_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+-  added the optional property `manufacturer_ns_product_id` to the response with the `200` status
+-  added the optional property `manufacturer_product_id` to the response with the `200` status
+-  added the optional property `manufacturer_product_id_type` to the response with the `200` status
+-  added the optional property `mid_code` to the response with the `200` status
+
+
+### GET /v2/purchase_orders
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### POST /v2/purchase_orders
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### GET /v2/purchase_orders/{purchase_order_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### PUT /v2/purchase_orders/{purchase_order_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/purchase_orders/{purchase_order_id}/documents/order_summary
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/purchase_orders/{purchase_order_id}/documents/received_summary
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/purchase_orders/{purchase_order_id}/receives
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/purchase_orders/{purchase_order_id}/shipping_details
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/purchase_orders/{purchase_order_id}/status
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/rate_shoppers
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### GET /v2/rate_shoppers/{rate_shopper_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/rates
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/errors/items/error_code` response property for the response status `200`
+- :warning: added the new `funding_sources` enum value to the `allOf[subschema #2: rate_response]/rate_response/allOf[subschema #1: rates_information]/errors/items/error_type` response property for the response status `200`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment`
+-  added the new optional request property `oneOf[subschema #2: calculate_rates_by_shipment]/allOf[subschema #2: rate_request_by_shipment]/shipment/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/products/items/regulations`
+-  added the optional property `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+
+
+### POST /v2/rates/bulk
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `items/errors/items/allOf[subschema #1: error]/error_code` response property for the response status `200`
+- :warning: added the new `funding_sources` enum value to the `items/errors/items/allOf[subschema #1: error]/error_type` response property for the response status `200`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment`
+-  added the new optional request property `shipments/items/allOf[subschema #1: address_validating_shipment]/allOf[subschema #2: partial_shipment]/packages/items/products/items/regulations`
+
+
+### POST /v2/rates/estimate
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### GET /v2/rates/{rate_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/service_points/list
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `200`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `200`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/service_points/{carrier_code}/{country_code}/{service_point_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/shipments
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+
+
+### POST /v2/shipments
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+-  added the new optional request property `shipments/items/packages/items/products/items/regulations`
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `shipments/items/allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+
+
+### GET /v2/shipments/external_shipment_id/{external_shipment_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+
+
+### POST /v2/shipments/hold
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `200`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `207`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `200`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `207`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/shipments/restore
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `200`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `207`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `200`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `207`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/shipments/user
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/shipments/{shipment_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: shipment]/allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+
+
+### PUT /v2/shipments/{shipment_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment`
+-  added the new optional request property `allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations`
+-  added the optional property `allOf[subschema #1: partial_shipment]/advanced_options/allOf[subschema #1: advanced_shipment_options]/duties_and_taxes_payment` to the response with the `200` status
+-  added the optional property `allOf[subschema #1: partial_shipment]/packages/items/products/items/regulations` to the response with the `200` status
+
+
+### PUT /v2/shipments/{shipment_id}/cancel
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/shipments/{shipment_id}/documents
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/shipments/{shipment_id}/documents
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### DELETE /v2/shipments/{shipment_id}/documents/{document_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `409`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `409`
+
+
+### PUT /v2/shipments/{shipment_id}/hold
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/shipments/{shipment_id}/internal_notes
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/shipments/{shipment_id}/labels
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/shipments/{shipment_id}/merge
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/shipments/{shipment_id}/rates
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `allOf[subschema #1: rates_information]/errors/items/error_code` response property for the response status `200`
+- :warning: added the new `funding_sources` enum value to the `allOf[subschema #1: rates_information]/errors/items/error_type` response property for the response status `200`
+
+
+### PUT /v2/shipments/{shipment_id}/restore
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/shipments/{shipment_id}/split
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/shipments/{shipment_id}/tags
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### DELETE /v2/shipments/{shipment_id}/tags/{tag_name}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/shipments/{shipment_id}/tags/{tag_name}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/suppliers
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### POST /v2/suppliers
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### GET /v2/suppliers/{supplier_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### PUT /v2/suppliers/{supplier_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/tags
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/tags
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### DELETE /v2/tags/{tag_name}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/tags/{tag_name}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### PUT /v2/tags/{tag_name}/{new_tag_name}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/tokens/ephemeral
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### GET /v2/totes
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### POST /v2/totes
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### GET /v2/totes/quantities
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### DELETE /v2/totes/{tote_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+
+
+### GET /v2/totes/{tote_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### PUT /v2/totes/{tote_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/tracking
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/tracking/start
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/tracking/stop
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/users
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/warehouses
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### POST /v2/warehouses
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### DELETE /v2/warehouses/{warehouse_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### GET /v2/warehouses/{warehouse_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### PUT /v2/warehouses/{warehouse_id}
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+### PUT /v2/warehouses/{warehouse_id}/settings
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `400`
+- :warning: added the new `funding_source_missing_configuration` enum value to the `errors/items/error_code` response property for the response status `404`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `400`
+- :warning: added the new `funding_sources` enum value to the `errors/items/error_type` response property for the response status `404`
+
+
+
+
+## Info
+-  a breaking change was detected but the version is still `2.0.0`
+
 ## 2026-10-30
 
 ## API Changes
