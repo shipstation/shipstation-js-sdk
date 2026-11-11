@@ -13328,7 +13328,7 @@ components:
             > **Note:** International shipments (where `ship_from.country_code` differs from `ship_to.country_code`) must include either `customs` or `advanced_options`.
             > To prepay duties and taxes (DDP / PDT), set `customs.terms_of_trade_code` to `ddp`.
 
-            > Please note that the guaranteed prepaid duties and taxes option is available only for eligible ShipStation carriers.
+            > Guaranteed prepaid duties and taxes is available on eligible ShipStation Carriers and on eligible carrier accounts you've connected yourself. To see which of your carriers support it, check `supported_duties_and_taxes_payments` on `GET /v2/carriers`.
 
             > Use `advanced_options.duties_and_taxes_payment` to choose between `guaranteed` and `carrier_billed` duties and taxes. See [Duties and taxes payment](/apis/@shipstation-v2/docs/shipping/duties-and-taxes-payment.md).
 
@@ -15909,6 +15909,31 @@ components:
           type: object
           allOf:
             - $ref: '#/components/schemas/importer_of_records'
+
+        buyer_shipping_amount_paid:
+          allOf:
+            - $ref: '#/components/schemas/monetary_value'
+          description: The shipping amount paid by the buyer, which can differ from the amount the carrier bills the shipper.
+
+        duties_paid:
+          allOf:
+            - $ref: '#/components/schemas/monetary_value'
+          description: The amount of duties that have been paid for the shipment. This is mainly relevant to DDP shipments, and setting it does not enable DDP.
+
+        export_declaration_number:
+          type: [string, 'null']
+          example: 'EXP-123456'
+          description: The export declaration number to be used in the customs. Maximum 200 characters.
+
+        license_number:
+          type: [string, 'null']
+          example: '514785'
+          description: The license number to be used in the customs. Maximum 100 characters.
+
+        certificate_number:
+          type: [string, 'null']
+          example: '784515'
+          description: The certificate number to be used in the customs. Maximum 100 characters.
 
         customs_items:
           deprecated: true
@@ -19437,7 +19462,6 @@ components:
         - carrier_connected
         - order_source_refresh_complete
         - rate
-        - report_complete
         - sales_orders_imported
         - track
         - batch_processed_v2
