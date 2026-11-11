@@ -1,0 +1,4 @@
+format: markdown
+flatten-allof: true
+template: /cfg/changelog-template.md
+severity-levels: /cfg/severity-levels.txt
