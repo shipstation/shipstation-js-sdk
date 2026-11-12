@@ -13,7 +13,6 @@ env:
   DOCS_REF: main
   LOCAL_SPEC_PATH: spec/openapi.yaml
   PR_BRANCH: chore/spec-sync
-  API_CHANGELOG: API-CHANGELOG.md
 
 permissions: {}
 
@@ -101,6 +100,7 @@ jobs:
             docker run --rm \
               -v "$RUNNER_TEMP/base:/base:ro" \
               -v "$PWD/$(dirname "$LOCAL_SPEC_PATH"):/rev:ro" \
+              -v "$PWD/.github/oasdiff:/cfg:ro" \
               tufin/oasdiff:v1.32.1@sha256:3b14fe0112e5d1bf862f91ab234a4bcd161a3f399e98f8b0b665ce70857694ac "$1" "/base/$(basename "$LOCAL_SPEC_PATH")" "/rev/$(basename "$LOCAL_SPEC_PATH")" \
               "${@:2}"
           }
@@ -113,7 +113,7 @@ jobs:
           fi
           echo "api_changed=true" >> "$GITHUB_OUTPUT"
 
-          oasdiff changelog -f markdown > "$RUNNER_TEMP/api-changelog-entry.md" || \
+          oasdiff changelog --config /cfg/oasdiff.yaml > "$RUNNER_TEMP/api-changelog-entry.md" || \
             echo "_oasdiff produced no report; review the spec diff manually._" > "$RUNNER_TEMP/api-changelog-entry.md"
 
           mkdir -p "$RUNNER_TEMP/spec-sync"
@@ -194,19 +194,19 @@ jobs:
           artifact-ids: ${{ needs.fetch.outputs.artifact_id }}
           path: ${{ runner.temp }}/spec-sync
 
-      - name: Apply new spec and prepend entry to API-CHANGELOG.md
-        run: |
-          cp "$RUNNER_TEMP/spec-sync/openapi.yaml" "$LOCAL_SPEC_PATH"
-          .github/scripts/prepend-changelog-entry.sh \
-            "$RUNNER_TEMP/spec-sync/api-changelog-entry.md" "$API_CHANGELOG"
+      - name: Apply new spec
+        run: cp "$RUNNER_TEMP/spec-sync/openapi.yaml" "$LOCAL_SPEC_PATH"
 
       - name: Build PR body
         env:
           DOCS_COMMIT_SHA: ${{ needs.fetch.outputs.docs_commit_sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
+          cat "$RUNNER_TEMP/spec-sync/api-changelog-entry.md" >> "$GITHUB_STEP_SUMMARY"
           .github/scripts/build-pr-body.sh \
             "$DOCS_REPO" "$DOCS_SPEC_PATH" "$LOCAL_SPEC_PATH" \
-            "$DOCS_COMMIT_SHA" "$RUNNER_TEMP/pr-body.md"
+            "$DOCS_COMMIT_SHA" "$RUNNER_TEMP/spec-sync/api-changelog-entry.md" \
+            "$RUN_URL" "$RUNNER_TEMP/pr-body.md"
 
       - name: Create or update spec-sync PR
         uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7
@@ -215,7 +215,6 @@ jobs:
           base: main
           branch: ${{ env.PR_BRANCH }}
           add-paths: |
-            ${{ env.API_CHANGELOG }}
             ${{ env.LOCAL_SPEC_PATH }}
           commit-message: |
             feat: sync ShipStation API v2 spec

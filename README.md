@@ -82,8 +82,9 @@ This package follows [semantic versioning](https://semver.org/), released automa
 [semantic-release](https://semantic-release.gitbook.io/) from conventional commits.
 
 - [CHANGELOG.md](./CHANGELOG.md) — SDK package releases (versions, dates, what changed in code).
-- [API-CHANGELOG.md](./API-CHANGELOG.md) — changes to the underlying API contract that this SDK is
-  generated from, independent of SDK code changes.
+- Changes to the underlying API contract that this SDK is generated from are summarized in the body
+  of each [spec-sync pull request](https://github.com/shipstation/shipstation-js-sdk/pulls?q=is%3Apr+label%3Aspec-sync), produced by
+  [oasdiff](https://github.com/oasdiff/oasdiff).
 
 ---
 
