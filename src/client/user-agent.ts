@@ -1,4 +1,6 @@
-import { name, version } from '../../package.json';
+import pkg from '../../package.json' with { type: 'json' };
+
+const { name, version } = pkg;
 
 /**
  * "User-Agent" is a forbidden header name under the Fetch spec, so browsers
