@@ -94,5 +94,6 @@ jobs:
       - name: Release
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GIT_CREDENTIALS: x-access-token:${{ steps.app-token.outputs.token }}
           NPM_CONFIG_IGNORE_SCRIPTS: 'true'
         run: npx semantic-release
