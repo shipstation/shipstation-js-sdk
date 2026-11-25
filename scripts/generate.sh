@@ -18,22 +18,18 @@ if [ ! -f "$SPEC_FILE" ]; then
     exit 1
 fi
 
-node "$REPO_ROOT/scripts/check-spec-paths.mjs" "$SPEC_FILE"
+# The generator never reads the original YAML: it gets the JSON that check-spec.mjs validated, so what is
+# checked is exactly what is generated (no second YAML parser involved).
+INPUT_DIR="$(mktemp -d)"
+trap 'rm -rf "$INPUT_DIR"' EXIT
+node "$REPO_ROOT/scripts/check-spec.mjs" "$SPEC_FILE" "$INPUT_DIR/openapi.json"
 
 if ! docker info >/dev/null 2>&1; then
     echo "error: Docker daemon is not running" >&2
     exit 1
 fi
 
-SPEC_DIR="$(cd "$(dirname "$SPEC_FILE")" && pwd)"
-SPEC_NAME="$(basename "$SPEC_FILE")"
 GENERATED_DIR="$REPO_ROOT/src/generated"
-
-SPEC_MOUNT=("-v" "$SPEC_DIR:/spec:ro")
-if [ "$SPEC_NAME" != "openapi.yaml" ]; then
-    SPEC_MOUNT=("-v" "$SPEC_FILE:/spec/openapi.yaml:ro")
-    echo "==> note: spec is not named openapi.yaml; mounting the file directly (sibling \$refs will not resolve)"
-fi
 
 USER_ARGS=()
 if [ "$(uname -s)" = "Linux" ]; then
@@ -56,7 +52,7 @@ docker run --rm \
     -v "$REPO_ROOT/openapi-generator-config.yaml:/local/openapi-generator-config.yaml:ro" \
     -v "$REPO_ROOT/templates:/local/templates:ro" \
     -v "$GENERATED_DIR:/local/src/generated" \
-    "${SPEC_MOUNT[@]}" \
+    -v "$INPUT_DIR:/spec:ro" \
     "$GENERATOR_IMAGE" generate \
     -c /local/openapi-generator-config.yaml
 

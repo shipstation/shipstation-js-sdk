@@ -1,5 +1,5 @@
 generatorName: typescript-fetch
-inputSpec: /spec/openapi.yaml
+inputSpec: /spec/openapi.json
 outputDir: /local/src/generated
 skipValidateSpec: false
 templateDir: /local/templates

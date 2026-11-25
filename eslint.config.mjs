@@ -34,13 +34,19 @@ export default tseslint.config(
     {
         files: ['scripts/**/*.mjs'],
         languageOptions: {
-            globals: { console: 'readonly', process: 'readonly' },
+            globals: { console: 'readonly', process: 'readonly', TextDecoder: 'readonly' },
         },
     },
     {
         files: ['tests/**/*.mjs'],
         languageOptions: {
-            globals: { Response: 'readonly' },
+            globals: {
+                Response: 'readonly',
+                Buffer: 'readonly',
+                URL: 'readonly',
+                process: 'readonly',
+                structuredClone: 'readonly',
+            },
         },
     },
     prettierConfig
